@@ -1,0 +1,23 @@
+{
+    "quizzes": [
+        {
+            "id": "1",
+            "question": "Che colore è il cielo?",
+            "answers": [
+                {
+                    "answer": "Verde"
+                },
+                {
+                    "answer": "Giallo"
+                },
+                {
+                    "answer": "Blu",
+                    "correct": true
+                },
+                {
+                    "answer": "Nero"
+                }
+            ]
+        }
+    ]
+}
