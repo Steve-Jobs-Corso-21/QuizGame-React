@@ -4,12 +4,17 @@ import "./index.scss";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
+import Map from "./pages/Map"
 import Quiz from "./pages/Quiz";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Home />,
+    },
+    {
+        path: "/map",
+        element: <Map />
     },
     {
         path: "/quiz/:id",

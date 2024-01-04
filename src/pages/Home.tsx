@@ -1,68 +1,23 @@
-import { Link } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
+import "./Quiz/index.scss";
+import data from "../data.json";
+import { useState } from "react";
 
-export enum GameMode {
-    Training,
-    Challenge
-}
+const Menu = () => {
 
-export type Data = {
-    gameMode: GameMode,
-    currentLevel: string,
-    quizzes: {
-        [key: string]: string[]
-    },
-    rightAnswers: {
-        [key: string]: {
-            [key: string]: string[]
-        }
-    }
-}
-
-type Answer = {
-    answer: string;
-    correct?: boolean;
-};
-
-type Quiz = {
-    id: string;
-    question: string;
-    description: string;
-    image?: string;
-    answers: Answer[];
-};
-
-type Quizzes = {
-    [key: string]: Quiz[];
-};
-
-export type JSON = {
-    quizzes: Quizzes;
-};
-
-const Home = () => {
-    const data: Data = {
-        "gameMode": GameMode.Training,
-        "currentLevel": "map1",
-        "quizzes": {
-            "map1": ["1", "2", "3"]
-            /* levelName : array of quiz id */
-        },
-        "rightAnswers": {
-            "mondo1": {}
-            /* levelName : {
-                    quizID : array of answers          calculate right after by the lenght of array
-            } */
-        }
-    }
-
-    console.log(data.quizzes);
-
+    let x : boolean;
+    
     return (
-        <div>
-            <h1>Home</h1>
-            <Link to={`/quiz/${data.quizzes[data.currentLevel][0]}`} state={data}>Gioca</Link>
-        </div>
+        <>
+            <h1>Cyberquiz</h1>
+            <h2>Scegli la modalita'</h2>
+            <div>
+                <button onClick={() => {x = true}}>Allenamento</button>
+                <button onClick={() => {x = false}}>Sfida</button>
+            </div>
+            <Link to="/map">Gioca</Link>
+        </>
     );
 };
 
-export default Home;
+export default Menu;
