@@ -7,23 +7,31 @@ import Home from "./pages/Home";
 import Quiz from "./pages/Quiz";
 
 const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Home />,
-    },
-    {
-        path: "/quiz/:id",
-        element: <Quiz />,
-    },
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/quiz/:id",
+    element: <Quiz />,
+  },
+  {
+    path: "/quiz/score",
+    element: <Score />,
+  },
+  {
+    path: "quiz/epilogue",
+    element: <Epilogue />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(
-    document.getElementById("root") as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
-    <React.StrictMode>
-        <RouterProvider router={router} />
-    </React.StrictMode>
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
