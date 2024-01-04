@@ -1,4 +1,4 @@
-import { Link, useParams, useSearchParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./index.scss";
 import data from "../../data.json";
 import { useState } from "react";
