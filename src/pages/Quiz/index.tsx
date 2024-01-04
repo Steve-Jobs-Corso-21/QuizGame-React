@@ -2,16 +2,28 @@ import { Link, useParams } from "react-router-dom";
 import "./index.scss";
 import data from "../../data.json";
 import { useState } from "react";
+import Timer from "./Timer";
+import Modal from "../../components/Modal";
 
 const Quiz = () => {
     const { id } = useParams();
 
     const [correct, setCorrect] = useState<boolean | null>(null);
+    const [stopTimer, setStopTimer] = useState<boolean>(false);
 
     const quiz = data.quizzes.find(({ id: quizId }) => quizId === id);
 
+    const explainModalID = "explainModal";
+
+    const answerClick = (correct: boolean) => {
+        setCorrect(correct);
+        setStopTimer(true);
+    }
+
     return (
         <div>
+            <Modal modalID={explainModalID} isCorrect={correct} description={quiz?.description} url={`/quiz/2`}></Modal>
+
             { /* // TODO : ICON PACK DA METTERE */}
             <nav className="mx-4 nav d-flex align-items-center justify-content-center">
                 <h1 className="my-2 pe-5">MONDO: {id}</h1>
@@ -34,8 +46,8 @@ const Quiz = () => {
                         <div className={`d-flex flex-wrap col-lg-${quiz.image ? 6 : 12}`}>
                             {quiz.answers.map(({ answer, correct }) => (
                                 <button className={`text-align-center btn btn-primary btn-block btn-custom col-${quiz.image ? 12 : 4}`}
-                                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                    key={answer} onClick={() => setCorrect(!!correct)}>
+                                    data-bs-toggle="modal" data-bs-target={"#" + explainModalID}
+                                    key={answer} onClick={() => answerClick(!!correct)}>
                                     {answer}
                                 </button>
                             ))}
@@ -48,32 +60,14 @@ const Quiz = () => {
                         )}
                     </div>
 
-                    {correct !== null && (
-                        <div>
-                            <div className={`${correct ? "bg-success" : "bg-danger"} modal fade bg-opacity-75`} id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div className="modal-dialog modal-dialog-centered">
-                                    <div className="modal-content">
-                                        <div className="modal-header">
-                                            <h1 className="modal-title fs-4" id="staticBackdropLabel">RISPOSTA {correct ? "CORRETTA" : "ERRATA"}</h1>
-                                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div className="modal-body">
-                                            <p className="fs-5">Descrizione approfondita della domanda...
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in arcu nisl. Sed non mauris nunc. Donec faucibus placerat mi. Nullam tincidunt orci sit amet dui pharetra, non suscipit eros ultricies. Morbi accumsan mollis nulla. Nullam tempor accumsan nisi ac malesuada. Vivamus dignissim felis vitae lobortis interdum. Nulla neque sem, aliquam auctor nisl eget, tincidunt accumsan est. Mauris nulla justo, dapibus quis molestie sit amet, laoreet nec dolor. Nunc iaculis, nisi at posuere ultricies, ante ex sagittis magna, ac blandit erat erat ut neque. Donec sed feugiat nibh, pharetra auctor nisi.
-                                            </p>
-                                        </div>
-                                        <div className="modal-footer">
-                                            <button type="button" className="btn btn-primary">Continua</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-
+                    
                     { /* //! Noi non abbiamo il tasto per il prossimo livello <Link to="/quiz/2">VAI AL PROSSIMO</Link> */}
+
+                    <Timer maxTime={10} stopTimer={stopTimer} modalID={explainModalID}></Timer>
                 </div>
             )}
+
+
         </div>
     );
 };
