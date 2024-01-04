@@ -6,7 +6,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import Map from "./pages/Map"
 import Quiz from "./pages/Quiz";
-
+import Epilogue from "./pages/Epilogue";
+import Score from "./pages/Score";
 const router = createBrowserRouter([
   {
     path: "/",
