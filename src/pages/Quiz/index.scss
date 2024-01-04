@@ -1,5 +1,48 @@
 @import "../../includes/includes.scss";
 
-.cus{
+$hover: #8A735C;
+$active: #2f980c;
+$shadow: #88a0bc;
+
+body {
+    background-color: blanchedalmond;
+}
+
+.nav {
     background: $primary;
+    border-radius: 22px;
+    padding: 5px 0 5px 15px;
+
+    .ball {
+        margin: 0 47px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: white;
+    }
+}
+
+.btn-custom {
+    font-size: 1.2rem;
+    flex-grow: 1;
+    min-height: 80px;
+    margin: 25px 25px 0 25px;
+    box-shadow: 5px 10px $shadow;
+    // box-shadow: 0 10px 0 0 $shadow; DA VEDERE INSIEME QUALE E' IL MIGLIORE DEI 2
+    transition: all 0.2s ease-in-out;
+    // padding: 50px 0 50px 0;
+    // min-width: 50px;
+
+    &:hover {
+        background: $hover;
+        border-color: $hover;
+
+        &:active {
+            transform: translateX(10px);
+            transform: translateY(10px);
+            box-shadow: 0 0 $shadow;
+            background: $active;
+            border-color: $active;
+        }
+    }
 }
