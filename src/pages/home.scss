@@ -1,0 +1,42 @@
+@import "./../includes/includes.scss";
+
+.mainMenu {
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.mainMenu h2{
+    margin-top: 250px;
+}
+
+.mainMenu button {
+    width: 200px;
+    margin: 0 50px;
+    padding: 20px;
+    border: solid 3px $primary;
+    border-radius: 20px;
+}
+
+.mainMenu a{
+    text-decoration: none;
+}
+
+.mainMenu a {
+    padding: 20px 50px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    background-color: $primary;
+    width: 100px;
+    border: solid 3px black;
+    border-radius: 20px;
+    display: inline-block;
+    box-shadow: 3px 3px rgba(0, 0, 0, 1); 
+}
+
+.mainMenu a:hover {
+    transform: scale(1.2);
+    background-color: rgb(17, 213, 247);
+}
+    
