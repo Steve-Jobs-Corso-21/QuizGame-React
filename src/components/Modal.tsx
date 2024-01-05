@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
-const Modal = ({ modalID, isCorrect, description, url }: any) => {
+const Modal = ({ modalID, isCorrect, description, url, state }: any) => {
     return (
         <div id={modalID}
-            className={`modal modal-lg fade bg-opacity-75 ${isCorrect ? "bg-success" : "bg-danger"}`}
+            className={`modal modal-lg fade bg-opacity-75 ${isCorrect === null ? "bg-primary" : isCorrect ? "bg-success" : "bg-danger"}`}
             data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1}
             aria-labelledby="modalLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered">
@@ -17,7 +17,7 @@ const Modal = ({ modalID, isCorrect, description, url }: any) => {
                         <p className="fs-5">{description}</p>
                     </div>
                     <div className="modal-footer">
-                        <Link to={url}>
+                        <Link to={url} state={state}>
                             <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Continua</button>
                         </Link>
                     </div>
