@@ -1,15 +1,19 @@
 import {useEffect, useState } from "react";
 import "./Timer.scss";
 
-function Timer({ maxTime, stopTimer, modalID } :any ){
-    const [currentTime, setTime] = useState(maxTime);
+function Timer({ quizID, maxTime, stopTimer, modalID } :any ){
+    const [currentTime, setCurrentTimer] = useState(maxTime);
+
+    useEffect(() => {
+        setCurrentTimer(maxTime);
+    }, [quizID]);
 
     // TODO: lo sticchio(la time bar) lo possiamo fermare settando time = 0 con ovviamente setTime.
 
     useEffect(() => {
         !currentTime && endTime();
         if(stopTimer || !currentTime) return;
-        const interval = setInterval(() => setTime(currentTime-1), 1000);
+        const interval = setInterval(() => setCurrentTimer(currentTime-1), 1000);
         return () => clearInterval(interval);  
     },[currentTime]);
 
