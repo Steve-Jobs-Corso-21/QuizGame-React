@@ -62,7 +62,10 @@ const Quiz = () => {
         setStopTimer(true);
     }
 
-    return (
+  return (
+    <div>
+      <h1 className="cus">QUIZ ID: {id}</h1>
+      {quiz && (
         <div>
             <Modal modalID={explainModalID}
                 bgColor={(!stopTimer || !correct) ? "bg-danger" : "bg-success"}
@@ -131,7 +134,9 @@ const Quiz = () => {
                 </div>
             )}
         </div>
-    );
+      )}
+    </div>
+  );
 };
 
 export default Quiz;
