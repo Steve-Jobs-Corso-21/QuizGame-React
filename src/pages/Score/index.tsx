@@ -2,38 +2,40 @@ import { Link, useParams, useSearchParams } from "react-router-dom";
 import "./index.scss";
 import data from "../../data.json";
 import { useState } from "react";
+import testAnswer from "../../testAnswer.json";
 
-const Quiz = () => {
-    const { id } = useParams();
+const score = (testAnswer.correctAnswers.length / data.quizzes.length) * 10;
+const answerList = testAnswer.correctAnswers.map((s) => [s.id, s.answer]);
 
-    const [correct, setCorrect] = useState<boolean | null>(null);
+// if(data.quizzes.answer)
 
-    const quiz = data.quizzes.find(({ id: quizId }) => quizId === id);
+const Score = () => {
+  const [modal, setModal] = useState<boolean | null>(null);
+  return (
+    <div>
+      <h1 className="cus">Complimenti! Ecco mostrato il tuo punteggio:</h1>
 
-    return (
+      <div>
         <div>
-            <h1 className="cus">QUIZ ID: {id}</h1>
-            {quiz && (
-                <div>
-                    <h2>{quiz.question}</h2>
-
-                    <div>
-                        {quiz.answers.map(({ answer, correct }) => (
-                            <button onClick={() => setCorrect(!!correct)}>
-                                {answer}
-                            </button>
-                        ))}
-                    </div>
-
-                    {correct !== null && (
-                        <p>RISPOSTA {correct ? "CORRETTA" : "ERRATA"}</p>
-                    )}
-
-                    <Link to="/quiz/2">VAI AL PROSSIMO</Link>
-                </div>
-            )}
+          <h3>
+            Numero di risposte esatte: {testAnswer.correctAnswers.length} /{" "}
+            {data.quizzes.length}
+          </h3>
+          <h3>Punteggio totale: {score * 10} p.ti</h3>
         </div>
-    );
+
+        <Link to="/" style={{ display: "flex", justifyContent: "flex-start" }}>
+          Vai alla home
+        </Link>
+        <button
+          style={{ display: "flex", justifyContent: "flex-end" }}
+          onClick={() => setModal(!modal)}
+        >
+          <p>Vedi le risposte corrette</p>
+        </button>
+      </div>
+    </div>
+  );
 };
 
-export default Quiz;
+export default Score;
