@@ -1,0 +1,29 @@
+{
+  "correctAnswers": [
+    {
+      "id": 1,
+      "answer": "abc",
+      "rightAfter": 2
+    },
+    {
+      "id": 2,
+      "answer": "chupacapra",
+      "rightAfter": 1
+    },
+    {
+      "id": 3,
+      "answer": "vattelapesca",
+      "rightAfter": 5
+    },
+    {
+      "id": 4,
+      "answer": "barbaPapà",
+      "rightAfter": 0
+    },
+    {
+      "id": 6,
+      "answer": "Faustino",
+      "rightAfter": 2
+    }
+  ]
+}
