@@ -5,6 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import Quiz from "./pages/Quiz";
+import Question from "./pages/Question";
 
 const router = createBrowserRouter([
     {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
     {
         path: "/quiz/:id",
         element: <Quiz />,
+    },
+    {
+        path: "/question",
+        element: <Question />,
     },
 ]);
 
