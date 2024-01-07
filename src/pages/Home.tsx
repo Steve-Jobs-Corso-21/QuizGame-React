@@ -1,7 +1,6 @@
 import { Link, useParams, useSearchParams } from "react-router-dom";
 import Epilogue from "./Epilogue";
 import Score from "./Score";
-
 const Home = () => {
   return (
     <div>
