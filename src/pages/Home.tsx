@@ -10,8 +10,13 @@ const Menu = () => {
     const [y,sety] = useState<string>("");
     const modeClick = (mod:string) => {
         sety(mod);
+        
     } 
-    
+    //modalità default fatta
+    if (!y){
+        sety("allenamento")
+    }
+
     return (
         <>
         <div className="mainMenu d-flex flex-column align-items-center justify-content-around vh-100">
