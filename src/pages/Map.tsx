@@ -4,42 +4,72 @@ import "./map.scss"
 import data from "../data.json";
 import { useState } from "react";
 import { Data } from "./Home";
+import answers from "../answers.json";
 
 const Map = () => {
-    const {state} :{state:Data} = useLocation();
+    const { state }: { state: Data } = useLocation();
 
-    console.log(state.gameMode)
+    const loadLevel = (numberLevel:string) => {
+        state.currentLevel = numberLevel;
+        const numberLevelTest = numberLevel as keyof typeof answers;
+        const dim = 5
+
+        //const quizzes = answers.quizzes[numberLevelTest][0].slice(dim).map(({id})=> id);
+        const quizzes = answers[numberLevelTest][0].quizzes.map(({id})=> id).sort(()=>0.5-Math.random()).slice(dim);
+
+
+        state.quizzes ={numberLevel : quizzes};
+    };
+
     return (
         <>
-        <div className="mapMenu d-flex flex-column align-items-center p-5 vh-100">
+            <div className="mapMenu d-flex flex-column align-items-center p-5 vh-100">
                 <h1>Scegli da dove cominciare</h1>
-            <div className="sfondoMap">
-                <div className="roadMap d-flex">
-                    <div className="p-5 mt-5">
-                        <Link to="/quiz/1">1</Link>
-                    </div>
-                    <div className="p-5">
-                        <Link to="/quiz/2">2</Link>
-                    </div>
-                    <div className="p-5 mt-5">
-                        <Link to="/quiz/3">3</Link>
-                    </div>
-                    <div className="p-5">
-                        <Link to="/quiz/4">4</Link>
-                    </div>
-                    <div className="p-5 mt-5">
-                        <Link to="/quiz/5">5</Link>
+                <div className="sfondoMap">
+                    <div className="roadMap d-flex">
+                        {/* <Link to={`/quiz/${state.quizzes[state.currentLevel][0]}`} state={data}>
+                            <button className="mt-5" onClick={() => loadLevel("livello1")}>
+                                1
+                            </button>
+                        </Link> */}
+
+                        
+
+                        <Link to="/quiz/1" state={data}>
+                            <button className="mt-5" onClick={() => loadLevel("livello1")}>
+                                1
+                            </button>
+                        </Link>
+                        <Link to="/quiz/1" state={data}>
+                            <button className="mt-5" onClick={() => loadLevel("livello2")}>
+                                2
+                            </button>
+                        </Link>
+                        <Link to="/quiz/1" state={data}>
+                            <button className="mt-5" onClick={() => loadLevel("livello3")}>
+                                3
+                            </button>
+                        </Link>
+                        <Link to="/quiz/1" state={data}>
+                            <button className="mt-5" onClick={() => loadLevel("livello4")}>
+                                4
+                            </button>
+                        </Link>
+                        <Link to="/quiz/1" state={data}>
+                            <button className="mt-5" onClick={() => loadLevel("livello5")}>
+                                5
+                            </button>
+                        </Link>
                     </div>
                 </div>
+                <div className="mt-auto">
+                    <Link to="../">
+                        <button type="button" className="btn-custom btn btn-primary p-3 m-2">
+                            Indietro
+                        </button>
+                    </Link>
+                </div>
             </div>
-        <div className="mt-auto">
-            <Link to="../">
-                <button type="button" className="btn-custom btn btn-primary p-3 m-2">
-                    Indietro
-                </button>
-            </Link>
-        </div>
-        </div>
         </>
     );
 };
