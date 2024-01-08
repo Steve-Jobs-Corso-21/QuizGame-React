@@ -1,42 +1,35 @@
 @import "./../includes/includes.scss";
 
-.mainMenu {
-    height: 100vh;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+.mainMenu{
+    background-color: rgb(250, 217, 173);
 }
 
-.mainMenu h2{
-    margin-top: 250px;
+.box-mod{
+    background-color: white;
+    border: 2px solid rgb(151, 151, 151);
+    border-radius: 20px;
 }
 
-.mainMenu button {
+.btn-custom {
     width: 200px;
-    margin: 0 50px;
-    padding: 20px;
-    border: solid 3px $primary;
-    border-radius: 20px;
+    background-color: blue;
 }
 
-.mainMenu a{
+.btn-custom:hover {
+    background-color: greenyellow;
+}
+
+.btn-custom.active,
+.btn-custom:active {
+    background-color: green;
+}
+
+.btn-custom a{
     text-decoration: none;
+    color: white;
 }
 
-.mainMenu a {
-    padding: 20px 50px;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    background-color: $primary;
-    width: 100px;
-    border: solid 3px black;
-    border-radius: 20px;
-    display: inline-block;
-    box-shadow: 3px 3px rgba(0, 0, 0, 1); 
+.btn-custom a:hover{
+    color: blue;
 }
 
-.mainMenu a:hover {
-    transform: scale(1.2);
-    background-color: rgb(17, 213, 247);
-}
-    
