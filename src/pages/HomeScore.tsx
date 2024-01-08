@@ -1,7 +1,7 @@
 import { Link, useParams, useSearchParams } from "react-router-dom";
 import Score from "./Score";
 
-const HomeEpilogue = () => {
+const HomeScore = () => {
   return (
     <div>
       <h1> Home dello score</h1>

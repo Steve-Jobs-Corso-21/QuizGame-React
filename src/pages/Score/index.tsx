@@ -3,11 +3,9 @@ import "./index.scss";
 import data from "../../data.json";
 import { useState } from "react";
 import testAnswer from "../../testAnswer.json";
-
-const partialScore =
-  (testAnswer.rightAnswers.mondo1.length / data.quizzes.length) * 10;
-const totalScore = "";
-const answerList = testAnswer.rightAnswers.mondo1.map((s) => [s.id, s.answer]);
+import CircularProgressBar from "../CircularProgressBar";
+//const totalScore = "";
+//const answerList = testAnswer.rightAnswers.mondo1.map((s) => [s.id, s.answer]);
 
 // if(data.quizzes.answer)
 
@@ -22,7 +20,8 @@ const Score = () => {
 
       <div>
         <div>
-          <h3>Numero di risposte esatte: {partialScore} / 10</h3>
+          <h3>Numero di risposte esatte:</h3>
+          <CircularProgressBar></CircularProgressBar>
         </div>
 
         <Link to="/" style={{ display: "flex", justifyContent: "flex-start" }}>
