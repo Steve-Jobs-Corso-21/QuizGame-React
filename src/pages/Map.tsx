@@ -1,11 +1,14 @@
-import { Link, useParams, useSearchParams } from "react-router-dom";
+import { Link, useLocation, useParams, useSearchParams } from "react-router-dom";
 import "./Quiz/index.scss";
 import "./map.scss"
 import data from "../data.json";
 import { useState } from "react";
+import { Data } from "./Home";
 
 const Map = () => {
-    
+    const {state} :{state:Data} = useLocation();
+
+    console.log(state.gameMode)
     return (
         <>
         <div className="mapMenu d-flex flex-column align-items-center p-5 vh-100">

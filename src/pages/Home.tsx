@@ -4,17 +4,41 @@ import "./home.scss";
 import data from "../data.json";
 import { useState } from "react";
 
-// modalità allenamento di default ?
-// altrimenti bloccare tasto gioca se non è scelta la modalità
+export type Data = {
+    "gameMode": string,
+    "currentLevel": string,
+    "quizzes": {
+        [key: string]: string[]
+    },
+    "rightAnswers": {
+        [key: string]: [
+            {"id": string, "answer": string, "rightAfter": number}
+        ]
+    }
+}
+
 const Menu = () => {
-    const [y,sety] = useState<string>("");
-    const modeClick = (mod:string) => {
-        sety(mod);
+
+    let data: Data = {
+        "gameMode": "allenamento",
+        "currentLevel": "",
+        "quizzes": {
+            //"mondo1": ["1","2","3"]
+        },
+        "rightAnswers": {
+           /* "mondo1" : [
+                {"id": "1", "answer": "txt", "rightAfter": 1},
+            ]*/
+
+        }
+    }
+
+    const [y,sety] = useState<string>("allenamento");
+    const modeClick = (mode:string) => {
+        data.gameMode = mode;
         
-    } 
-    //modalità default fatta
-    if (!y){
-        sety("allenamento")
+        sety(mode);
+        console.log(mode,"ciaoooo",data.gameMode)
     }
 
     return (
@@ -26,9 +50,11 @@ const Menu = () => {
                 <button type="button" className={`btn-custom btn btn-primary p-3 m-2 ${y === "allenamento" && "active"}`} data-bs-toggle="button" aria-pressed={y === "allenamento" ? "true" : "false"} onClick={() => modeClick("allenamento")} >Allenamento</button>
                 <button type="button" className={`btn-custom btn btn-primary p-3 m-2 ${y === "sfida" && "active"}`} data-bs-toggle="button" aria-pressed={y === "sfida" ? "true" : "false"} onClick={() => modeClick("sfida")} >Sfida</button>
             </div>
-            <div className="btn-custom btn btn-primary p-3">
-                <Link to="/map">Gioca</Link>
-            </div>
+            <Link to="/map" state={data}>
+                <button className="btn-custom btn btn-primary p-3">
+                   Gioca
+                </button>
+            </Link>
         </div>
         </>
     );
