@@ -8,6 +8,7 @@ import Quiz from "./pages/Quiz";
 import Epilogue from "./pages/Epilogue";
 import Score from "./pages/Score";
 import CircularProgressBar from "./pages/CircularProgressBar";
+import Question from "./pages/Question";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: "quiz/circularprogress",
     element: <CircularProgressBar />,
+  },
+  {
+    path: "/question",
+    element: <Question />,
   },
 ]);
 
