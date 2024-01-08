@@ -5,6 +5,7 @@ import data from "../../data.json";
 import { Data } from "../Home";
 import Timer from "./Timer";
 import Modal from "../../components/Modal";
+import Header from "../../components/Header";
 
 // TODO: Unable back to already responded questions
 // TODO: Testo che cambia in base alla lunghezza della domanda stessa
@@ -67,16 +68,19 @@ const Quiz = () => {
                 state={state}></Modal>
 
             { /* // TODO : ICON PACK DA METTERE */}
-            <nav className="mx-4 nav d-flex align-items-center justify-content-center">
-                <h1 className="my-2 pe-5">MONDO: {id}</h1>
-                <div className="bar d-flex justify-content-lg-end align-items-center">
-                    <div className="ball"></div>
-                    <div className="ball"></div>
-                    <div className="ball"></div>
-                    <div className="ball"></div>
-                    <div className="ball"></div>
-                </div>
-            </nav>
+            <Header home={true} title={
+                <nav className="mx-4 nav d-flex align-items-center justify-content-center">
+                    <h1 className="my-2 pe-5">MONDO: {id}</h1>
+                    <div className="bar d-flex justify-content-lg-end align-items-center">
+                        <div className="ball"></div>
+                        <div className="ball"></div>
+                        <div className="ball"></div>
+                        <div className="ball"></div>
+                        <div className="ball"></div>
+                    </div>
+                </nav>} 
+                audio={true} id={id} url={"/"} state ={ state }>
+            </Header>
 
             {quiz && (
                 <div>
