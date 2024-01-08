@@ -29,6 +29,13 @@ const Map = () => {
                     </div>
                 </div>
             </div>
+        <div className="mt-auto">
+            <Link to="../">
+                <button type="button" className="btn-custom btn btn-primary p-3 m-2">
+                    Indietro
+                </button>
+            </Link>
+        </div>
         </div>
         </>
     );
