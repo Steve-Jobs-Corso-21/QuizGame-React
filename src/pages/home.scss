@@ -1,7 +1,7 @@
 @import "./../includes/includes.scss";
 
 .mainMenu{
-    background-color: rgb(250, 217, 173);
+    background-color: rgb(255, 244, 231);
 }
 
 .box-mod{
@@ -16,7 +16,8 @@
 }
 
 .btn-custom:hover {
-    background-color: greenyellow;
+    background-color: rgb(0, 151, 0);
+    box-shadow: 3px 3px 3px rgb(0, 0, 0);
 }
 
 .btn-custom.active,

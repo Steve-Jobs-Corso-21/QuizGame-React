@@ -1,0 +1,34 @@
+@import "./../includes/includes.scss";
+
+.mapMenu{
+    background-color: rgb(255, 244, 231);
+}
+
+.mapMenu h1{
+    padding: 30px;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.roadMap{
+    border-radius: 20px;
+    background: url(../../public/sfondo_prova.jpg);
+    margin-top: 50px;
+    background-color: aquamarine;
+    padding: 200px;
+}
+
+.roadMap a{
+    text-decoration: none;
+    color: white;
+    padding: 15px 20px;
+    border: 2px solid rgb(67, 170, 33);
+    border-radius: 50%;
+    background-color: black;
+}
+
+.roadMap a:hover{
+    background-color: green;
+    color: black;
+}
