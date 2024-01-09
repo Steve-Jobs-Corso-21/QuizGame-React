@@ -3,8 +3,7 @@ import "./Quiz/index.scss";
 import "./map.scss"
 import data from "../data.json";
 import { useState } from "react";
-import { Data } from "./Home";
-import answers from "../answers.json";
+import { Data,JSON } from "./Home";
 
 const Map = () => {
     const { state }: { state: Data } = useLocation();
@@ -13,9 +12,11 @@ const Map = () => {
         state.currentLevel = numberLevel;
         const numberLevelTest = numberLevel as keyof typeof answers;
         const dim = 5
+        
+        const json: JSON = data as JSON;
 
-        //const quizzes = answers.quizzes[numberLevelTest][0].slice(dim).map(({id})=> id);
-        const quizzes = answers[numberLevelTest][0].quizzes.map(({id})=> id).sort(()=>0.5-Math.random()).slice(dim);
+        const quizzes = json.quizzes[numberMapTest].slice(dim).map(({id})=> id);
+        //const quizzes = answers[numberMapTest][0].quizzes.map(({id})=> id).sort(()=>0.5-Math.random()).slice(dim);
 
 
         state.quizzes ={numberLevel : quizzes};
@@ -66,28 +67,27 @@ const Map = () => {
                             </button>
                         </Link>  */}
                         <Link  to="/quiz/1" state={data}>
-                            <button className="btn btn-primary p-4 m-5" onClick={() => loadLevel("livello1")}>
+                            <button className="btn btn-primary p-4 m-5" onClick={() => loadMap("map1")}>
                                 1
                             </button>
                         </Link>
                         <Link  to="/quiz/1" state={data}>
-                            <button className="btn btn-primary p-4 m-5" onClick={() => loadLevel("livello2")}>
+                            <button className="btn btn-primary p-4 m-5" onClick={() => loadMap("map2")}>
                                 2
                             </button>
                         </Link>
                         <Link  to="/quiz/1" state={data}>
-                            <button className="btn btn-primary p-3 m-5" onClick={() => loadLevel("livello3")}>
+                            <button className="btn btn-primary p-4 m-5" onClick={() => loadMap("map3")}>
                                 3
                             </button>
                         </Link>
                         <Link  to="/quiz/1" state={data}>
-                            <button className="btn btn-primary p-3 m-5" onClick={() => loadLevel("livello4")}>
+                            <button className="btn btn-primary p-4 m-5" onClick={() => loadMap("map4")}>
                                 4
                             </button>
                         </Link>
                         <Link  to="/quiz/1" state={data}>
-                            <button className="btn btn-primary p-3 m-5" onClick={() => loadLevel("livello5")}>
->>>>>>> Stashed changes
+                            <button className="btn btn-primary p-4 m-5" onClick={() => loadMap("map5")}>
                                 5
                             </button>
                         </Link>

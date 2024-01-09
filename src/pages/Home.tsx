@@ -30,6 +30,27 @@ let data: Data = {
     }
 }
 
+type Answer = {
+    answer: string;
+    correct?: boolean;
+};
+
+type Quiz = {
+    id: string;
+    question: string;
+    description: string;
+    image?: string;
+    answers: Answer[];
+};
+
+type Quizzes = {
+    [key: string]: Quiz[];
+};
+
+export type JSON = {
+    quizzes: Quizzes;
+};
+
 const Menu = () => {
     const [y, sety] = useState<string>("allenamento");
     const modeClick = (mode: string) => {
@@ -48,6 +69,11 @@ const Menu = () => {
                 </div>
                 <Link to="/map" state={data}>
                     <button className="btn-custom btn btn-primary p-3">
+                        Gioca
+                    </button>
+                </Link>
+                <Link to="/map" state={data}>
+                    <button className="buttonMenu btn btn-primary p-3">
                         Gioca
                     </button>
                 </Link>

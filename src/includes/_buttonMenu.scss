@@ -1,0 +1,29 @@
+.buttonMenu{
+        font-family: Roboto, sans-serif;
+        font-weight: 0;
+        font-size: 14px;
+        color: #fff;
+        background: linear-gradient(184deg, #0066CC 38%, #00c2cc 100%);
+        padding: 10px 30px;
+        border: solid #0066cc 2px;
+        box-shadow: rgb(255, 255, 0) 0px 0px 8px 1px;
+        border-radius: 50px;
+        transition : 1174ms;
+        transform: translateY(0);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        cursor: pointer;
+        text-transform: lowercase;
+};
+    
+.buttonMenu:hover{
+        transition : 1174ms;
+        padding: 10px 50px;
+        transform : translateY(-43px);
+        background: linear-gradient(184deg, #0066CC 38%, #00c2cc 100%);
+        color: #0066cc;
+        border: solid 2px #0066cc;
+};
+
+

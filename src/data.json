@@ -20,26 +20,6 @@
                         "answer": "Giallo"
                     }
                 ]
-            },
-            {
-                "id": "4",
-                "question": "Che colore ha il cielo durante il giorno?",
-                "description": "testo",
-                "answers": [
-                    {
-                        "answer": "Blu",
-                        "correct": true
-                    },
-                    {
-                        "answer": "Rosso"
-                    },
-                    {
-                        "answer": "Verde"
-                    },
-                    {
-                        "answer": "Giallo"
-                    }
-                ]
             }
         ],
         "map2": [
