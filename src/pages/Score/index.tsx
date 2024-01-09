@@ -4,6 +4,8 @@ import data from "../../data.json";
 import { useState } from "react";
 import testAnswer from "../../testAnswer.json";
 import CircularProgressBar from "../CircularProgressBar";
+import Modal from "../../components/Modal";
+import Header from "../../components/Header";
 //const totalScore = "";
 //const answerList = testAnswer.rightAnswers.mondo1.map((s) => [s.id, s.answer]);
 
@@ -13,6 +15,7 @@ const Score = () => {
   const [modal, setModal] = useState<boolean | null>(null);
   return (
     <div>
+      <Header></Header>
       <h1 className="cus">
         Complimenti! Hai completato il {testAnswer.currentLevel} con il seguente
         risultato:
