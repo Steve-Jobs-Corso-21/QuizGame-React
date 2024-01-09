@@ -1,25 +1,36 @@
 import { Link } from "react-router-dom";
 
+export enum GameMode {
+    Training,
+    Challenge
+}
 
 export type Data = {
-    "isTraining": boolean,
+    "gameMode": GameMode,
     "currentLevel": string,
     "quizzes": {
         [key: string]: string[]
     },
     "rightAnswers": {
-        [key: string]: string[]
+        [key: string]: {
+            [key: string] : string[]
+        }
     }
 }
 
 const Home = () => {
     const data: Data = {
-        "isTraining": true,
+        "gameMode": GameMode.Training,
         "currentLevel": "mondo1",
         "quizzes": {
             "mondo1": ["1","2","3"]
+            /* levelName : array of quiz id */
         },
         "rightAnswers": {
+            "mondo1" : {}
+            /* levelName : {
+                    quizID : array of answers          calculate right after by the lenght of array
+            } */
         }
     }
 
