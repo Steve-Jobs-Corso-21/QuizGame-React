@@ -26,6 +26,7 @@ const Map = () => {
             <div className="mapMenu d-flex flex-column align-items-center p-5 vh-100">
                 <h1>Scegli da dove cominciare</h1>
                 <div className="sfondoMap">
+<<<<<<< Updated upstream
                     <div className="roadMap d-flex">
                         {/* <Link to={`/quiz/${state.quizzes[state.currentLevel][0]}`} state={data}>
                             <button className="mt-5" onClick={() => loadLevel("livello1")}>
@@ -56,18 +57,41 @@ const Map = () => {
                             </button>
                         </Link>
                         <Link className="p-2 mt-5" to="/quiz/1" state={data}>
-                            <button className="" onClick={() => loadLevel("livello5")}>
+                            <button className="" onClick={() => loadMap("map5")}>
+=======
+                    <div className="roadMap d-flex justify-content-between">
+                        {/* <Link to={`/quiz/${state.quizzes[state.currentLevel][0]}`} state={data}>
+                            <button className="mt-5" onClick={() => loadLevel("livello1")}>
+                                1
+                            </button>
+                        </Link>  */}
+                        <Link  to="/quiz/1" state={data}>
+                            <button className="btn btn-primary p-4 m-5" onClick={() => loadLevel("livello1")}>
+                                1
+                            </button>
+                        </Link>
+                        <Link  to="/quiz/1" state={data}>
+                            <button className="btn btn-primary p-4 m-5" onClick={() => loadLevel("livello2")}>
+                                2
+                            </button>
+                        </Link>
+                        <Link  to="/quiz/1" state={data}>
+                            <button className="btn btn-primary p-3 m-5" onClick={() => loadLevel("livello3")}>
+                                3
+                            </button>
+                        </Link>
+                        <Link  to="/quiz/1" state={data}>
+                            <button className="btn btn-primary p-3 m-5" onClick={() => loadLevel("livello4")}>
+                                4
+                            </button>
+                        </Link>
+                        <Link  to="/quiz/1" state={data}>
+                            <button className="btn btn-primary p-3 m-5" onClick={() => loadLevel("livello5")}>
+>>>>>>> Stashed changes
                                 5
                             </button>
                         </Link>
                     </div>
-                </div>
-                <div className="mt-auto">
-                    <Link to="../">
-                        <button type="button" className="btn-custom btn btn-primary p-3 m-2">
-                            Indietro
-                        </button>
-                    </Link>
                 </div>
             </div>
         </>
