@@ -35,28 +35,28 @@ const Map = () => {
 
                         
 
-                        <Link to="/quiz/1" state={data}>
-                            <button className="mt-5" onClick={() => loadLevel("livello1")}>
+                        <Link className="p-2 mt-5" to="/quiz/1" state={data}>
+                            <button className="" onClick={() => loadLevel("livello1")}>
                                 1
                             </button>
                         </Link>
-                        <Link to="/quiz/1" state={data}>
-                            <button className="mt-5" onClick={() => loadLevel("livello2")}>
+                        <Link className="p-2" to="/quiz/1" state={data}>
+                            <button className="" onClick={() => loadLevel("livello2")}>
                                 2
                             </button>
                         </Link>
-                        <Link to="/quiz/1" state={data}>
-                            <button className="mt-5" onClick={() => loadLevel("livello3")}>
+                        <Link className="p-2 mt-5" to="/quiz/1" state={data}>
+                            <button className="" onClick={() => loadLevel("livello3")}>
                                 3
                             </button>
                         </Link>
-                        <Link to="/quiz/1" state={data}>
-                            <button className="mt-5" onClick={() => loadLevel("livello4")}>
+                        <Link className="p-2" to="/quiz/1" state={data}>
+                            <button className="" onClick={() => loadLevel("livello4")}>
                                 4
                             </button>
                         </Link>
-                        <Link to="/quiz/1" state={data}>
-                            <button className="mt-5" onClick={() => loadLevel("livello5")}>
+                        <Link className="p-2 mt-5" to="/quiz/1" state={data}>
+                            <button className="" onClick={() => loadLevel("livello5")}>
                                 5
                             </button>
                         </Link>
