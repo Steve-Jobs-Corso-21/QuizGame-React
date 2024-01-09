@@ -1,69 +1,90 @@
 {
-    "quizzes": [
-        {
-            "id": "1",
-            "question": "Qual è il significato di HTML?",
-            "image": "https://www.hurix.com/wp-content/uploads/2022/01/Cyber-security.jpg",
-            "description": "HTML sta per Hypertext Markup Language.",
-            "answers": [
-                {
-                    "answer": "Hypertardis Markup Language"
-                },
-                {
-                    "answer": "Hypertext Markup Language",
-                    "correct": true
-                },
-                {
-                    "answer": "Hope Time Meets Life"
-                },
-                {
-                    "answer": "How To Make a Life"
-                }
-            ]
-        },
-
-        {
-            "id": "2",
-            "question": "Che colore è il cielo?",
-            "image": "",
-            "description": "HTML sta per Hypertext Markup Language.",
-            "answers": [
-                {
-                    "answer": "Bianco"
-                },
-                {
-                    "answer": "Giallo"
-                },
-                {
-                    "answer": "Blu",
-                    "correct": true
-                },
-                {
-                    "answer": "Verde"
-                }
-            ]
-        },
-
-        {
-            "id": "3",
-            "question": "CUse the ratio helper to manage the aspect ratios of external content like <iframe>s, <embed>s, <video>s, and <object>s. These helpers also can be used on",
-            "image": "https://www.hurix.com/wp-content/uploads/2022/01/Cyber-security.jpg",
-            "description": "HTML sta per Hypertext Markup Language.",
-            "answers": [
-                {
-                    "answer": "Use the ratio helper to manage the aspect ratios of external content like <iframe>s, <embed>s, <video>s, and <object>s. These helpers also can be used on "
-                },
-                {
-                    "answer": "Giallo"
-                },
-                {
-                    "answer": "Blu",
-                    "correct": true
-                },
-                {
-                    "answer": "In need of a button, but not the hefty background colors they bring?"
-                }
-            ]
-        }
-    ]
+    "quizzes": {
+        "map1": [
+            {
+                "id": "1",
+                "question": "Che colore ha il cielo durante il giorno?",
+                "description": "testo",
+                "answers": [
+                    {
+                        "answer": "Blu",
+                        "correct": true
+                    },
+                    {
+                        "answer": "Rosso"
+                    },
+                    {
+                        "answer": "Verde"
+                    },
+                    {
+                        "answer": "Giallo"
+                    }
+                ]
+            },
+            {
+                "id": "4",
+                "question": "Che colore ha il cielo durante il giorno?",
+                "description": "testo",
+                "answers": [
+                    {
+                        "answer": "Blu",
+                        "correct": true
+                    },
+                    {
+                        "answer": "Rosso"
+                    },
+                    {
+                        "answer": "Verde"
+                    },
+                    {
+                        "answer": "Giallo"
+                    }
+                ]
+            }
+        ],
+        "map2": [
+            {
+                "id": "2",
+                "question": "Che colore ha il cielo durante il giorno?",
+                "description": "testo",
+                "answers": [
+                    {
+                        "answer": "Blu",
+                        "correct": true
+                    },
+                    {
+                        "answer": "Rosso"
+                    },
+                    {
+                        "answer": "Verde"
+                    },
+                    {
+                        "answer": "Giallo"
+                    }
+                ]
+            }
+        ],
+        "map3": [
+            {
+                "id": "3",
+                "question": "Che colore ha il cielo durante il giorno?",
+                "description": "testo",
+                "answers": [
+                    {
+                        "answer": "Blu",
+                        "correct": true
+                    },
+                    {
+                        "answer": "Rosso"
+                    },
+                    {
+                        "answer": "Verde"
+                    },
+                    {
+                        "answer": "Giallo"
+                    }
+                ]
+            }
+        ]
+    }
 }

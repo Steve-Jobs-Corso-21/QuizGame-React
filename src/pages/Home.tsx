@@ -6,38 +6,61 @@ export enum GameMode {
 }
 
 export type Data = {
-    "gameMode": GameMode,
-    "currentLevel": string,
-    "quizzes": {
+    gameMode: GameMode,
+    currentLevel: string,
+    quizzes: {
         [key: string]: string[]
     },
-    "rightAnswers": {
+    rightAnswers: {
         [key: string]: {
-            [key: string] : string[]
+            [key: string]: string[]
         }
     }
 }
 
+type Answer = {
+    answer: string;
+    correct?: boolean;
+};
+
+type Quiz = {
+    id: string;
+    question: string;
+    description: string;
+    image?: string;
+    answers: Answer[];
+};
+
+type Quizzes = {
+    [key: string]: Quiz[];
+};
+
+export type JSON = {
+    quizzes: Quizzes;
+};
+
 const Home = () => {
     const data: Data = {
         "gameMode": GameMode.Training,
-        "currentLevel": "mondo1",
+        "currentLevel": "map1",
         "quizzes": {
-            "mondo1": ["1","2","3"]
+            "map1": ["1", "2", "3"]
             /* levelName : array of quiz id */
         },
         "rightAnswers": {
-            "mondo1" : {}
+            "mondo1": {}
             /* levelName : {
                     quizID : array of answers          calculate right after by the lenght of array
             } */
         }
     }
 
+    console.log(data.quizzes);
+
     return (
         <div>
             <h1>Home</h1>
-            <Link to={`/quiz/${data.quizzes["mondo1"][0]}`} state={data}>Gioca</Link>
+            <Link to={`/quiz/${data.quizzes[data.currentLevel][0]}`} state={data}>Gioca</Link>
         </div>
     );
 };

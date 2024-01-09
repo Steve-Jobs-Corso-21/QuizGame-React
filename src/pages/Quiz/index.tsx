@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import "./index.scss";
+import { GameMode, Data, JSON } from "../Home";
 import data from "../../data.json";
-import { GameMode, Data } from "../Home";
 import Timer from "./Timer";
 import Modal from "../../components/Modal";
 import Header from "../../components/Header";
@@ -10,7 +10,6 @@ import Header from "../../components/Header";
 // TODO: Unable back to already responded questions
 // TODO: Testo che cambia in base alla lunghezza della domanda stessa
 // TODO: Centrare le risposte verticalmente, se non c'è una immagine
-// TODO: Se è allenamento, non mostrare la modale, ma continua a fare rispondere fino alla risposta corretta, se è giusta mostra la modale
 
 // /quiz/:id
 const Quiz = () => {
@@ -21,8 +20,6 @@ const Quiz = () => {
 
     // get id from url
     const { id } = useParams();
-
-    
 
     // get data through pages 
     const { state }: { state: Data } = useLocation();
@@ -38,9 +35,9 @@ const Quiz = () => {
     const [answered, setAnswered] = useState<string[]>([]);
 
     // get right quiz
-    const quiz = data.quizzes.find(({ id: quizId }) => quizId === id);
-
-    console.log(answered);
+    const json : JSON = data;
+    const quiz = json.quizzes[currentLevel]?.find(({ id : quizID } : { id: string }) => quizID === id);
+    console.log(quiz);
 
     // called at load of question
     useEffect(() => {
