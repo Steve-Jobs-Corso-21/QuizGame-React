@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import "./Header.scss";
+import "../includes/Header.scss";
 import Modal from "./Modal";
 
 // TODO: add icon pack
