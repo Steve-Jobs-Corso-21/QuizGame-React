@@ -12,7 +12,7 @@ import Header from "../../components/Header";
 // if(data.quizzes.answer)
 
 const Score = () => {
-  const [modal, setModal] = useState<boolean | null>(null);
+  const [modal, setModal] = useState<boolean | null>(true);
   return (
     <div>
       <Header></Header>
