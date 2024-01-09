@@ -1,30 +1,35 @@
-import { Link, useParams, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Quiz/index.scss";
 import "./home.scss";
 import { useState } from "react";
 
+export enum GameMode {
+    Training,
+    Challenge
+}
+
 export type Data = {
-    "gameMode": string,
+    "gameMode": GameMode,
     "currentLevel": string,
     "quizzes": {
         [key: string]: string[]
     },
     "rightAnswers": {
-        [key: string]: [
-            { "id": string, "answer": string, "rightAfter": number }
-        ]
+        [key: string]: {
+            [key: string] : string[]
+        }
     }
 }
 
 let data: Data = {
-    "gameMode": "allenamento",
+    "gameMode": GameMode.Training,
     "currentLevel": "",
     "quizzes": {
         //"mondo1": ["1","2","3"]
     },
     "rightAnswers": {
         /* "mondo1" : [
-             {"id": "1", "answer": "txt", "rightAfter": 1},
+             "id" : ["risposta1", "risposta3", "risposta2"]
          ]*/
 
     }
@@ -52,8 +57,8 @@ export type JSON = {
 };
 
 const Menu = () => {
-    const [y, sety] = useState<string>("allenamento");
-    const modeClick = (mode: string) => {
+    const [y, sety] = useState<GameMode>(GameMode.Training);
+    const modeClick = (mode: GameMode) => {
         data.gameMode = mode;
         sety(mode);
     }
@@ -64,8 +69,16 @@ const Menu = () => {
                 <h1>Cyberquiz</h1>
                 <div className="box-mod d-flex flex-column align-items-center mt-5 px-5 py-2">
                     <h2>Scegli la modalita'</h2>
-                    <button type="button" className={`btn-custom btn btn-primary p-3 m-2 ${y === "allenamento" && "active"}`} data-bs-toggle="button" aria-pressed={y === "allenamento" ? "true" : "false"} onClick={() => modeClick("allenamento")} >Allenamento</button>
-                    <button type="button" className={`btn-custom btn btn-primary p-3 m-2 ${y === "sfida" && "active"}`} data-bs-toggle="button" aria-pressed={y === "sfida" ? "true" : "false"} onClick={() => modeClick("sfida")} >Sfida</button>
+                    <button type="button" className={`btn-custom btn btn-primary p-3 m-2 ${y === GameMode.Training && "active"}`}
+                        data-bs-toggle="button" aria-pressed={y === GameMode.Training ? "true" : "false"}
+                        onClick={() => modeClick(GameMode.Training)}>
+                            Allenamento
+                    </button>
+                    <button type="button" className={`btn-custom btn btn-primary p-3 m-2 ${y === GameMode.Challenge && "active"}`}
+                        data-bs-toggle="button" aria-pressed={y === GameMode.Challenge ? "true" : "false"}
+                        onClick={() => modeClick(GameMode.Challenge)}>
+                            Sfida
+                    </button>
                 </div>
                 <Link to="/map" state={data}>
                     <button className="btn-custom btn btn-primary p-3">

@@ -37,7 +37,6 @@ const Quiz = () => {
     // get right quiz
     const json : JSON = data;
     const quiz = json.quizzes[currentLevel]?.find(({ id : quizID } : { id: string }) => quizID === id);
-    console.log(quiz);
 
     // called at load of question
     useEffect(() => {
