@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Modal = ({ modalID, bgColor, description, title, url, state }: any) => {
+const Modal = ({ modalID, bgColor, description, title, buttons, state }: any) => {
 
     return (
         <div id={modalID}
@@ -21,11 +21,15 @@ const Modal = ({ modalID, bgColor, description, title, url, state }: any) => {
                             <p className="fs-5">{description}</p>
                         </div>
                     )}
-                    <div className="modal-footer">
-                        <Link to={url} state={state}>
-                            <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Continua</button>
-                        </Link>
-                    </div>
+                    {buttons && (
+                        <div className="modal-footer">
+                            {buttons.map(({text, url} : {text: string, url: string}) => (
+                                <Link to={url} state={state}>
+                                    <button type="button" className="btn btn-primary" data-bs-dismiss="modal">{text}</button>
+                                </Link>
+                            ))}
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
