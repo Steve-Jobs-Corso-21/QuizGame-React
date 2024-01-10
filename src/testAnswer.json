@@ -1,14 +1,33 @@
 {
-  "isTraining": true,
+  "gameMode": true,
   "currentLevel": "mondo1",
   "quizzes": {
     "mondo1": ["1", "2", "3"]
   },
   "rightAnswers": {
-    "mondo1": [
-      { "id": "1", "answer": "txt", "rightAfter": 1 },
-      { "id": "3", "answer": "jpg", "rightAfter": 3 },
-      { "id": "5", "answer": "pdf", "rightAfter": 3 }
-    ]
+    "mondo1": {
+      "1": ["abc", "ced", "lsd"],
+      "2": ["abc", "ced", "lsd", "abc", "ced", "lsd"],
+      "3": ["abc", "ced", "lsd", "lsd"],
+      "4": ["abc"],
+      "5": ["abc", "ced"],
+      "6": ["abc", "ced", "lsd", "abc", "ced", "lsd", "abc", "ced", "lsd"],
+      "7": ["abc", "ced", "lsd", "abc", "ced", "lsd", "abc"],
+      "8": ["abc", "ced", "lsd", "abc", "ced", "lsd"],
+      "9": ["abc", "ced"],
+      "10": ["abc"]
+    },
+    "mondo2": {
+      "1": ["abc", "ced", "lsd"],
+      "2": ["abc", "ced", "lsd", "abc", "ced", "lsd"],
+      "3": ["abc", "ced", "lsd", "lsd"],
+      "4": ["abc"],
+      "5": ["abc", "ced"],
+      "6": ["abc", "ced", "lsd", "abc", "ced", "lsd", "abc", "ced", "lsd"],
+      "7": ["abc", "ced", "lsd", "abc", "ced", "lsd", "abc"],
+      "8": ["abc", "ced", "lsd", "abc", "ced", "lsd"],
+      "9": ["abc", "ced"],
+      "10": []
+    }
   }
 }
