@@ -75,6 +75,8 @@ const Question = () => {
 
   const [risposte, setRisposte] = useState(Array(dataKeys).fill(false));
 
+  let textQuestion: String | Quiz | undefined;
+  let risposta: String | Quiz | undefined;
   const toggleRisposta = (index: number) => {
     const newRisposte = [...risposte];
     newRisposte[index] = !newRisposte[index];
@@ -96,7 +98,11 @@ const Question = () => {
               aria-controls={`domandaCollapse${index}`}
               onClick={() => toggleRisposta(index)}
             >
-              Domanda {index + 1}
+              {
+                (textQuestion = Object.entries(
+                  json.quizzes[testAnswer.currentLevel]
+                ).map((s) => s[1].question)[index])
+              }
             </button>
           </h2>
           <div
@@ -108,10 +114,26 @@ const Question = () => {
             data-bs-parent="#domandeAccordion"
           >
             <div className="accordion-body">
-              {/* Descrizione della domanda */}
-              <p>Descrizione della domanda {index + 1}...</p>
+              {/*
+              Da completare DA QUI
+              Risposta dell'utente*/}
+              <p>
+                Hai risposto:{" "}
+                {
+                  (risposta =
+                    testAnswer.gameMode === GameMode.Training
+                      ? String(
+                          Object.values(
+                            testAnswer.rightAnswers[testAnswer.currentLevel]
+                          )[index]
+                        )
+                      : "")
+                }
+                ;
+              </p>
 
-              {/* Stato della risposta */}
+              {/*
+               Stato della risposta */}
               <p className={risposte[index] ? "text-success" : "text-danger"}>
                 {risposte[index]
                   ? "Risposta corretta!"
