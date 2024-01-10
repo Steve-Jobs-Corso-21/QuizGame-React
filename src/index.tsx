@@ -4,7 +4,6 @@ import "./index.scss";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
-import Quiz from "./pages/Quiz";
 import Epilogue from "./pages/Epilogue";
 import Score from "./pages/Score";
 import CircularProgressBar from "./pages/CircularProgressBar";
@@ -13,10 +12,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-  },
-  {
-    path: "/quiz/:id",
-    element: <Quiz />,
   },
   {
     path: "/quiz/score",
