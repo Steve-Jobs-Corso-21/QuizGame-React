@@ -8,7 +8,7 @@
     "mondo1": [
       { "id": "1", "answer": "txt", "rightAfter": 1 },
       { "id": "3", "answer": "jpg", "rightAfter": 3 },
-      { "id": "5", "answer": "pdf", "rightAfter": 2 }
+      { "id": "5", "answer": "pdf", "rightAfter": 3 }
     ]
   }
 }

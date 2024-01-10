@@ -17,6 +17,7 @@
     "react-circular-progressbar": "^2.1.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.1",
+    "react-script": "^2.0.5",
     "react-scripts": "5.0.1",
     "sass": "^1.69.5",
     "sort-by": "^1.2.0",
