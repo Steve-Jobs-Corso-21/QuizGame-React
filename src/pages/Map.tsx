@@ -8,6 +8,7 @@ import { useEffect } from "react";
 
 const Map = () => {
     const { state }: { state: Data } = useLocation();
+    console.log(state);
 
     const navigate = useNavigate();
 
@@ -25,6 +26,8 @@ const Map = () => {
             .slice(0, dim);
 
         state.quizzes = quizzes;
+
+        state.rightAnswers[state.currentLevel] = {};
 
         navigate(`/quiz/${state.quizzes[0]}`, { state });
     };
@@ -47,26 +50,26 @@ const Map = () => {
                 />
 
                 <div className="mapMenu">
-                            <div className="conteiner-map offset-2 col-8">
-                                    {Object.values(json.quizzes).map((_, i) => (
-                                        <button
-                                            className={
-                                                "map-btn d-flex flex-column" +
-                                                (i % 2 ? "right ms-auto m-5" : "left m-5") +
-                                                " " +
-                                                (checkLevel(i + 1) ? "disabled" : "")
-                                            }
-                                            onClick={() =>
-                                                !checkLevel(i + 1) &&
-                                                loadLevel(`map${i + 1}`)
-                                            }
-                                            key={i}
-                                        >
-                                            {i + 1}
-                                        </button>
-                                    ))}
-                                </div>
-                            </div>
+                    <div className="conteiner-map offset-2 col-8">
+                        {Object.values(json.quizzes).map((_, i) => (
+                            <button
+                                className={
+                                    "map-btn d-flex flex-column" +
+                                    (i % 2 ? "right ms-auto m-5" : "left m-5") +
+                                    " " +
+                                    (checkLevel(i + 1) ? "disabled" : "")
+                                }
+                                onClick={() =>
+                                    !checkLevel(i + 1) &&
+                                    loadLevel(`map${i + 1}`)
+                                }
+                                key={i}
+                            >
+                                {i + 1}
+                            </button>
+                        ))}
+                    </div>
+                </div>
             </>
         )
     );

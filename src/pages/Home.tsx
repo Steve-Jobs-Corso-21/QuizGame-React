@@ -15,7 +15,7 @@ export type Data = {
     quizzes: string[];
     rightAnswers: {
         [key: string]: {
-            [key: string]: string[];
+            [key: string]: number[];
         };
     };
 };
@@ -56,7 +56,7 @@ const Menu = () => {
         quizzes: [], // ["1","2","3"]
         rightAnswers: {
             /* "mondo1" : [
-                 "id" : ["risposta1", "risposta3", "risposta2"]
+                 "id" : [0, 1, 3]
              ]*/
         },
     };

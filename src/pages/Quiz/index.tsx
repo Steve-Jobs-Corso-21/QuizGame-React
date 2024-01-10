@@ -10,6 +10,7 @@ import Header from "../../components/Header";
 // TODO: Unable back to already responded questions
 // TODO: Testo che cambia in base alla lunghezza della domanda stessa
 // TODO: Centrare le risposte verticalmente, se non c'è una immagine
+// TODO: Se aggiungiamo un bottone per tornare alla mappa, resettare rightAnswers della mappa corrente
 
 // /quiz/:id
 const Quiz = () => {
@@ -23,6 +24,7 @@ const Quiz = () => {
     
     // get data through pages 
     const { state }: { state: Data } = useLocation();
+    console.log(state);
     const currentLevel = state.currentLevel;
     const gameMode = state.gameMode;
     const quizzes = state.quizzes;
@@ -32,7 +34,7 @@ const Quiz = () => {
     const [correct, setCorrect] = useState<boolean | null>(null);
     const [stopTimer, setStopTimer] = useState<boolean>(false);
     const [maxTime, setMaxTime] = useState(MAXTIME);
-    const [answered, setAnswered] = useState<string[]>([]);
+    const [answered, setAnswered] = useState<number[]>([]);
 
     // get right quiz
     const json : JSON = data;
@@ -47,11 +49,15 @@ const Quiz = () => {
     }, [id]);
 
     // handle answer click
-    const answerClick = (correct: boolean, answer: string) => {
+    const answerClick = (correct: boolean, answerIndex: number) => {
         // setta variabile con correct
-        !answered.includes(answer) && setAnswered([...answered, answer]);
-        state.rightAnswers[currentLevel] = {[id!]: answered};
-        
+        !answered.includes(answerIndex) && answered.push(answerIndex) && setAnswered([...answered]);
+        state.rightAnswers[currentLevel]
+            ? state.rightAnswers[currentLevel][id!] = answered
+            : state.rightAnswers[currentLevel] = { [id!] : answered };
+
+        console.log(state);
+
         setCorrect(correct);
         setStopTimer(true);
     }
@@ -59,11 +65,13 @@ const Quiz = () => {
     return (
         <div>
             <Modal modalID={explainModalID}
-                bgColor={correct ? "bg-success" : "bg-danger"}
+                bgColor={(!stopTimer || !correct) ? "bg-danger" : "bg-success"}
                 description={quiz?.description}
-                title={stopTimer ? "Tempo Scaduto" : `Risposta ${correct ? "Esatta" : "Sbagliata"}`}
+                title={!stopTimer ? "Tempo Scaduto" : `Risposta ${correct ? "Esatta" : "Sbagliata"}`}
                 buttons={[
-                    {"text": "Continua", "url": currentQuiz >= quizzes.length - 1 ? "/map   " : `/quiz/${quizzes[currentQuiz + 1]}`}
+                    {"text": "Continua", "url": currentQuiz >= quizzes.length - 1
+                        ? "/map"
+                        : `/quiz/${quizzes[currentQuiz + 1]}`}
                 ]}
                 state={state}>
             </Modal>
@@ -73,8 +81,17 @@ const Quiz = () => {
                     <nav className="mx-4 nav d-flex align-items-center justify-content-center">
                         <h1 className="my-2 pe-5">{currentLevel}</h1>
                         <div className="bar d-flex justify-content-lg-end align-items-center">
-                            {quizzes.map(() => (
-                                <div className="ball"></div>
+                            {quizzes.map((mapQuiz) => (
+                                <div className={`ball ${
+                                    // coloro le ball in base allo stato della domanda
+                                    mapQuiz === id
+                                        ? "bg-warning" // DOMANDA IN CORSO
+                                        : state.rightAnswers[currentLevel] && state.rightAnswers[currentLevel][mapQuiz]
+                                            ? json.quizzes[currentLevel].find(({ id: quizID} : { id : string}) => mapQuiz === quizID)?.answers[state.rightAnswers[currentLevel][mapQuiz][0]].correct
+                                                ? "bg-success" // RISPOSTA GIUSTA
+                                                : "bg-danger" // RISPOSTA SBAGLIATA
+                                            : "bg-secondary" // DOMANDA ANCORA DA RISPONDERE
+                                }`}></div>
                             ))}
                         </div>
                     </nav>)}
@@ -89,13 +106,13 @@ const Quiz = () => {
                     </h2>
                     <div className="d-flex align-items-center justify-content-between row m-0 px-5">
                         <div className={`d-flex flex-wrap col-lg-${quiz.image ? 6 : 12}`}>
-                            {quiz.answers.map(({ answer, correct }) => (
+                            {quiz.answers.map(({ answer, correct }, index) => (
                                 <button className={`text-align-center btn btn-primary btn-block btn-custom col-${quiz.image ? 12 : 4}`}
                                     data-bs-toggle={gameMode === GameMode.Challenge || correct ? "modal" : ""} 
                                     data-bs-target={"#" + explainModalID}
-                                    key={answer} onClick={() => answerClick(!!correct, answer)}
+                                    key={index} onClick={() => answerClick(!!correct, index)}
                                     disabled={
-                                        answered.includes(answer)
+                                        answered.includes(index)
                                     }>
                                     {answer}
                                 </button>
