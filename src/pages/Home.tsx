@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./Quiz/index.scss";
 import "./home.scss";
 import { useState } from "react";
+import { link } from "fs";
 
 export enum GameMode {
     Training,
@@ -20,7 +21,10 @@ export type Data = {
         }
     }
 }
+if(!GameMode.Training)
+{
 
+}
 let data: Data = {
     "gameMode": GameMode.Training,
     "currentLevel": "",
@@ -68,29 +72,16 @@ const Menu = () => {
             <div className="mainMenu d-flex flex-column align-items-center justify-content-around vh-100">
                 <h1>Cyberquiz</h1>
                 <div className="box-mod d-flex flex-column align-items-center mt-5 px-5 py-2">
-                    <h2>Scegli la modalita'</h2>
-                    <button type="button" className={`btn-custom btn btn-primary p-3 m-2 ${y === GameMode.Training && "active"}`}
-                        data-bs-toggle="button" aria-pressed={y === GameMode.Training ? "true" : "false"}
-                        onClick={() => modeClick(GameMode.Training)}>
-                            Allenamento
-                    </button>
-                    <button type="button" className={`btn-custom btn btn-primary p-3 m-2 ${y === GameMode.Challenge && "active"}`}
-                        data-bs-toggle="button" aria-pressed={y === GameMode.Challenge ? "true" : "false"}
-                        onClick={() => modeClick(GameMode.Challenge)}>
-                            Sfida
-                    </button>
-                </div>
-                <Link to="/map" state={data}>
-                    <button className="btn-custom btn btn-primary p-3">
-                        Gioca
-                    </button>
+                    <h2>Scegli la modalita'</h2>  
+                <Link className="btn-custom btn btn-primary p-3 m-2" to="/map" state={data}
+                        onClick={() => modeClick(GameMode.Training) }>allenamento
                 </Link>
-                <Link to="/map" state={data}>
-                    <button className="buttonMenu btn btn-primary p-3">
-                        Gioca
-                    </button>
+                <Link className="btn-custom btn btn-primary p-3 m-2" to="/map" state={data}
+                        onClick={() => modeClick(GameMode.Challenge) }>sfida
+
                 </Link>
             </div>
+        </div>
         </>
     );
 };
