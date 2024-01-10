@@ -20,14 +20,14 @@ const Quiz = () => {
 
     // get id from url
     const { id } = useParams();
-
+    
     // get data through pages 
     const { state }: { state: Data } = useLocation();
     const currentLevel = state.currentLevel;
     const gameMode = state.gameMode;
-    const quizzes = state.quizzes[currentLevel];
+    const quizzes = state.quizzes;
     const currentQuiz = quizzes.findIndex((q: string) => q === id);
-
+    
     // hooks
     const [correct, setCorrect] = useState<boolean | null>(null);
     const [stopTimer, setStopTimer] = useState<boolean>(false);
@@ -63,7 +63,7 @@ const Quiz = () => {
                 description={quiz?.description}
                 title={stopTimer ? "Tempo Scaduto" : `Risposta ${correct ? "Esatta" : "Sbagliata"}`}
                 buttons={[
-                    {"text": "Continua", "url": currentQuiz >= quizzes.length - 1 ? "/stats" : `/quiz/${quizzes[currentQuiz + 1]}`}
+                    {"text": "Continua", "url": currentQuiz >= quizzes.length - 1 ? "/map   " : `/quiz/${quizzes[currentQuiz + 1]}`}
                 ]}
                 state={state}>
             </Modal>
