@@ -12,3 +12,4 @@ const HomeScore = () => {
     </div>
   );
 };
+export default HomeScore;
