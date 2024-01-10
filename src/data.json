@@ -23,7 +23,7 @@
       },
       {
         "id": "4",
-        "question": "Che colore ha il cielo durante il giorno?",
+        "question": "Che animale è il coccodrillo?",
         "description": "testo",
         "answers": [
           {
@@ -43,7 +43,7 @@
       },
       {
         "id": "5",
-        "question": "Che colore ha il cielo durante il giorno?",
+        "question": "Che tecnica usi?",
         "description": "testo",
         "answers": [
           {
@@ -63,7 +63,7 @@
       },
       {
         "id": "6",
-        "question": "Che colore ha il cielo durante il giorno?",
+        "question": "Che valore dai ?",
         "description": "testo",
         "answers": [
           {
