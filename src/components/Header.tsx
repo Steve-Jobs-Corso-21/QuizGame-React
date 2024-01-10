@@ -16,7 +16,7 @@ const Header = ({ htmlBlock, audio, audioURL }: any) => {
     return (
         <nav className="mx-4 nav d-flex align-items-center justify-content-center">
             <button data-bs-toggle="modal" data-bs-target={"#homeModal"} className="me-auto p-1"> 
-                <img src="../pages/Quiz/image/home.svg" alt="Home" />
+                <img src="home.svg" alt="Home" />
                 <Modal modalID="homeModal"
                     bgColor={undefined}
                     title={undefined}
@@ -31,9 +31,9 @@ const Header = ({ htmlBlock, audio, audioURL }: any) => {
 
             {htmlBlock}
 
-            <button className="ms-auto p-1" onClick={() => audioClick()}>
+            <button className="ms-auto me-3 p-1" onClick={() => audioClick()}>
                 <audio src={audioURL} id={audio} />
-                <img src={!currentVolume ? "../pages/Quiz/image/volume-mute.svg" : "../pages/Quiz/image/volume.svg"} alt="Volume" />
+                <img src={!currentVolume ? "volume.svg" : "volume-mute.svg"} alt="Volume" />
             </button>
         </nav>
     );
