@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./Quiz/index.scss";
 import "./home.scss";
 import { useState } from "react";
+import Modal from "../components/Modal";
 
 export enum GameMode {
     Training,
@@ -65,9 +66,12 @@ const Menu = () => {
             <div className="mainMenu d-flex flex-column align-items-center justify-content-around vh-100">
                 <h1>Cyberquiz</h1>
                 <div className="box-mod d-flex flex-column align-items-center mt-5 px-5 py-2">
-                    <h2>Scegli la modalita'</h2>
+                    <h2 className="">Scegli la modalita'</h2>
+                    <button className="btn-info btn-primary">
+                        i
+                    </button>
                     <Link
-                        className="btn-custom btn btn-primary p-3 m-2"
+                        className="btn-custom-home btn btn-primary p-3 m-2"
                         to="/map"
                         state={data}
                         onClick={() => modeClick(GameMode.Training)}
@@ -75,7 +79,7 @@ const Menu = () => {
                         allenamento
                     </Link>
                     <Link
-                        className="btn-custom btn btn-primary p-3 m-2"
+                        className="btn-custom-home btn btn-primary p-3 m-2"
                         to="/map"
                         state={data}
                         onClick={() => modeClick(GameMode.Challenge)}

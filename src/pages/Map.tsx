@@ -46,29 +46,27 @@ const Map = () => {
                     audioURL={""}
                 />
 
-                <div className="mapMenu d-flex flex-column align-items-center p-5 vh-100">
-                    <div className="sfondoMap">
-                        <div className="roadMap d-flex">
-                            {Object.values(json.quizzes).map((_, i) => (
-                                <button
-                                    className={
-                                        "map-btn " +
-                                        (i % 2 ? "right" : "left") +
-                                        " " +
-                                        (checkLevel(i + 1) ? "disabled" : "")
-                                    }
-                                    onClick={() =>
-                                        !checkLevel(i + 1) &&
-                                        loadLevel(`map${i + 1}`)
-                                    }
-                                    key={i}
-                                >
-                                    {i + 1}
-                                </button>
-                            ))}
-                        </div>
-                    </div>
-                </div>
+                <div className="mapMenu">
+                            <div className="conteiner-map offset-2 col-8">
+                                    {Object.values(json.quizzes).map((_, i) => (
+                                        <button
+                                            className={
+                                                "map-btn d-flex flex-column" +
+                                                (i % 2 ? "right ms-auto m-5" : "left m-5") +
+                                                " " +
+                                                (checkLevel(i + 1) ? "disabled" : "")
+                                            }
+                                            onClick={() =>
+                                                !checkLevel(i + 1) &&
+                                                loadLevel(`map${i + 1}`)
+                                            }
+                                            key={i}
+                                        >
+                                            {i + 1}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
             </>
         )
     );

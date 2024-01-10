@@ -5,6 +5,7 @@
 }
 
 .box-mod{
+    position: relative;
     background-color: white;
     outline: 2px solid #808080;
     transition: outline 0.2s linear 0s;
@@ -15,27 +16,41 @@
     outline: 6px solid rgb(0, 163, 163);
 }
 
-.btn-custom {
+.btn-custom-home {
     width: 200px;
     background-color: rgb(0, 225, 225);
-    border: 1px solid #808080;
+    border: 2px solid #808080;
 }
 
-.btn-custom:hover{
+.btn-custom-home:hover{
     background-color: rgb(0, 163, 163);
 }
 
-.btn-custom.active,
-.btn-custom:active {
+.btn-custom-home.active,
+.btn-custom-home:active {
     background-color: rgb(0, 255, 0);
 }
 
-.btn-custom a{
+.btn-custom-home a{
     text-decoration: none;
     color: white;
 }
 
-.btn-custom a:hover{
+.btn-custom-home a:hover{
     color: blue;
 }
 
+.btn-info{
+    position: absolute;
+    right: 15px;
+    bottom: 125px;
+    background-color: rgb(0, 225, 225);
+    padding:5px 15px;
+    border-radius: 50%;
+    color: black;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.map-btn{
+    background-color: green;
+}
