@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Modal = ({
+const ModalButton = ({
   modalID,
   bgColor,
   description,
@@ -53,4 +53,4 @@ const Modal = ({
   );
 };
 
-export default Modal;
+export default ModalButton;

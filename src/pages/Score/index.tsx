@@ -7,6 +7,7 @@ import CircularProgressBar from "../CircularProgressBar";
 import Question from "../Question";
 import Header from "../../components/Header";
 import Modal from "react-bootstrap/Modal";
+import ModalQuestions from "../../components/ModalButton";
 import Button from "react-bootstrap/Button";
 //const totalScore = "";
 //const answerList = testAnswer.rightAnswers.mondo1.map((s) => [s.id, s.answer]);
