@@ -7,7 +7,7 @@ import data from "../../data.json";
 import testAnswer from "../../testAnswer.json";
 
 const partialScore =
-  (testAnswer.rightAnswers.mondo1.length / data.quizzes.length) * 100;
+  (testAnswer.rightAnswers["mondo1"][1].length / data.quizzes.length) * 100;
 
 const CircularProgressBar = () => {
   return (
