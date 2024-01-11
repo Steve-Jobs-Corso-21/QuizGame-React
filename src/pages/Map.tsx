@@ -1,14 +1,17 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Quiz/index.scss";
 import "./map.scss";
-import json from "../data.json";
+import data from "../data.json";
 import { Data, GameMode, JSON } from "./Home";
 import Header from "../components/Header";
 import { useEffect } from "react";
 
 const Map = () => {
     const { state }: { state: Data } = useLocation();
-    console.log(state);
+    // console.log(state);
+
+    const json: JSON = data;
+    console.log(json.maps);
 
     const navigate = useNavigate();
 
@@ -51,29 +54,24 @@ const Map = () => {
 
                 <div className="mapMenu">
                     <div className="conteiner-map offset-2 col-8">
-                        {Object.values(json.quizzes).map((_, i) => (
-                            <div className={
-                                "box-button d-flex justify-content-between " +
-                                (i % 2 ? "flex-row-reverse" : "")
-                                }>
-                                <button
-                                    className={
-                                        "map-btn d-flex flex-column " +
-                                        (i % 2 ? "right ms-auto mt-1 mb-5" : "left mt-1 mb-5") +
-                                        " " +
-                                        (checkLevel(i + 1) ? "disabled" : "")
-                                    }
-                                    onClick={() =>
-                                        !checkLevel(i + 1) &&
-                                        loadLevel(`map${i + 1}`)
-                                    }
-                                    key={i}
-                                    >
-                                    {i + 1}
-                                </button>
-                                <h1 className={
-                                    (i % 2 ? "" : "")
-                                }>ciao mbare</h1>
+                        {Object.values(json.quizzes).map((_, i, arr) => (
+                            <div>
+                                <div className={`box-button d-flex justify-content-between ${i % 2 ? "flex-row-reverse" : ""}`}>
+                                    <button className={`map-btn d-flex flex-column mt-1 mb-5 ${i % 2 ? "right ms-auto" : "left"} ${checkLevel(i + 1) ? "disabled" : ""}`}
+                                        onClick={() => !checkLevel(i + 1) && loadLevel(`map${i + 1}`)}
+                                        key={i}>
+                                        {i + 1}
+                                    </button>
+                                    <div>
+                                        <h1 className="text-uppercase">{json.maps[i].name}</h1>
+                                        <p>{json.maps[i].description}</p>
+                                    </div>
+                                </div>
+                                {i < arr.length - 1 && (
+                                    <svg>
+                                        <path d="M1,1 Q1,8 8,8 Q16,8 16,16" stroke="#000" fill="transparent" />
+                                    </svg>
+                                )}
                             </div>
                         ))}
                     </div>

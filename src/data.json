@@ -1,4 +1,24 @@
 {
+    "maps" : [
+        {
+            "name": "map1",
+            "description" : "L'acronimo HTML sta per Hypertext Markup Language",
+            "theme": "#ff0000",
+            "url": "path"
+        },
+        {
+            "name": "map2",
+            "description" : "L'acronimo HTML sta per Hypertext Markup Language",
+            "theme": "#ff0000",
+            "url": "path"
+        },
+        {
+            "name": "map3",
+            "description" : "L'acronimo HTML sta per Hypertext Markup Language",
+            "theme": "#ff0000",
+            "url": "path"
+        }
+    ],
     "quizzes": {
         "map1": [
             {

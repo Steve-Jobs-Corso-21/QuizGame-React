@@ -39,7 +39,15 @@ type Quizzes = {
     [key: string]: QuizType[];
 };
 
+type Map = {
+    name: string;
+    description: string;
+    theme: string;
+    url: string;
+};
+
 export type JSON = {
+    maps: Map[];
     quizzes: Quizzes;
 };
 

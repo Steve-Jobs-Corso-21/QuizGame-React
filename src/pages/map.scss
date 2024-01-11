@@ -1,51 +1,73 @@
 @import "./../includes/includes.scss";
 
 .mapMenu {
-    
+
 
     h1 {
         padding: 30px;
-        border: 2px solid black;
+        // border: 2px solid black;
         border-radius: 20px;
-        background-color: white;
+        // background-color: white;
     }
 }
 
-.box-button{
+.box-button {
     padding: 30px;
     margin: 30px;
-    background-color: rgb(255, 166, 0);
+    // background-color: rgb(255, 166, 0);
     border-radius: 20px;
-    border: 2px solid black;
+    // border: 2px solid black;
 }
 
 .map-btn {
-        text-decoration: none;
-        color: white;
-        padding: 20px 100px;
-        border: 2px solid green;
-        border-radius:2%;
-        background-color: rgb(0, 225, 225);
+    text-decoration: none;
+    color: white;
+    //padding: 20px 100px;
+    border: 2px solid green;
+    // border-radius:2%;
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(0, 225, 225);
 
-        &.disabled {
-            background: red;
-        }
-
-        &:hover {
-            color: black;
-            background-color: rgb(0, 255, 0);
-        }
+    &.disabled {
+        background: red;
     }
 
-    
-    .left{
-        flex-direction: start;
+    &:hover {
+        color: black;
+        background-color: rgb(0, 255, 0);
     }
-    
-    .right{
-        flex-direction: end;
-    }
+}
 
-    .conteiner-map{
-        margin-top: 200px;
-    }
+.s-curve-connector {
+    position: relative;
+}
+
+.s-curve-connector::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    /* Adjust the width of the curve */
+    height: 100%;
+    /* Adjust the height of the curve */
+    background-color: #000;
+    /* Adjust the color of the curve */
+    left: 50%;
+    transform-origin: top;
+    transform: translateX(-50%) rotate(45deg) scaleY(2);
+    /* Adjust the rotation and scaleY to shape the curve */
+}
+
+
+.left {
+    flex-direction: start;
+}
+
+.right {
+    flex-direction: end;
+}
+
+.conteiner-map {
+    margin-top: 200px;
+}
