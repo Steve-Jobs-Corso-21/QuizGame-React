@@ -3,6 +3,7 @@ import "./Quiz/index.scss";
 import "./home.scss";
 import { useState } from "react";
 import Modal from "../components/Modal";
+import { title } from "process";
 
 export enum GameMode {
     Training,
@@ -19,8 +20,6 @@ export type Data = {
         };
     };
 };
-if (!GameMode.Training) {
-}
 
 type Answer = {
     answer: string;
@@ -63,11 +62,29 @@ const Menu = () => {
 
     return (
         <>
+        <Modal modalID="11"
+        bgColor=""
+        description={<>
+            Allenamento: In modalità allenamento potrai esercitarti sui vari argomenti che preferisci senza preoccuparti
+            di sbagliare.
+            <br />
+            Sfida: In modalità sfida dovrai testare le tue abilità in una prova a tempo dove dovrai cercare di fare il minor numero di
+            errori possibili.
+          </>}
+        
+        title="Mondalità di gioco:"
+        buttons={[{"text" : "continua","url" : "/"}]}
+        >
+            
+        </Modal>
             <div className="mainMenu d-flex flex-column align-items-center justify-content-around vh-100">
                 <h1>Cyberquiz</h1>
                 <div className="box-mod d-flex flex-column align-items-center mt-5 px-5 py-2">
                     <h2 className="">Scegli la modalita'</h2>
-                    <button className="btn-info btn-primary">
+                    <button className="btn-info btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#11"
+                    >
                         i
                     </button>
                     <Link

@@ -10,35 +10,22 @@
     outline: 2px solid #808080;
     transition: outline 0.2s linear 0s;
     border-radius: 20px;
+    &:hover{
+        outline: 6px solid rgb(0, 163, 163);
+    }    
 }
 
-.box-mod:hover{
-    outline: 6px solid rgb(0, 163, 163);
-}
+
 
 .btn-custom-home {
     width: 200px;
     background-color: rgb(0, 225, 225);
     border: 2px solid #808080;
+    &:hover{
+        background-color: rgb(0, 163, 163);
+    }
 }
 
-.btn-custom-home:hover{
-    background-color: rgb(0, 163, 163);
-}
-
-.btn-custom-home.active,
-.btn-custom-home:active {
-    background-color: rgb(0, 255, 0);
-}
-
-.btn-custom-home a{
-    text-decoration: none;
-    color: white;
-}
-
-.btn-custom-home a:hover{
-    color: blue;
-}
 
 .btn-info{
     position: absolute;
@@ -49,8 +36,4 @@
     border-radius: 50%;
     color: black;
     border: 2px solid rgb(0, 0, 0);
-}
-
-.map-btn{
-    background-color: green;
 }

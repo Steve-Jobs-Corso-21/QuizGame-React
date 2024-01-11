@@ -11,12 +11,19 @@
     }
 }
 
+.box-button{
+    padding: 30px;
+    margin: 30px;
+    background-color: rgb(255, 166, 0);
+    border-radius: 20px;
+    border: 2px solid black;
+}
 
 .map-btn {
         text-decoration: none;
         color: white;
         padding: 20px 100px;
-        border: 2px solid rgb(62, 225, 7);
+        border: 2px solid green;
         border-radius:2%;
         background-color: rgb(0, 225, 225);
 

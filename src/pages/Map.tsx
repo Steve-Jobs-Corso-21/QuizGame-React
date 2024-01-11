@@ -52,21 +52,29 @@ const Map = () => {
                 <div className="mapMenu">
                     <div className="conteiner-map offset-2 col-8">
                         {Object.values(json.quizzes).map((_, i) => (
-                            <button
-                                className={
-                                    "map-btn d-flex flex-column" +
-                                    (i % 2 ? "right ms-auto m-5" : "left m-5") +
-                                    " " +
-                                    (checkLevel(i + 1) ? "disabled" : "")
-                                }
-                                onClick={() =>
-                                    !checkLevel(i + 1) &&
-                                    loadLevel(`map${i + 1}`)
-                                }
-                                key={i}
-                            >
-                                {i + 1}
-                            </button>
+                            <div className={
+                                "box-button d-flex justify-content-between " +
+                                (i % 2 ? "flex-row-reverse" : "")
+                                }>
+                                <button
+                                    className={
+                                        "map-btn d-flex flex-column " +
+                                        (i % 2 ? "right ms-auto mt-1 mb-5" : "left mt-1 mb-5") +
+                                        " " +
+                                        (checkLevel(i + 1) ? "disabled" : "")
+                                    }
+                                    onClick={() =>
+                                        !checkLevel(i + 1) &&
+                                        loadLevel(`map${i + 1}`)
+                                    }
+                                    key={i}
+                                    >
+                                    {i + 1}
+                                </button>
+                                <h1 className={
+                                    (i % 2 ? "" : "")
+                                }>ciao mbare</h1>
+                            </div>
                         ))}
                     </div>
                 </div>
