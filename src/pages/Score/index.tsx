@@ -89,16 +89,57 @@ const Score = () => {
   (
     <div>
       <Header></Header>
-
-      <h1 className="cus">
-        Complimenti! Hai completato il {testAnswer.currentLevel} con il seguente
-        risultato:
-      </h1>
-      {testAnswer.gameMode === GameMode.Challenge ? (
-        <div>
-          <div>
-            <h3>Numero di risposte esatte:</h3>
+      <div className="d-flex container flex-column">
+        <div className="d-flex align-items-center justify-content-center">
+          <h1 className="text-center">
+            Complimenti! Hai completato il {testAnswer.currentLevel} con il
+            seguente risultato:
+          </h1>
+        </div>
+        <div className="d-flex flex-row justify-content-evenly">
+          <div className="d-flex flex-column align-items-center">
+            <h3>Percentuale di risposte esatte:</h3>
             <CircularProgressBar></CircularProgressBar>
+          </div>
+
+          <div className="d-flex flex-column align-items-center justify-content-center">
+            <button
+              className="text-center justify-content-center btn btn-secondary m-3 btn-lg"
+              // style={{ display: "flex", justifyContent: "flex-end" }}
+              onClick={() => {
+                setModal(!modal);
+                console.log("Modal State:", modal);
+              }}
+            >
+              Vedi le risposte corrette
+            </button>
+
+            <Link className="score-button btn btn-secondary m-3 btn-lg" to="/">
+              Vai alla home
+            </Link>
+            <Link className="score-button btn btn-secondary m-3 btn-lg" to="/">
+              Prossimo Livello
+            </Link>
+          </div>
+        </div>
+
+        {/* Modale: Renderizza solo quando modal è true */}
+        {modal && (
+          // <p>Modale vera</p>
+          <div
+            className="modal show"
+            style={{ display: "block", position: "initial" }}
+          >
+            <Modal.Dialog>
+              <Modal.Header closeButton onClick={() => setModal(!modal)}>
+                {/* <Modal.Title>Modal title</Modal.Title> */}
+              </Modal.Header>
+
+              <Modal.Body>
+                <Question />
+                {/* <p>Modal body text goes here.</p> */}
+              </Modal.Body>
+            </Modal.Dialog>
           </div>
 
           <Link
@@ -176,14 +217,57 @@ const Score = () => {
   (
     <div>
       <Header></Header>
-      <h1 className="cus">
-        Complimenti! Hai completato il training del {testAnswer.currentLevel} con il seguente
-        risultato:
-      </h1>      
-        <div>
-          <div>
+      <div className="d-flex container flex-column">
+        <div className="d-flex align-items-center justify-content-center">
+          <h1 className="text-center">
+            Complimenti! Hai completato il training del{" "}
+            {testAnswer.currentLevel} con il seguente risultato:
+          </h1>
+        </div>
+        <div className="d-flex flex-row justify-content-evenly">
+          <div className="d-flex flex-column align-items-center">
             <h3>Percentuale precisione risposte esatte:</h3>
             <CircularProgressBar></CircularProgressBar>
+          </div>
+
+          <div className="d-flex flex-column align-items-center justify-content-center">
+            <button
+              className="text-center justify-content-center btn btn-secondary m-3 btn-lg"
+              // style={{ display: "flex", justifyContent: "flex-end" }}
+              onClick={() => {
+                setModal(!modal);
+                console.log("Modal State:", modal);
+              }}
+            >
+              Vedi le risposte corrette
+            </button>
+
+            <Link className="score-button btn btn-secondary m-3 btn-lg" to="/">
+              Vai alla home
+            </Link>
+            <Link className="score-button btn btn-secondary m-3 btn-lg" to="/">
+              Prossimo Livello
+            </Link>
+          </div>
+        </div>
+
+        {/* Modale: Renderizza solo quando modal è true */}
+        {modal && (
+          // <p>Modale vera</p>
+          <div
+            className="modal show"
+            style={{ display: "block", position: "initial" }}
+          >
+            <Modal.Dialog>
+              <Modal.Header closeButton onClick={() => setModal(!modal)}>
+                {/* <Modal.Title>Modal title</Modal.Title> */}
+              </Modal.Header>
+
+              <Modal.Body>
+                <Question />
+                {/* <p>Modal body text goes here.</p> */}
+              </Modal.Body>
+            </Modal.Dialog>
           </div>
 
           <Link

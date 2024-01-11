@@ -8,7 +8,7 @@ interface GreenRingProps {
 
 const GreenRing: React.FC<GreenRingProps> = ({ percentage }) => {
   return (
-    <div style={{ width: "100px" }}>
+    <div style={{ width: "300px" }}>
       <CircularProgressbar
         value={percentage}
         text={`${percentage}%`}
