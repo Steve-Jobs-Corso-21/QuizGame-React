@@ -45,17 +45,17 @@ export type JSON = {
 const json: JSON = data;
 
 const testAnswer: Data = {
-  gameMode: GameMode.Training,
+  gameMode: GameMode.Challenge,
   currentLevel: "mondo1",
   quizzes: {
     mondo1: ["1", "2", "3"],
   },
   rightAnswers: {
     mondo1: {
-      "1": [2],
+      "1": [0],
       "4": [0],
-      "5": [1],
-      "6": [3],
+      "5": [3],
+      "6": [2],
     },
   },
 };
@@ -118,18 +118,25 @@ const Question = () => {
               Da completare DA QUI
               Risposta dell'utente*/}
               <p>
-                Hai risposto:{" "}
+                {`${
+                  testAnswer.gameMode === GameMode.Training
+                    ? "La tua ultima risposta è stata: "
+                    : "hai risposto: "
+                }`}
                 {
                   (risposta =
                     testAnswer.gameMode === GameMode.Training
                       ? String(
                           Object.values(
                             testAnswer.rightAnswers[testAnswer.currentLevel]
-                          )[index]
+                          )[index][0]
                         )
-                      : "")
+                      : String(
+                          Object.values(
+                            testAnswer.rightAnswers[testAnswer.currentLevel]
+                          )[index]
+                        ))
                 }
-                ;
               </p>
 
               {/*
