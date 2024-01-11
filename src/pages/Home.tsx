@@ -81,7 +81,7 @@ const Menu = () => {
             errori possibili.
           </>}
         
-        title="Mondalità di gioco:"
+        title="Modalità di gioco:"
         buttons={[{"text" : "continua","url" : "/"}]}
         >
             

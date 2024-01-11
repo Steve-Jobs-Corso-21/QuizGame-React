@@ -53,18 +53,18 @@ const Map = () => {
                 />
 
                 <div className="mapMenu">
-                    <div className="conteiner-map offset-2 col-8">
+                    <div className="conteiner-map offset-2 col-8 align-center">
                         {Object.values(json.quizzes).map((_, i, arr) => (
                             <div>
                                 <div className={`box-button d-flex justify-content-between ${i % 2 ? "flex-row-reverse" : ""}`}>
-                                    <button className={`map-btn d-flex flex-column mt-1 mb-5 ${i % 2 ? "right ms-auto" : "left"} ${checkLevel(i + 1) ? "disabled" : ""}`}
+                                    <button className={`map-btn d-flex flex-column ${i % 2 ? "right ms-auto" : "left"} ${checkLevel(i + 1) ? "disabled" : ""}`}
                                         onClick={() => !checkLevel(i + 1) && loadLevel(`map${i + 1}`)}
                                         key={i}>
                                         {i + 1}
                                     </button>
-                                    <div>
+                                    <div className="card-map d-flex flex-column flex-start justify-content-center">
                                         <h1 className="text-uppercase">{json.maps[i].name}</h1>
-                                        <p>{json.maps[i].description}</p>
+                                        <p className="text-world">{json.maps[i].description}</p>
                                     </div>
                                 </div>
                                 {i < arr.length - 1 && (
