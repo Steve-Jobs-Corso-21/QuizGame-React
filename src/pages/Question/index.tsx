@@ -124,18 +124,40 @@ const Question = () => {
                     : "hai risposto: "
                 }`}
                 {
+                  // (
+                  //(
                   (risposta =
-                    testAnswer.gameMode === GameMode.Training
-                      ? String(
-                          Object.values(
-                            testAnswer.rightAnswers[testAnswer.currentLevel]
-                          )[index][0]
-                        )
-                      : String(
-                          Object.values(
-                            testAnswer.rightAnswers[testAnswer.currentLevel]
-                          )[index]
-                        ))
+                    //testAnswer.gameMode === GameMode.Training
+
+                    //?
+
+                    json.quizzes[testAnswer.currentLevel].reduce(
+                      (acc, s) =>
+                        (acc += Object.values(s.answers).map(
+                          (s) => s.answer + "!"
+                        )),
+                      ""
+                    ))
+                    //.trimStart()
+                    //.trimEnd()
+                    .split("!")
+                    .map((s) => s.replace(",", " ").trimStart())[
+                    Number(
+                      Object.values(
+                        testAnswer.rightAnswers[testAnswer.currentLevel]
+                      )[index][0]
+                    )
+                  ]
+
+                  // .map((c) => c.split("!"))[index]
+
+                  //.split(" ")[index]
+
+                  //  : String(
+                  //    Object.values(
+                  //      testAnswer.rightAnswers[testAnswer.currentLevel]
+                  //    )[index]
+                  //  ))
                 }
               </p>
 
