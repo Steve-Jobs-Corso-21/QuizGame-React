@@ -83,29 +83,40 @@ const Score = () => {
     //MODALITA CHALLENGE
     <div>
       <Header></Header>
+      <div className="d-flex container flex-column">
+        <div className="d-flex align-items-center justify-content-center">
+          <h1 className="text-center">
+            Complimenti! Hai completato il {testAnswer.currentLevel} con il
+            seguente risultato:
+          </h1>
+        </div>
+        <div className="d-flex flex-row justify-content-evenly">
+          <div className="d-flex flex-column align-items-center">
+            <h3>Percentuale di risposte esatte:</h3>
+            <CircularProgressBar></CircularProgressBar>
+          </div>
 
-      <h1 className="cus">
-        Complimenti! Hai completato il {testAnswer.currentLevel} con il seguente
-        risultato:
-      </h1>
-      <div>
-        <div>
-          <h3>Percentuale di risposte esatte:</h3>
-          <CircularProgressBar></CircularProgressBar>
+          <div className="d-flex flex-column align-items-center justify-content-center">
+            <button
+              className="text-center justify-content-center btn btn-secondary m-3 btn-lg"
+              // style={{ display: "flex", justifyContent: "flex-end" }}
+              onClick={() => {
+                setModal(!modal);
+                console.log("Modal State:", modal);
+              }}
+            >
+              Vedi le risposte corrette
+            </button>
+
+            <Link className="score-button btn btn-secondary m-3 btn-lg" to="/">
+              Vai alla home
+            </Link>
+            <Link className="score-button btn btn-secondary m-3 btn-lg" to="/">
+              Prossimo Livello
+            </Link>
+          </div>
         </div>
 
-        <Link to="/" style={{ display: "flex", justifyContent: "flex-start" }}>
-          Vai alla home
-        </Link>
-        <button
-          style={{ display: "flex", justifyContent: "flex-end" }}
-          onClick={() => {
-            setModal(!modal);
-            console.log("Modal State:", modal);
-          }}
-        >
-          <p>Vedi le risposte corrette</p>
-        </button>
         {/* Modale: Renderizza solo quando modal è true */}
         {modal && (
           // <p>Modale vera</p>
@@ -122,13 +133,6 @@ const Score = () => {
                 <Question />
                 {/* <p>Modal body text goes here.</p> */}
               </Modal.Body>
-
-              <Modal.Footer>
-                <Button onClick={() => setModal(!modal)} variant="secondary">
-                  Close
-                </Button>
-                <Button variant="primary">Save changes</Button>
-              </Modal.Footer>
             </Modal.Dialog>
           </div>
 
@@ -161,28 +165,40 @@ const Score = () => {
     //MODALITA TRAINING
     <div>
       <Header></Header>
-      <h1 className="cus">
-        Complimenti! Hai completato il training del {testAnswer.currentLevel}{" "}
-        con il seguente risultato:
-      </h1>
-      <div>
-        <div>
-          <h3>Percentuale precisione risposte esatte:</h3>
-          <CircularProgressBar></CircularProgressBar>
+      <div className="d-flex container flex-column">
+        <div className="d-flex align-items-center justify-content-center">
+          <h1 className="text-center">
+            Complimenti! Hai completato il training del{" "}
+            {testAnswer.currentLevel} con il seguente risultato:
+          </h1>
+        </div>
+        <div className="d-flex flex-row justify-content-evenly">
+          <div className="d-flex flex-column align-items-center">
+            <h3>Percentuale precisione risposte esatte:</h3>
+            <CircularProgressBar></CircularProgressBar>
+          </div>
+
+          <div className="d-flex flex-column align-items-center justify-content-center">
+            <button
+              className="text-center justify-content-center btn btn-secondary m-3 btn-lg"
+              // style={{ display: "flex", justifyContent: "flex-end" }}
+              onClick={() => {
+                setModal(!modal);
+                console.log("Modal State:", modal);
+              }}
+            >
+              Vedi le risposte corrette
+            </button>
+
+            <Link className="score-button btn btn-secondary m-3 btn-lg" to="/">
+              Vai alla home
+            </Link>
+            <Link className="score-button btn btn-secondary m-3 btn-lg" to="/">
+              Prossimo Livello
+            </Link>
+          </div>
         </div>
 
-        <Link to="/" style={{ display: "flex", justifyContent: "flex-start" }}>
-          Vai alla home
-        </Link>
-        <button
-          style={{ display: "flex", justifyContent: "flex-end" }}
-          onClick={() => {
-            setModal(!modal);
-            console.log("Modal State:", modal);
-          }}
-        >
-          <p>Vedi le risposte corrette</p>
-        </button>
         {/* Modale: Renderizza solo quando modal è true */}
         {modal && (
           // <p>Modale vera</p>
@@ -199,13 +215,6 @@ const Score = () => {
                 <Question />
                 {/* <p>Modal body text goes here.</p> */}
               </Modal.Body>
-
-              <Modal.Footer>
-                <Button onClick={() => setModal(!modal)} variant="secondary">
-                  Close
-                </Button>
-                <Button variant="primary">Save changes</Button>
-              </Modal.Footer>
             </Modal.Dialog>
           </div>
 
