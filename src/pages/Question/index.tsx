@@ -44,7 +44,7 @@ export type JSON = {
 
 const json: JSON = data;
 
-const testAnswer: Data = {
+/* const testAnswer: Data = {
   gameMode: GameMode.Training,
   currentLevel: "mondo1",
   quizzes: {
@@ -52,7 +52,24 @@ const testAnswer: Data = {
   },
   rightAnswers: {
     mondo1: {
-      "1": [2],
+      "1": [2, 0],
+      "4": [0, 1],
+      "5": [1, 2],
+      "6": [3],
+    },
+  },
+}; */
+
+
+const testAnswer: Data = {
+  gameMode: GameMode.Challenge,
+  currentLevel: "mondo1",
+  quizzes: {
+    mondo1: ["1", "2", "3"],
+  },
+  rightAnswers: {
+    mondo1: {
+      "1": [0],
       "4": [0],
       "5": [1],
       "6": [3],
@@ -107,9 +124,8 @@ const Question = () => {
           </h2>
           <div
             id={`domandaCollapse${index}`}
-            className={`accordion-collapse collapse ${
-              risposte[index] ? "show" : ""
-            }`}
+            className={`accordion-collapse collapse ${risposte[index] ? "show" : ""
+              }`}
             aria-labelledby={`domandaHeading${index}`}
             data-bs-parent="#domandeAccordion"
           >
@@ -121,24 +137,48 @@ const Question = () => {
                 Hai risposto:{" "}
                 {
                   (risposta =
-                    testAnswer.gameMode === GameMode.Training
-                      ? String(
-                          Object.values(
-                            testAnswer.rightAnswers[testAnswer.currentLevel]
-                          )[index]
-                        )
-                      : "")
+                    /* testAnswer.gameMode === GameMode.Training ? */
+                    String(
+                      Object.values(
+                        testAnswer.rightAnswers[testAnswer.currentLevel]
+                      )[index].map((item, index) => json.quizzes[testAnswer.currentLevel]
+                        .find(({ id }: { id: string }) => id === Object.keys(testAnswer.rightAnswers[testAnswer.currentLevel]
+                        )[index])?.answers[item].answer))
+                    /* : "" */
+                  )
                 }
                 ;
               </p>
 
               {/*
                Stato della risposta */}
-              <p className={risposte[index] ? "text-success" : "text-danger"}>
-                {risposte[index]
-                  ? "Risposta corretta!"
-                  : "Risposta non data o errata."}
-              </p>
+              {testAnswer.gameMode === GameMode.Training ?
+                <p className={Object.values(testAnswer.rightAnswers[testAnswer.currentLevel])[index].length == 1 ? "text-success" : "text-danger"}>
+                  {
+                    Object.values(testAnswer.rightAnswers[testAnswer.currentLevel])[index].length == 1 ? "Risposta corretta!" : "Risposta errata!"
+                  }
+                </p>
+                :
+                <p className={Object.entries(testAnswer.rightAnswers[testAnswer.currentLevel]).reduce(
+                  (acc, s) =>
+                  (acc += json.quizzes[testAnswer.currentLevel].find(({ id: quizID }: { id: string }) => s[0] === quizID)
+                    ?.answers.findIndex(({ correct }) => correct) === s[1][0] ? "text-success" : "text-danger"),
+                  ""
+                )
+                }>
+                  {
+                    /*PROBLEMA DEVO METTERE [INDEX] DA QUALCHE PARTE PER SELEZIONARE LA SINGOLA DOMANDA NELLA MODALE*/
+                    Object.entries(testAnswer.rightAnswers[testAnswer.currentLevel]).reduce(
+                      (acc, s) =>
+                      (acc += json.quizzes[testAnswer.currentLevel].find(({ id: quizID }: { id: string }) => s[0] === quizID)
+                        ?.answers.findIndex(({ correct }) => correct) === s[1][0] ? "Risposta corretta!" : "Risposta errata!"),
+                      ""
+                    )
+                  }
+                </p>
+
+
+              }
             </div>
           </div>
         </div>

@@ -27,11 +27,11 @@
         "description": "testo",
         "answers": [
           {
-            "answer": "Blu",
-            "correct": true
+            "answer": "Blu"
           },
           {
-            "answer": "Rosso"
+            "answer": "Rosso",
+            "correct": true
           },
           {
             "answer": "Verde"
@@ -47,14 +47,14 @@
         "description": "testo",
         "answers": [
           {
-            "answer": "Blu",
-            "correct": true
+            "answer": "Blu"
           },
           {
             "answer": "Rosso"
           },
           {
-            "answer": "Verde"
+            "answer": "Verde",
+            "correct": true
           },
           {
             "answer": "Giallo"
@@ -67,8 +67,7 @@
         "description": "testo",
         "answers": [
           {
-            "answer": "Blu",
-            "correct": true
+            "answer": "Blu"
           },
           {
             "answer": "Rosso"
@@ -77,7 +76,8 @@
             "answer": "Verde"
           },
           {
-            "answer": "Giallo"
+            "answer": "Giallo",
+            "correct": true
           }
         ]
       }
