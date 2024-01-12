@@ -4,47 +4,54 @@
 
 
     h1 {
-        
+
         // border: 2px solid black;
         border-radius: 20px;
         // background-color: white;
     }
-}
 
-.box-button {
-    padding: 30px;
-    margin: 30px;
-    // background-color: rgb(255, 166, 0);
-    border-radius: 20px;
-    // border: 2px solid black;
-}
+    .conteiner-map {
+        margin-top: 200px;
 
-.map-btn {
-    text-decoration: none;
-    color: rgb(255, 0, 0);
-    //padding: 20px 100px;
-    border: 2px solid rgb(0, 0, 0);
-    // border-radius:2%;
-    border-radius: 50%;
-    padding: 35px 60px;
-    background-color: rgb(255, 255, 255);
-    font-size: 3rem;
 
-    &.disabled {
-        background: red;
+        .box-button {
+            padding: 30px;
+            margin: 30px;
+            // background-color: rgb(255, 166, 0);
+            border-radius: 20px;
+            // border: 2px solid black;
+        }
+
+        .map-btn {
+            text-decoration: none;
+            color: rgb(255, 0, 0);
+            //padding: 20px 100px;
+            border: 2px solid rgb(0, 0, 0);
+            // border-radius:2%;
+            border-radius: 50%;
+            padding: 35px 60px;
+            background-color: rgb(255, 255, 255);
+            font-size: 3rem;
+
+            &.disabled {
+                background: red;
+            }
+
+            &:hover {
+                color: black;
+                background-color: rgb(53, 200, 53);
+            }
+        }
+
+        .card-map {
+            border: solid 2px rgb(102, 56, 0);
+            background-color: rgb(255, 176, 80);
+            ;
+            border-radius: 10px 25px;
+            padding: 10px;
+        }
+
     }
-
-    &:hover {
-        color: black;
-        background-color: rgb(53, 200, 53);
-    }
-}
-
-.card-map{
-    border: solid 2px rgb(102, 56, 0);
-    background-color: rgb(255, 176, 80);;
-    border-radius: 10px 25px;
-    padding: 10px;
 }
 
 .s-curve-connector {
@@ -65,10 +72,3 @@
     transform: translateX(-50%) rotate(45deg) scaleY(2);
     /* Adjust the rotation and scaleY to shape the curve */
 }
-
-
-.conteiner-map {
-    margin-top: 200px;
-}
-
-

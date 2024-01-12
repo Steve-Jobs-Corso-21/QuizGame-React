@@ -109,7 +109,7 @@ const Menu = () => {
                         state={data}
                         onClick={() => modeClick(GameMode.Training)}
                     >
-                        allenamento
+                        Allenamento
                     </Link>
                     <Link
                         className="btn-custom-home btn btn-primary p-3 m-2"
@@ -117,7 +117,7 @@ const Menu = () => {
                         state={data}
                         onClick={() => modeClick(GameMode.Challenge)}
                     >
-                        sfida
+                        Sfida
                     </Link>
                 </div>
             </div>
