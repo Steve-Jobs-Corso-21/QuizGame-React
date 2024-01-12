@@ -1,10 +1,7 @@
 @import "./../includes/includes.scss";
 
 .mapMenu {
-
-
     h1 {
-        
         // border: 2px solid black;
         border-radius: 20px;
         // background-color: white;
@@ -12,10 +9,12 @@
 }
 
 .box-button {
-    padding: 30px;
-    margin: 30px;
     // background-color: rgb(255, 166, 0);
     border-radius: 20px;
+    gap: 32px;
+
+    position: relative;
+    z-index: 1;
     // border: 2px solid black;
 }
 
@@ -26,7 +25,7 @@
     border: 2px solid rgb(0, 0, 0);
     // border-radius:2%;
     border-radius: 50%;
-    padding: 35px 60px;
+    padding: 36px 60px;
     background-color: rgb(255, 255, 255);
     font-size: 3rem;
 
@@ -40,35 +39,26 @@
     }
 }
 
-.card-map{
+.card-map {
     border: solid 2px rgb(102, 56, 0);
-    background-color: rgb(255, 176, 80);;
+    background-color: rgb(255, 176, 80);
     border-radius: 10px 25px;
     padding: 10px;
 }
 
-.s-curve-connector {
-    position: relative;
-}
+.svg {
+    display: block;
 
-.s-curve-connector::before {
-    content: '';
-    position: absolute;
-    width: 2px;
-    /* Adjust the width of the curve */
-    height: 100%;
-    /* Adjust the height of the curve */
-    background-color: #000;
-    /* Adjust the color of the curve */
-    left: 50%;
-    transform-origin: top;
-    transform: translateX(-50%) rotate(45deg) scaleY(2);
-    /* Adjust the rotation and scaleY to shape the curve */
-}
+    width: 300px;
+    height: 200px;
 
+    margin: -8px auto;
+
+    &.inversed-svg {
+        transform: scaleX(-1);
+    }
+}
 
 .conteiner-map {
     margin-top: 200px;
 }
-
-
