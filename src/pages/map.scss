@@ -1,8 +1,6 @@
 @import "./../includes/includes.scss";
 
 .mapMenu {
-
-
     h1 {
 
         // border: 2px solid black;
@@ -15,11 +13,12 @@
 
 
         .box-button {
-            padding: 30px;
-            margin: 30px;
             // background-color: rgb(255, 166, 0);
             border-radius: 20px;
             // border: 2px solid black;
+            gap: 32px;
+            position: relative;
+            z-index: 1;
         }
 
         .map-btn {
@@ -46,7 +45,6 @@
         .card-map {
             border: solid 2px rgb(102, 56, 0);
             background-color: rgb(255, 176, 80);
-            ;
             border-radius: 10px 25px;
             padding: 10px;
         }
@@ -54,21 +52,14 @@
     }
 }
 
-.s-curve-connector {
-    position: relative;
-}
+.svg {
+    display: block;
 
-.s-curve-connector::before {
-    content: '';
-    position: absolute;
-    width: 2px;
-    /* Adjust the width of the curve */
-    height: 100%;
-    /* Adjust the height of the curve */
-    background-color: #000;
-    /* Adjust the color of the curve */
-    left: 50%;
-    transform-origin: top;
-    transform: translateX(-50%) rotate(45deg) scaleY(2);
-    /* Adjust the rotation and scaleY to shape the curve */
+    width: 300px;
+    height: 200px;
+    margin: -8px auto;
+
+    &.inversed-svg {
+        transform: scaleX(-1);
+    }
 }

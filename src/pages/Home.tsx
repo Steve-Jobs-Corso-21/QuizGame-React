@@ -26,7 +26,7 @@ type Answer = {
     answer: string;
     correct?: boolean;
 };
-
+    
 type QuizType = {
     id: string;
     question: string;
