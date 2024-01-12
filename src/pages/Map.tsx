@@ -43,7 +43,7 @@ const Map = () => {
 
     const checkLevel = (levelNumber: number) =>
         state.gameMode === GameMode.Challenge
-            ? json.maps.findIndex((item, index) => index === state.currentLevel) === levelNumber
+            ? json.maps.findIndex((_, index) => index === state.currentLevel) === levelNumber
             : true;
 
     return (

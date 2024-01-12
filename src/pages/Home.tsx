@@ -3,7 +3,6 @@ import "./Quiz/index.scss";
 import "./home.scss";
 import { useState } from "react";
 import Modal from "../components/Modal";
-import Header from "../components/Header";
 
 export enum GameMode {
     Training,
@@ -26,7 +25,7 @@ type Answer = {
     answer: string;
     correct?: boolean;
 };
-    
+
 type QuizType = {
     id: string;
     question: string;
@@ -81,22 +80,17 @@ const Menu = () => {
             >
 
             </Modal>
-            <Header
-                htmlBlock={""}
-                audio={true}
-                audioURL={""}
-            />
+
             <div className="mainMenu d-flex flex-column align-items-center justify-content-around vh-100">
+                <img className="home-logo" src="homepage-logo.png" alt="" />
                 <h1>Cyberquiz</h1>
                 <div className="box-mod d-flex flex-column align-items-center mt-5 px-5 py-2">
                     <div className="d-flex">
-                        <h2 className="me-5">Scegli la modalita'</h2>
-                        <button className="btn-info btn-primary "
+                        <h2>Scegli la modalità</h2>
+                        <img
                             data-bs-toggle="modal"
                             data-bs-target="#11"
-                        >
-                            <img src="info-circle.svg" alt="" />
-                        </button>
+                            src="info-circle.svg" alt="" />
                     </div>
                     <Link
                         className="btn-custom-home btn btn-primary p-3 m-2"
@@ -116,7 +110,7 @@ const Menu = () => {
                     </Link>
                 </div>
             </div>
-            
+
         </>
     );
 };
