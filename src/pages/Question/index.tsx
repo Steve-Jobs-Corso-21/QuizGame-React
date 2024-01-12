@@ -159,21 +159,13 @@ const Question = () => {
                   }
                 </p>
                 :
-                <p className={Object.entries(testAnswer.rightAnswers[testAnswer.currentLevel]).reduce(
-                  (acc, s) =>
-                  (acc += json.quizzes[testAnswer.currentLevel].find(({ id: quizID }: { id: string }) => s[0] === quizID)
-                    ?.answers.findIndex(({ correct }) => correct) === s[1][0] ? "text-success" : "text-danger"),
-                  ""
-                )
-                }>
+                <p className={Object.entries(testAnswer.rightAnswers[testAnswer.currentLevel])
+                  .map((item, index) => json.quizzes[testAnswer.currentLevel].find(({ id: quizID }: { id: string }) => item[0] === quizID)
+                    ?.answers.findIndex(({ correct }) => correct) === item[1][0] ? "text-success" : "text-danger")[index]}>
                   {
-                    /*PROBLEMA DEVO METTERE [INDEX] DA QUALCHE PARTE PER SELEZIONARE LA SINGOLA DOMANDA NELLA MODALE*/
-                    Object.entries(testAnswer.rightAnswers[testAnswer.currentLevel]).reduce(
-                      (acc, s) =>
-                      (acc += json.quizzes[testAnswer.currentLevel].find(({ id: quizID }: { id: string }) => s[0] === quizID)
-                        ?.answers.findIndex(({ correct }) => correct) === s[1][0] ? "Risposta corretta!" : "Risposta errata!"),
-                      ""
-                    )
+                    Object.entries(testAnswer.rightAnswers[testAnswer.currentLevel])
+                      .map((item, index) => json.quizzes[testAnswer.currentLevel].find(({ id: quizID }: { id: string }) => item[0] === quizID)
+                        ?.answers.findIndex(({ correct }) => correct) === item[1][0] ? "Risposta corretta!" : "Risposta errata!")[index]
                   }
                 </p>
 
