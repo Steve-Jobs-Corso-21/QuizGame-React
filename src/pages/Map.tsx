@@ -56,15 +56,17 @@ const Map = () => {
                 />
                 <div className="mapMenu">
                     <div className="conteiner-map offset-2 col-8 align-center">
-                        { json.maps.map((item, index, arr) => (
+                        {json.maps.map((item, index, arr) => (
                             <div>
                                 <div className={`box-button d-flex justify-content-center ${index % 2 && "flex-row-reverse"}`}>
-                                    <button className={`map-btn d-flex flex-column ${index % 2 ? "right" : "left"} ${!checkLevel(index + 1) && "disabled"}`}
-                                        onClick={() => !checkLevel(index + 1) && loadLevel(index)}
-                                        key={index}>
-                                        {index}
-                                    </button>
-                                    <div className="card-map d-flex flex-column flex-start justify-content-center">
+                                    <div className="w-50">
+                                        <button className={`map-btn d-flex flex-column ${index % 2 ? "right me-auto" : "left ms-auto"} ${!checkLevel(index + 1) && "disabled"}`}
+                                            onClick={() => !checkLevel(index + 1) && loadLevel(index)}
+                                            key={index}>
+                                            {index}
+                                        </button>
+                                    </div>
+                                    <div className="card-map d-flex flex-column flex-start justify-content-center w-50">
                                         <h1 className="text-uppercase">{json.maps[index].name}</h1>
                                         <p className="text-world">{json.maps[index].description}</p>
                                     </div>
@@ -73,9 +75,8 @@ const Map = () => {
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="1 1 15 15"
-                                        className={`svg ${
-                                            index % 2 ? "inversed-svg" : ""
-                                        }`}
+                                        className={`svg ${index % 2 ? "inversed-svg" : ""
+                                            }`}
                                     >
                                         <path
                                             d="M1,1 Q1,8 8,8 Q16,8 16,16"
