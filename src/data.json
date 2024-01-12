@@ -1,35 +1,86 @@
 {
-    "maps" : [
-        {
-            "name": "map1",
-            "description" : "map1",
-            "theme": "#ff0000",
-            "url": "path"
-        },
-        {
-            "name": "map2",
-            "description" : "map2",
-            "theme": "#ff0000",
-            "url": "path"
-        },
-        {
-            "name": "map3",
-            "description" : "map3",
-            "theme": "#ff0000",
-            "url": "path"
-        },
-        {
-            "name": "map4",
-            "description" : "map4",
-            "theme": "#ff0000",
-            "url": "path"
-        },
-        {
-            "name": "map5",
-            "description" : "map5",
-            "theme": "#ff0000",
-            "url": "path"
-        }
+  "quizzes": {
+    "mondo1": [
+      {
+        "id": "1",
+        "question": "Che colore ha il cielo durante il giorno?",
+        "description": "testo",
+        "answers": [
+          {
+            "answer": "Blu",
+            "correct": true
+          },
+          {
+            "answer": "Rosso"
+          },
+          {
+            "answer": "Verde"
+          },
+          {
+            "answer": "Giallo"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "question": "Che animale è il coccodrillo?",
+        "description": "testo",
+        "answers": [
+          {
+            "answer": "Blu"
+          },
+          {
+            "answer": "Rosso",
+            "correct": true
+          },
+          {
+            "answer": "Verde"
+          },
+          {
+            "answer": "Giallo"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "question": "Che tecnica usi?",
+        "description": "testo",
+        "answers": [
+          {
+            "answer": "Blu"
+          },
+          {
+            "answer": "Rosso"
+          },
+          {
+            "answer": "Verde",
+            "correct": true
+          },
+          {
+            "answer": "Giallo"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "question": "Che valore dai ?",
+        "description": "testo",
+        "answers": [
+          {
+            "answer": "Blu"
+          },
+          {
+            "answer": "Rosso"
+          },
+          {
+            "answer": "Verde"
+          },
+          {
+            "answer": "Giallo",
+            "correct": true
+          }
+        ]
+      }
     ],
     "quizzes": {
         "map1": [
