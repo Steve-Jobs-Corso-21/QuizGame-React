@@ -71,6 +71,11 @@ const Menu = () => {
 
     return (
         <>
+        <Header
+            htmlBlock={""}
+            audio={true}
+            audioURL={""}
+            />
         <Modal modalID="11"
         bgColor=""
         description={<>
@@ -86,22 +91,14 @@ const Menu = () => {
         >
             
         </Modal>
-        <Header
-            htmlBlock={""}
-            audio={true}
-            audioURL={""}
-        />
-            <div className="mainMenu d-flex flex-column align-items-center justify-content-around vh-100">
+            <div className="mainMenu d-flex flex-column align-items-center justify-content-evenly vh-100">
                 <h1>Cyberquiz</h1>
                 <div className="box-mod d-flex flex-column align-items-center mt-5 px-5 py-2">
-                    <div className="d-flex">
-                        <h2 className="me-5">Scegli la modalita'</h2>
-                        <button className="btn-info btn-primary "
+                    <div className="mod-btn p-2 d-flex flex-column align-items-end">
+                        <img src="info-circle.svg" alt="" 
                         data-bs-toggle="modal"
-                        data-bs-target="#11"
-                        >
-                            <img src="info-circle.svg" alt="" />
-                        </button>
+                        data-bs-target="#11"/>
+                        <h2 className="">Scegli la modalità</h2>
                     </div>
                     <Link
                         className="btn-custom-home btn btn-primary p-3 m-2"
@@ -121,6 +118,7 @@ const Menu = () => {
                     </Link>
                 </div>
             </div>
+            
         </>
     );
 };
