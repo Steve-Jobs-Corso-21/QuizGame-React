@@ -127,28 +127,39 @@ const Question = () => {
                   // (
                   //(
                   (risposta =
-                    //testAnswer.gameMode === GameMode.Training
-
-                    //?
-
-                    json.quizzes[testAnswer.currentLevel].reduce(
-                      (acc, s) =>
-                        (acc += Object.values(s.answers).map(
-                          (s) => s.answer + "!"
-                        )),
-                      ""
-                    ))
-                    //.trimStart()
-                    //.trimEnd()
-                    .split("!")
-                    .map((s) => s.replace(",", " ").trimStart())[
-                    Number(
-                      Object.values(
-                        testAnswer.rightAnswers[testAnswer.currentLevel]
-                      )[index][0]
-                    )
-                  ]
-
+                    testAnswer.gameMode === GameMode.Challenge
+                      ? json.quizzes[testAnswer.currentLevel]
+                          .reduce(
+                            (acc, s) =>
+                              (acc += Object.values(s.answers).map(
+                                (s) => s.answer + "!"
+                              )),
+                            ""
+                          )
+                          .split("!")
+                          .map((s) => s.replace(",", " ").trimStart())[
+                          Number(
+                            Object.values(
+                              testAnswer.rightAnswers[testAnswer.currentLevel]
+                            )[index]
+                          )
+                        ]
+                      : json.quizzes[testAnswer.currentLevel]
+                          .reduce(
+                            (acc, s) =>
+                              (acc += Object.values(s.answers).map(
+                                (s) => s.answer + "!"
+                              )),
+                            ""
+                          )
+                          .split("!")
+                          .map((s) => s.replace(",", " ").trimStart())[
+                          Number(
+                            Object.values(
+                              testAnswer.rightAnswers[testAnswer.currentLevel]
+                            )[index]
+                          )
+                        ])
                   // .map((c) => c.split("!"))[index]
 
                   //.split(" ")[index]
