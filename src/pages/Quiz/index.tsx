@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import "./index.scss";
 import { GameMode, Data, JSON } from "../Home";
-import data from "../../data.json";
+import data from "../../questions.json";
 import Timer from "./Timer";
 import Modal from "../../components/Modal";
 import Header from "../../components/Header";
@@ -38,7 +38,7 @@ const Quiz = () => {
 
     // get right quiz
     const json : JSON = data;
-    const quiz = json.quizzes[currentLevel]?.find(({ id : quizID } : { id: string }) => quizID === id);
+    const quiz = json.maps[currentLevel]?.quizzess.find(({ id : quizID } : { id: string }) => quizID === id);
 
     // called at load of question
     useEffect(() => {
@@ -53,8 +53,8 @@ const Quiz = () => {
         // setta variabile con correct
         !answered.includes(answerIndex) && answered.push(answerIndex) && setAnswered([...answered]);
         state.rightAnswers[currentLevel]
-            ? state.rightAnswers[currentLevel][id!] = answered
-            : state.rightAnswers[currentLevel] = { [id!] : answered };
+        ? state.rightAnswers[currentLevel] = {id: id!, answers: answered}
+        : state.rightAnswers.push({id: id!, answers: answered})
 
         console.log(state);
 
@@ -79,15 +79,15 @@ const Quiz = () => {
             <Header
                 htmlBlock={(
                     <nav className="mx-4 nav d-flex align-items-center justify-content-center">
-                        <h1 className="my-2 pe-5">{currentLevel}</h1>
+                        <h1 className="my-2 pe-5">{json.maps[currentLevel].name}</h1>
                         <div className="bar d-flex justify-content-lg-end align-items-center">
                             {quizzes.map((mapQuiz) => (
                                 <div className={`ball ${
                                     // coloro le ball in base allo stato della domanda
                                     mapQuiz === id
                                         ? "bg-warning" // DOMANDA IN CORSO
-                                        : state.rightAnswers[currentLevel] && state.rightAnswers[currentLevel][mapQuiz]
-                                            ? json.quizzes[currentLevel].find(({ id: quizID} : { id : string}) => mapQuiz === quizID)?.answers[state.rightAnswers[currentLevel][mapQuiz][0]].correct
+                                        : state.rightAnswers[currentLevel] && state.rightAnswers[currentLevel].id === mapQuiz
+                                            ? json.maps[currentLevel].quizzess.find(({ id: quizID} : { id : string}) => mapQuiz === quizID)?.answers[state.rightAnswers[currentLevel].answers[0]].correct
                                                 ? "bg-success" // RISPOSTA GIUSTA
                                                 : "bg-danger" // RISPOSTA SBAGLIATA
                                             : "bg-secondary" // DOMANDA ANCORA DA RISPONDERE
@@ -105,9 +105,9 @@ const Quiz = () => {
                         {quiz.question}
                     </h2>
                     <div className="d-flex align-items-center justify-content-between row m-0 px-5">
-                        <div className={`d-flex flex-wrap col-lg-${quiz.image ? 6 : 12}`}>
+                        <div className={`d-flex flex-wrap col-lg-${quiz.imageUrl ? 6 : 12}`}>
                             {quiz.answers.map(({ answer, correct }, index) => (
-                                <button className={`text-align-center btn btn-primary btn-block btn-custom col-${quiz.image ? 12 : 4}`}
+                                <button className={`text-align-center btn btn-primary btn-block btn-custom col-${quiz.imageUrl ? 12 : 4}`}
                                     data-bs-toggle={gameMode === GameMode.Challenge || correct ? "modal" : ""} 
                                     data-bs-target={"#" + explainModalID}
                                     key={index} onClick={() => answerClick(!!correct, index)}
@@ -118,9 +118,9 @@ const Quiz = () => {
                                 </button>
                             ))}
                         </div>
-                        {quiz.image && (
+                        {quiz.imageUrl && (
                             <div className="d-flex align-items-center justify-content-center col-5 overflow-hidden">
-                                <img className="w-100" src={quiz.image} alt={quiz.question} />
+                                <img className="w-100" src={quiz.imageUrl} alt={quiz.question} />
                             </div>
                         )}
                     </div>
