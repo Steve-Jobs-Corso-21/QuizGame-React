@@ -25,7 +25,7 @@ export type Data = {
   };
   rightAnswers: {
     [key: string]: {
-      [key: string]: string[];
+      [key: string]: number[];
     };
   };
 };
@@ -43,6 +43,22 @@ type Quiz = {
   answers: Answer[];
 };
 */
+/* const testAnswer: Data = {
+  gameMode: GameMode.Training,
+  currentLevel: "mondo1",
+  quizzes: {
+    mondo1: ["1", "2", "3"],
+  },
+  rightAnswers: {
+    mondo1: {
+      "1": [2, 0],
+      "2": [0, 1],
+      "4": [1, 2],
+      "6": [3],
+    },
+  },
+}; */
+
 const testAnswer: Data = {
   gameMode: GameMode.Training,
   currentLevel: "mondo1",
@@ -51,28 +67,10 @@ const testAnswer: Data = {
   },
   rightAnswers: {
     mondo1: {
-      "1": ["abc", "ced", "lsd"],
-      "2": ["abc", "ced", "lsd"],
-      "3": ["abc", "ced", "lsd"],
-      "4": ["abc"],
-      "5": ["abc", "ced"],
-      "6": ["abc", "ced", "lsd", "hjk"],
-      "7": ["abc", "ced"],
-      "8": ["abc", "ced", "lsd"],
-      "9": ["abc", "ced"],
-      "10": ["abc"],
-    },
-    mondo2: {
-      "1": ["abc", "ced", "lsd"],
-      "2": ["abc", "ced", "lsd", "abc"],
-      "3": ["abc", "ced", "lsd", "lsd"],
-      "4": ["abc"],
-      "5": ["abc", "ced"],
-      "6": ["abc", "lsd"],
-      "7": ["abc"],
-      "8": ["abc", "ced", "lsd", "abc"],
-      "9": ["abc", "ced"],
-      "10": ["abc"],
+      "1": [0],
+      "2": [1],
+      "4": [3],
+      "6": [2],
     },
   },
 };

@@ -53,13 +53,12 @@ const json: JSON = data;
   rightAnswers: {
     mondo1: {
       "1": [2, 0],
-      "4": [0, 1],
-      "5": [1, 2],
+      "2": [0, 1],
+      "4": [1, 2],
       "6": [3],
     },
   },
 }; */
-
 
 const testAnswer: Data = {
   gameMode: GameMode.Challenge,
@@ -70,9 +69,9 @@ const testAnswer: Data = {
   rightAnswers: {
     mondo1: {
       "1": [0],
-      "4": [0],
-      "5": [1],
-      "6": [3],
+      "2": [1],
+      "4": [3],
+      "6": [2],
     },
   },
 };
@@ -124,8 +123,9 @@ const Question = () => {
           </h2>
           <div
             id={`domandaCollapse${index}`}
-            className={`accordion-collapse collapse ${risposte[index] ? "show" : ""
-              }`}
+            className={`accordion-collapse collapse ${
+              risposte[index] ? "show" : ""
+            }`}
             aria-labelledby={`domandaHeading${index}`}
             data-bs-parent="#domandeAccordion"
           >
@@ -134,43 +134,87 @@ const Question = () => {
               Da completare DA QUI
               Risposta dell'utente*/}
               <p>
-                Hai risposto:{" "}
+                {`${
+                  testAnswer.gameMode === GameMode.Training
+                    ? "La tua ultima risposta è stata: "
+                    : "hai risposto: "
+                }`}
                 {
+                  // (
+                  //(
                   (risposta =
                     /* testAnswer.gameMode === GameMode.Training ? */
                     String(
                       Object.values(
                         testAnswer.rightAnswers[testAnswer.currentLevel]
-                      )[index].map((item, index) => json.quizzes[testAnswer.currentLevel]
-                        .find(({ id }: { id: string }) => id === Object.keys(testAnswer.rightAnswers[testAnswer.currentLevel]
-                        )[index])?.answers[item].answer))
-                    /* : "" */
-                  )
+                      )[index].map(
+                        (item) =>
+                          json.quizzes[testAnswer.currentLevel].find(
+                            ({ id }: { id: string }) =>
+                              id === String(index + 1),
+                            Object.keys(
+                              testAnswer.rightAnswers[testAnswer.currentLevel]
+                            )[index]
+                          )?.answers[item].answer
+                      )
+                    ))
+                  /* : "" */
                 }
                 ;
               </p>
 
               {/*
                Stato della risposta */}
-              {testAnswer.gameMode === GameMode.Training ?
-                <p className={Object.values(testAnswer.rightAnswers[testAnswer.currentLevel])[index].length == 1 ? "text-success" : "text-danger"}>
+              {testAnswer.gameMode === GameMode.Training ? (
+                <p
+                  className={
+                    Object.values(
+                      testAnswer.rightAnswers[testAnswer.currentLevel]
+                    )[index].length == 1
+                      ? "text-success"
+                      : "text-danger"
+                  }
+                >
+                  {Object.values(
+                    testAnswer.rightAnswers[testAnswer.currentLevel]
+                  )[index].length == 1
+                    ? "Risposta corretta!"
+                    : "Risposta errata!"}
+                </p>
+              ) : (
+                //GAMEMODE.CHALLENGE
+                <p
+                  className={
+                    Object.entries(
+                      testAnswer.rightAnswers[testAnswer.currentLevel]
+                    ).map((item) =>
+                      json.quizzes[testAnswer.currentLevel]
+                        .find(
+                          ({ id: quizID }: { id: string }) => item[0] === quizID
+                        )
+                        ?.answers.findIndex(({ correct }) => correct) ===
+                      item[1][0]
+                        ? "text-success"
+                        : "text-danger"
+                    )[index]
+                  }
+                >
                   {
-                    Object.values(testAnswer.rightAnswers[testAnswer.currentLevel])[index].length == 1 ? "Risposta corretta!" : "Risposta errata!"
+                    Object.entries(
+                      testAnswer.rightAnswers[testAnswer.currentLevel]
+                    ).map((item) =>
+                      json.quizzes[testAnswer.currentLevel]
+                        .find(
+                          ({ id: quizID }: { id: string }) => item[0] === quizID
+                        )
+                        ?.answers.findIndex(({ correct }) => correct) ===
+                      item[1][0]
+                        ? "Risposta corretta!"
+                        : "Risposta errata!"
+                    )[index]
                   }
                 </p>
-                :
-                <p className={Object.entries(testAnswer.rightAnswers[testAnswer.currentLevel])
-                  .map((item, index) => json.quizzes[testAnswer.currentLevel].find(({ id: quizID }: { id: string }) => item[0] === quizID)
-                    ?.answers.findIndex(({ correct }) => correct) === item[1][0] ? "text-success" : "text-danger")[index]}>
-                  {
-                    Object.entries(testAnswer.rightAnswers[testAnswer.currentLevel])
-                      .map((item, index) => json.quizzes[testAnswer.currentLevel].find(({ id: quizID }: { id: string }) => item[0] === quizID)
-                        ?.answers.findIndex(({ correct }) => correct) === item[1][0] ? "Risposta corretta!" : "Risposta errata!")[index]
-                  }
-                </p>
-
-
-              }
+              )}
             </div>
           </div>
         </div>
