@@ -15,11 +15,15 @@ type Stat = {
     answers: number[]
 }
 
+type StatMap = {
+    quiz: Stat[]
+}
+
 export type Data = {
     gameMode: GameMode;
     currentLevel: number;
     quizzes: string[];
-    rightAnswers: Stat[];
+    rightAnswers: StatMap[];
 };
 
 type Answer = {
@@ -59,9 +63,21 @@ const Menu = () => {
         currentLevel: 0,
         quizzes: [], // ["1","2","3"]
         rightAnswers: []
-        /* "mondo1" : [
-             "id" : [0, 1, 3]
-         ]*/
+        /* rightAnswers: [
+            {
+                "quiz": [
+                    {
+                        id: "1",
+                        anwers: [0]
+                    },
+                    {
+                        id: "5",
+                        answers: [0,1,2]
+                    }
+                ]
+            }
+        ]
+        */
     };
 
     return (

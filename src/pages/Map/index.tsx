@@ -1,9 +1,9 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import "./Quiz/index.scss";
-import "./map.scss";
-import data from "../questions.json";
-import { Data, GameMode, JSON } from "./Home";
-import Header from "../components/Header";
+import { useLocation, useNavigate } from "react-router-dom";
+import "../Quiz/index.scss";
+import "./index.scss";
+import data from "../../questions.json";
+import { Data, GameMode, JSON } from "../Home";
+import Header from "../../components/Header";
 import { useEffect } from "react";
 
 const Map = () => {
@@ -11,7 +11,7 @@ const Map = () => {
     // console.log(state);
 
     const json: JSON = data;
-    console.log(json.maps);
+    // console.log(json.maps);
 
     const navigate = useNavigate();
 
@@ -56,13 +56,15 @@ const Map = () => {
                     <div className="conteiner-map offset-2 col-8 align-center">
                         { json.maps.map((item, index, arr) => (
                             <div>
-                                <div className={`box-button d-flex justify-content-between ${index % 2 && "flex-row-reverse"}`}>
-                                    <button className={`map-btn d-flex flex-column ${index % 2 ? "right ms-auto" : "left"} ${checkLevel(index + 1) && "disabled"}`}
-                                        onClick={() => !checkLevel(index + 1) && loadLevel(index)}
-                                        key={index}>
-                                        {index}
-                                    </button>
-                                    <div className="card-map d-flex flex-column flex-start justify-content-center">
+                                <div className={`box-button d-flex justify-content-center ${index % 2 && "flex-row-reverse"}`}>
+                                    <div className="w-50">
+                                        <button className={`map-btn d-flex flex-column ${index % 2 ? "right me-auto" : "left ms-auto"} ${checkLevel(index + 1) && "disabled"}`}
+                                            onClick={() => !checkLevel(index + 1) && loadLevel(index)}
+                                            key={index}>
+                                            {index}
+                                        </button>
+                                    </div>
+                                    <div className="card-map d-flex flex-column flex-start justify-content-center w-50">
                                         <h1 className="text-uppercase">{json.maps[index].name}</h1>
                                         <p className="text-world">{json.maps[index].description}</p>
                                     </div>

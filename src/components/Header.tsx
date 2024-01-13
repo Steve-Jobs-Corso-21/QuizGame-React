@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import "../includes/Header.scss";
-import Modal from "./ModalButton";
+import "./Header.scss";
+import Modal from "./Modal";
 
 // TODO: add icon pack
 
@@ -20,7 +20,7 @@ const Header = ({ htmlBlock, audio, audioURL }: any) => {
                 <Modal modalID="homeModal"
                     bgColor={undefined}
                     title={undefined}
-                    description={"Vuoi tornare alla home?"}
+                    description={"Sei sicuro di voler tornare alla home? I tuoi progressi verranno persi."}
                     buttons={[
                         {"text": "Si", "url": "/"},
                         {"text": "No", "url": ""}

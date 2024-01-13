@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Modal = ({ modalID, bgColor, description, title, buttons, state }: any) => {
+const Modal = ({ modalID, bgColor, description, title, canClose = false, buttons, state}: any) => {
 
     return (
         <div id={modalID}
@@ -9,11 +9,14 @@ const Modal = ({ modalID, bgColor, description, title, buttons, state }: any) =>
             aria-labelledby="modalLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
-                    {title && (
+                    {title || canClose && (
                         <div className="modal-header">
                             <h1 className="modal-title fs-4" id="modalLabel">
                                 {title}
                             </h1>
+                            {canClose && (
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            )}
                         </div>
                     )}
                     {description && (

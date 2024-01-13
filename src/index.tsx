@@ -4,10 +4,10 @@ import "./index.scss";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
+import Map from "./pages/Map";
+import Quiz from "./pages/Quiz";
 import Epilogue from "./pages/Epilogue";
 import Score from "./pages/Score";
-import CircularProgressBar from "./pages/CircularProgressBar";
-import Question from "./pages/Question";
 
 const router = createBrowserRouter([
   {
@@ -15,21 +15,21 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/quiz/score",
+    path: "/map",
+    element: <Map />,
+  },
+  {
+    path: "/quiz/:id",
+    element: <Quiz />,
+  },
+  {
+    path: "/score",
     element: <Score />,
   },
   {
-    path: "quiz/epilogue",
+    path: "/epilogue",
     element: <Epilogue />,
-  },
-  {
-    path: "quiz/circularprogress",
-    element: <CircularProgressBar />,
-  },
-  {
-    path: "/question",
-    element: <Question />,
-  },
+  }
 ]);
 
 const root = ReactDOM.createRoot(
