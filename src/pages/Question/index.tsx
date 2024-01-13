@@ -69,7 +69,7 @@ const testAnswer: Data = {
   rightAnswers: {
     mondo1: {
       "1": [0],
-      "4": [0],
+      "4": [1],
       "5": [3],
       "6": [2],
     },
@@ -148,10 +148,9 @@ const Question = () => {
                       Object.values(
                         testAnswer.rightAnswers[testAnswer.currentLevel]
                       )[index].map(
-                        (item, index) =>
+                        (item) =>
                           json.quizzes[testAnswer.currentLevel].find(
                             ({ id }: { id: string }) =>
-                              id ===
                               Object.keys(
                                 testAnswer.rightAnswers[testAnswer.currentLevel]
                               )[index]
@@ -182,6 +181,7 @@ const Question = () => {
                     : "Risposta errata!"}
                 </p>
               ) : (
+                //GAMEMODE.CHALLENGE
                 <p
                   className={
                     Object.entries(
@@ -201,7 +201,7 @@ const Question = () => {
                   {
                     Object.entries(
                       testAnswer.rightAnswers[testAnswer.currentLevel]
-                    ).map((item, index) =>
+                    ).map((item) =>
                       json.quizzes[testAnswer.currentLevel]
                         .find(
                           ({ id: quizID }: { id: string }) => item[0] === quizID
