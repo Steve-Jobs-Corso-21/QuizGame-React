@@ -2,7 +2,7 @@
     "maps": [
         {
             "name": "Password Attack",
-            "color": "#ff0099",
+            "color": "#0c1e3e",
             "description": "lorem ipsum",
             "imageUrl": "pathTpoImg",
             "quizzess": [
@@ -310,7 +310,7 @@
         },
         {
             "name": "Phishing",
-            "color": "#ff0099",
+            "color": "#122c5a",
             "description": "lorem ipsum",
             "imageUrl": "pathTpoImg",
             "quizzess": [
@@ -617,8 +617,8 @@
             ]
         },
         {
-            "name": "- E-mail Spoofing",
-            "color": "#ff0099",
+            "name": "E-mail Spoofing",
+            "color": "#38fbdb",
             "description": "lorem ipsum",
             "imageUrl": "pathTpoImg",
             "quizzess": [
@@ -925,8 +925,8 @@
             ]
         },
         {
-            "name": "- Ransomware",
-            "color": "#ff0099",
+            "name": "Ransomware",
+            "color": "#fc0ff5",
             "description": "lorem ipsum",
             "imageUrl": "pathTpoImg",
             "quizzess": [
@@ -1234,7 +1234,7 @@
         },
         {
             "name": "SQL Injection",
-            "color": "#ff0099",
+            "color": "#8e52f5",
             "description": "lorem ipsum",
             "imageUrl": "pathTpoImg",
             "quizzess": [
