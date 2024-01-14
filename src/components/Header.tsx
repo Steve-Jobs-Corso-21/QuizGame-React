@@ -5,7 +5,7 @@ import Modal from "./Modal";
 
 // TODO: add icon pack
 
-const Header = ({ htmlBlock, audio, audioURL }: any) => {
+const Header = ({ htmlBlock, bgColor, audio, audioURL }: any) => {
     const { state } = useLocation();
     const [currentVolume, setCurrentVolume] = useState<boolean>(true);
 
@@ -14,13 +14,18 @@ const Header = ({ htmlBlock, audio, audioURL }: any) => {
     }
 
     return (
-        <nav className="mx-4 nav d-flex align-items-center justify-content-center">
+        <nav className="nav d-flex align-items-center justify-content-center"
+            style={{ backgroundColor: bgColor }}>
             <button data-bs-toggle="modal" data-bs-target={"#homeModal"} className="me-auto p-1"> 
                 <img src="home.svg" alt="Home" />
                 <Modal modalID="homeModal"
-                    bgColor={undefined}
-                    title={undefined}
-                    description={"Sei sicuro di voler tornare alla home? I tuoi progressi verranno persi."}
+                    bgColor={"bg-dark"}
+                    title="Torna alla Home"
+                    description={
+                        <>
+                            Sei sicuro di voler tornare alla home? <strong>I tuoi progressi verranno persi.</strong>
+                        </>
+                        }
                     buttons={[
                         {"text": "Si", "url": "/"},
                         {"text": "No", "url": ""}

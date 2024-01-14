@@ -2,7 +2,7 @@
     "maps": [
         {
             "name": "Password Attack",
-            "color": "#0c1e3e",
+            "color": "#3c4878",
             "description": "lorem ipsum",
             "imageUrl": "pathTpoImg",
             "quizzess": [
@@ -310,7 +310,7 @@
         },
         {
             "name": "Phishing",
-            "color": "#122c5a",
+            "color": "#3688d6",
             "description": "lorem ipsum",
             "imageUrl": "pathTpoImg",
             "quizzess": [
@@ -926,7 +926,7 @@
         },
         {
             "name": "Ransomware",
-            "color": "#fc0ff5",
+            "color": "#675689",
             "description": "lorem ipsum",
             "imageUrl": "pathTpoImg",
             "quizzess": [

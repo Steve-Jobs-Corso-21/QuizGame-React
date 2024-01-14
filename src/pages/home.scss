@@ -1,6 +1,6 @@
 @import "./../includes/includes.scss";
 
-.mainMenu{
+body {
     background-color: rgb(255, 244, 231);
 }
 
@@ -13,8 +13,6 @@
         outline: 6px solid rgb(0, 163, 163);
     }    
 }
-
-
 
 .btn-custom-home {
     width: 200px;

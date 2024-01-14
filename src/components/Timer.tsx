@@ -1,5 +1,4 @@
 import {useEffect, useState } from "react";
-import "./Timer.scss";
 
 function Timer({ quizID, maxTime, stopTimer, modalID } :any ){
     const [currentTime, setCurrentTimer] = useState(maxTime);

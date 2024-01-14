@@ -9,7 +9,7 @@ const Modal = ({ modalID, bgColor, description, title, canClose = false, buttons
             aria-labelledby="modalLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
-                    {title || canClose && (
+                    {(title || canClose) && (
                         <div className="modal-header">
                             <h1 className="modal-title fs-4" id="modalLabel">
                                 {title}
@@ -21,7 +21,7 @@ const Modal = ({ modalID, bgColor, description, title, canClose = false, buttons
                     )}
                     {description && (
                         <div className="modal-body">
-                            <p className="fs-5">{description}</p>
+                            <p className="fs-5 text-start">{description}</p>
                         </div>
                     )}
                     {buttons && (

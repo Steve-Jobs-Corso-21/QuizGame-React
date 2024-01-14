@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Quiz/index.scss";
 import "./home.scss";
-import { useState } from "react";
 import Modal from "../components/Modal";
 import Header from "../components/Header";
 
@@ -52,10 +51,8 @@ export type JSON = {
 };
 
 const Menu = () => {
-    const [y, sety] = useState<GameMode>(GameMode.Training);
     const modeClick = (mode: GameMode) => {
         data.gameMode = mode;
-        sety(mode);
     };
 
     let data: Data = {
@@ -82,54 +79,44 @@ const Menu = () => {
 
     return (
         <>
-            <Modal modalID="11"
-                bgColor=""
-                description={<>
-                    Allenamento: In modalità allenamento potrai esercitarti sui vari argomenti che preferisci senza preoccuparti
-                    di sbagliare.
-                    <br />
-                    Sfida: In modalità sfida dovrai testare le tue abilità in una prova a tempo dove dovrai cercare di fare il minor numero di
-                    errori possibili.
-                </>}
+            <Modal modalID="modeModal"
+            bgColor="bg-dark"
+            description={<>
+                <div>
+                    <b>Allenamento</b>
+                    <p>In modalità allenamento potrai scegliere i quiz che preferisci, senza preoccuparti di sbagliare.</p>
+                </div>
+                <div>
+                    <b>Sfida</b>
+                    <p>In modalità sfida dovrai testare le tue abilità in una prova a tempo, cercando di fare il minor numero di errori possibili.</p>
+                </div>
+            </>}
+            canClose={true}
+            title="Modalità di gioco"/>
 
-                title="Modalità di gioco:"
-                buttons={[{ "text": "continua", "url": "/" }]}
-            >
-
-            </Modal>
             <Header
-                htmlBlock={""}
-                audio={true}
-                audioURL={""}
-            />
-            <div className="mainMenu d-flex flex-column align-items-center justify-content-around vh-100">
-                <h1>Cyberquiz</h1>
-                <div className="box-mod d-flex flex-column align-items-center mt-5 px-5 py-2">
+            htmlBlock={""}
+            bgColor={"transparent"}
+            audio={true}
+            audioURL={""}/>
+
+            <div className="mainMenu d-flex flex-column align-items-center justify-content-around">
+                <img className="img-fluid" src="cyber-logo.png" alt="logo"/>
+                <h1>CyberQuiz</h1>
+                <div className="box-mod d-flex flex-column align-items-center px-5">
                     <div className="d-flex">
-                        <h2 className="me-5">Scegli la modalita'</h2>
-                        <button className="btn-info btn-primary "
-                            data-bs-toggle="modal"
-                            data-bs-target="#11"
-                        >
-                            <img src="info-circle.svg" alt="" />
+                        <h2>Scegli la modalita'</h2>
+                        <button className="" data-bs-toggle="modal" data-bs-target="#modeModal">
+                            <img src="info-circle.svg" alt="info"/>
                         </button>
                     </div>
-                    <Link
-                        className="btn-custom-home btn btn-primary p-3 m-2"
-                        to="/map"
-                        state={data}
-                        onClick={() => modeClick(GameMode.Training)}
-                    >
-                        Allenamento
-                    </Link>
-                    <Link
-                        className="btn-custom-home btn btn-primary p-3 m-2"
-                        to="/map"
-                        state={data}
-                        onClick={() => modeClick(GameMode.Challenge)}
-                    >
-                        Sfida
-                    </Link>
+                    {Object.values(GameMode).filter((item) => isNaN(Number(item))).map((key) =>
+                        <Link className="btn p-3 m-2 btn-custom-home"
+                        to="/map" state={data}
+                        onClick={() => modeClick(GameMode[key as keyof typeof GameMode])}>
+                            {key as GameMode}
+                        </Link>
+                    )}
                 </div>
             </div>
         </>

@@ -34,10 +34,6 @@ const Map = () => {
 
         navigate(`/quiz/${state.quizzes[0]}`, { state });
     };
-    const levelGenerator = (Data: JSON) => {
-        const len = Object.keys(Data.maps);
-    };
-    levelGenerator(json);
 
     const checkLevel = (levelNumber: number) =>
         state.gameMode === GameMode.Challenge &&
@@ -47,30 +43,39 @@ const Map = () => {
         !!state && (
             <>
                 <Header
-                    htmlBlock={<h1>Scegli da dove cominciare</h1>}
-                    audio={true}
-                    audioURL={""}
-                />
+                htmlBlock={<h1>{state.gameMode === GameMode.Training ? "Modalità Allenamento" : "Modalità Sfida"}</h1>}
+                audio={true}
+                audioURL={""}/>
 
                 <div className="mapMenu">
                     <div className="conteiner-map offset-2 col-8 align-center">
                         { json.maps.map((item, index, arr) => (
                             <div>
-                                <div className={`box-button d-flex justify-content-center ${index % 2 && "flex-row-reverse"}`}>
+                                <div className={`d-flex justify-content-center gap-5 ${index % 2 && "flex-row-reverse"}`}>
                                     <div className="w-50">
                                         <button className={`map-btn d-flex flex-column ${index % 2 ? "right me-auto" : "left ms-auto"} ${checkLevel(index + 1) && "disabled"}`}
-                                            onClick={() => !checkLevel(index + 1) && loadLevel(index)}
-                                            key={index}>
+                                        style={{borderColor: json.maps[index].color}}
+                                        onClick={() => !checkLevel(index + 1) && loadLevel(index)}
+                                        key={index}>
                                             {index}
                                         </button>
                                     </div>
-                                    <div className="card-map d-flex flex-column flex-start justify-content-center w-50">
+                                    <div className="d-flex flex-column justify-content-center w-50 text-center">
                                         <h1 className="text-uppercase">{json.maps[index].name}</h1>
                                         <p className="text-world">{json.maps[index].description}</p>
                                     </div>
                                 </div>
-                                {index < arr.length && (
-                                    <div className="separator"></div>
+                                {index < arr.length - 1 && (
+                                    <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="1 1 15 15"
+                                    className={`svg ${index % 2 ? "inversed-svg" : ""}`}>
+                                        <path
+                                            d="M1,1 Q1,8 8,8 Q16,8 16,16"
+                                            stroke="#000000"
+                                            fill="none"
+                                        />
+                                    </svg>
                                 )}
                             </div>
                         ))
