@@ -50,7 +50,7 @@ const Map = () => {
         !!state && (
             <>
                 <Header
-                    htmlBlock={<h1>Scegli da dove cominciare</h1>}
+                    htmlBlock={<h1>Seleziona il livello!</h1>}
                     audio={true}
                     audioURL={""}
                 />
@@ -63,7 +63,7 @@ const Map = () => {
                                         <button className={`map-btn d-flex flex-column ${index % 2 ? "right me-auto" : "left ms-auto"} ${!checkLevel(index + 1) && "disabled"}`}
                                             onClick={() => !checkLevel(index + 1) && loadLevel(index)}
                                             key={index}>
-                                            {index}
+                                            {index+1}
                                         </button>
                                     </div>
                                     <div className="card-map d-flex flex-column flex-start justify-content-center w-50">

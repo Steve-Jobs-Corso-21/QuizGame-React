@@ -76,7 +76,7 @@ const Menu = () => {
                 </>}
 
                 title="Modalità di gioco:"
-                buttons={[{ "text": "continua", "url": "/" }]}
+                buttons={[{ "text": "Continua", "url": "/" }]}
             >
 
             </Modal>
@@ -90,7 +90,7 @@ const Menu = () => {
                         <img
                             data-bs-toggle="modal"
                             data-bs-target="#11"
-                            src="info-circle.svg" alt="" />
+                            src="info-circle.svg" alt="information logo" title="Clicca per scoprire le modalità" />
                     </div>
                     <Link
                         className="btn-custom-home btn btn-primary p-3 m-2"

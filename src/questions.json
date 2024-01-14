@@ -1,102 +1,1544 @@
 {
     "maps": [
         {
-            "name": "phishing",
-            "color": "#ff0099",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "imageUrl": "pathTpoImg",
-            "quizzess": [
-                {
-                    "id": "1",
-                    "question": "Per cosa sta l'arconimo HTML? domanda 1 mondo 1",
-                    "description": "L'acronimo HTML sta per Hypertext Markup Language",
-                    "answers": [
-                        {
-                            "answer": "Hypertext Markup Language",
-                            "correct": true
-                        },
-                        {
-                            "answer": "Hypertext Markdown Language"
-                        },
-                        {
-                            "answer": "How To Make a Life"
-                        },
-                        {
-                            "answer": "Hypertardis Mark Language"
-                        }
-                    ]
-                },
-                {
-                    "id": "2",
-                    "question": "Per cosa sta l'arconimo HTML? domanda 1 mondo 1",
-                    "description": "L'acronimo HTML sta per Hypertext Markup Language",
-                    "imageUrl": "pathTpoImg",
-                    "answers": [
-                        {
-                            "answer": "Hypertext Markup Language",
-                            "correct": true
-                        },
-                        {
-                            "answer": "Hypertext Markdown Language"
-                        },
-                        {
-                            "answer": "How To Make a Life"
-                        },
-                        {
-                            "answer": "Hypertardis Mark Language"
-                        }
-                    ]
-                }
-            ] 
-        },
-        {
-            "name": "DDoS",
+            "name": "Password Attack",
             "color": "#ff0099",
             "description": "lorem ipsum",
             "imageUrl": "pathTpoImg",
             "quizzess": [
                 {
-                    "id": "3",
-                    "question": "Per cosa sta l'arconimo HTML? domanda 1 mondo 1",
-                    "description": "L'acronimo HTML sta per Hypertext Markup Language",
+                    "id": "1",
+                    "question": "Qual è il tipo di attacco che cerca di indovinare la password provando tutte le combinazioni possibili?",
+                    "description": "Indicare il tipo di attacco che sfrutta la forza bruta per scoprire una password.",
                     "answers": [
                         {
-                            "answer": "Hypertext Markup Language",
+                            "answer": "Dictionary Attack"
+                        },
+                        {
+                            "answer": "Brute Force Attack",
                             "correct": true
                         },
                         {
-                            "answer": "Hypertext Markdown Language"
+                            "answer": "Man-in-the-Middle Attack"
                         },
                         {
-                            "answer": "How To Make a Life"
+                            "answer": "Phishing Attack"
+                        }
+                    ]
+                },
+                {
+                    "id": "2",
+                    "question": "Qual è uno dei principali motivi per cui è consigliabile utilizzare password complesse?",
+                    "description": "Indicare la ragione principale dietro l'uso di password complesse.",
+                    "answers": [
+                        {
+                            "answer": "Facilitare il ricordo."
                         },
                         {
-                            "answer": "Hypertardis Mark Language"
+                            "answer": "Permettere un accesso più veloce."
+                        },
+                        {
+                            "answer": "Proteggere da accessi non autorizzati.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Per non doverle cambiare."
+                        }
+                    ]
+                },
+                {
+                    "id": "3",
+                    "question": "Cos'è il 'Credential Stuffing'?",
+                    "description": "Indicare la definizione corretta per 'Credential Stuffing'.",
+                    "answers": [
+                        {
+                            "answer": "Una tecnica di hashing delle password."
+                        },
+                        {
+                            "answer": "L'uso di credenziali rubate per accedere a vari servizi.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Un metodo per creare password complesse."
+                        },
+                        {
+                            "answer": "Un sistema di autenticazione a due fattori."
                         }
                     ]
                 },
                 {
                     "id": "4",
-                    "question": "Per cosa sta l'arconimo HTML? domanda 1 mondo 1",
-                    "description": "L'acronimo HTML sta per Hypertext Markup Language",
-                    "imageUrl": "pathTpoImg",
+                    "question": "Cosa significa 'Salting' in relazione alle password?",
+                    "description": "Indicare la definizione corretta di 'Salting' in termini di password.",
                     "answers": [
                         {
-                            "answer": "Hypertext Markup Language",
+                            "answer": "Aggiungere un tocco di sale per rendere la password più gustosa."
+                        },
+                        {
+                            "answer": "Aggiungere dati casuali prima di criptare la password.",
                             "correct": true
                         },
                         {
-                            "answer": "Hypertext Markdown Language"
+                            "answer": "Rendere la password facilmente indovinabile."
                         },
                         {
-                            "answer": "How To Make a Life"
+                            "answer": "Modificare una password già esistente."
+                        }
+                    ]
+                },
+                {
+                    "id": "5",
+                    "question": "Quale delle seguenti password è generalmente considerata più sicura?",
+                    "description": "Indicare la password generalmente considerata più sicura.",
+                    "answers": [
+                        {
+                            "answer": "Password123"
                         },
                         {
-                            "answer": "Hypertardis Mark Language"
+                            "answer": "12Ab!34C",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Qwertyuiop"
+                        },
+                        {
+                            "answer": "User1234"
+                        }
+                    ]
+                },
+                {
+                    "id": "6",
+                    "question": "Cosa rappresenta una 'passphrase'?",
+                    "description": "Indicare la definizione corretta di 'passphrase'.",
+                    "answers": [
+                        {
+                            "answer": "Una lunga sequenza di numeri."
+                        },
+                        {
+                            "answer": "Stringa di parole non correlate tra loro che viene utilizzata come password.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Una serie di caratteri casuali."
+                        },
+                        {
+                            "answer": "Una combinazione di parole chiave."
+                        }
+                    ]
+                },
+                {
+                    "id": "7",
+                    "question": "Qual è una pratica consigliata per memorizzare le password in modo sicuro?",
+                    "description": "Indicare la pratica consigliata per la memorizzazione sicura delle password.",
+                    "answers": [
+                        {
+                            "answer": "Scriverle in un file sul desktop."
+                        },
+                        {
+                            "answer": "Memorizzarle tutte nella stessa app."
+                        },
+                        {
+                            "answer": "Usare un gestore di password affidabile.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Condividere le password con amici di fiducia."
+                        }
+                    ]
+                },
+                {
+                    "id": "8",
+                    "question": "Qual è uno dei rischi principali nell'utilizzare la stessa password per diversi servizi?",
+                    "description": "Indicare uno dei rischi principali associati all'uso della stessa password su vari servizi.",
+                    "answers": [
+                        {
+                            "answer": "Aumento del numero di password da ricordare."
+                        },
+                        {
+                            "answer": "Vulnerabilità di sicurezza se una password viene compromessa.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Miglioramento dell'efficienza dell'accesso."
+                        },
+                        {
+                            "answer": "Facilità di condivisione con amici."
+                        }
+                    ]
+                },
+                {
+                    "id": "9",
+                    "question": "In quale tipo di attacco un malintenzionato prova una serie di password comuni o predittive?",
+                    "description": "Indicare il tipo di attacco in cui vengono testate password comuni o predittive.",
+                    "answers": [
+                        {
+                            "answer": "Brute Force Attack"
+                        },
+                        {
+                            "answer": "Salting Attack"
+                        },
+                        {
+                            "answer": "Dictionary Attack",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Rainbow Table Attack"
+                        }
+                    ]
+                },
+                {
+                    "id": "10",
+                    "question": "Qual è l'obiettivo principale di utilizzare le 'passphrase'?",
+                    "description": "Indicare l'obiettivo principale dell'uso delle 'passphrase'.",
+                    "answers": [
+                        {
+                            "answer": "Semplificare il processo di login."
+                        },
+                        {
+                            "answer": "Offrire una maggiore sicurezza rispetto alle password tradizionali.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Creare una password che non necessita di essere cambiata."
+                        },
+                        {
+                            "answer": "Facilitare la memorizzazione di più password."
+                        }
+                    ]
+                },
+                {
+                    "id": "11",
+                    "question": "Qual è uno dei benefici dell'utilizzo dei gestori di password?",
+                    "description": "Indicare uno dei vantaggi derivanti dall'uso dei gestori di password.",
+                    "answers": [
+                        {
+                            "answer": "Sono completamente immuni agli attacchi hacker."
+                        },
+                        {
+                            "answer": "Consentono di memorizzare tutte le password in un unico posto sicuro.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Eliminano la necessità di utilizzare qualsiasi password."
+                        },
+                        {
+                            "answer": "Sono generalmente gratuiti e non richiedono manutenzione."
+                        }
+                    ]
+                },
+                {
+                    "id": "12",
+                    "question": "Perché è importante evitare di utilizzare informazioni personali (come nome, data di nascita) nelle password?",
+                    "description": "Indicare la ragione principale per cui è importante evitare l'uso di informazioni personali nelle password.",
+                    "answers": [
+                        {
+                            "answer": "Perché queste informazioni cambiano frequentemente."
+                        },
+                        {
+                            "answer": "Per evitare di dimenticare la password."
+                        },
+                        {
+                            "answer": "Perché sono spesso le prime informazioni verificate in un attacco di forza bruta.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Perché rendono le password troppo lunghe e difficili da ricordare."
+                        }
+                    ]
+                },
+                {
+                    "id": "13",
+                    "question": "Cosa significa il termine 'Credential Sniffing'?",
+                    "description": "Indicare la definizione corretta di 'Credential Sniffing'.",
+                    "answers": [
+                        {
+                            "answer": "Un processo di creazione di password complesse."
+                        },
+                        {
+                            "answer": "Un metodo per proteggere le password da attacchi esterni."
+                        },
+                        {
+                            "answer": "Un'attività malevola che cattura e intercetta le credenziali durante la trasmissione.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Una tecnica per accelerare il processo di autenticazione."
+                        }
+                    ]
+                },
+                {
+                    "id": "14",
+                    "question": "Qual è uno dei principali pericoli dell'utilizzo di password troppo semplici?",
+                    "description": "Indicare uno dei rischi principali associati all'uso di password troppo semplici.",
+                    "answers": [
+                        {
+                            "answer": "Aumento della velocità di accesso al sistema."
+                        },
+                        {
+                            "answer": "Maggiore facilità di condivisione con altri utenti."
+                        },
+                        {
+                            "answer": "Vulnerabilità agli attacchi di forza bruta o dizionario.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Minore necessità di cambiare frequentemente le password."
+                        }
+                    ]
+                },
+                {
+                    "id": "15",
+                    "question": "Cosa fa una 'Rainbow Table' nelle password?",
+                    "description": "Indicare l'azione associata a una 'Rainbow Table' nell'ambito delle password.",
+                    "answers": [
+                        {
+                            "answer": "Trova password perse."
+                        },
+                        {
+                            "answer": "Conserva cifrature di password comuni.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Genera password casuali."
+                        },
+                        {
+                            "answer": "Mostra password sicure."
                         }
                     ]
                 }
-            ] 
+            ]
+        },
+        {
+            "name": "Phishing",
+            "color": "#ff0099",
+            "description": "lorem ipsum",
+            "imageUrl": "pathTpoImg",
+            "quizzess": [
+                {
+                    "id": "16",
+                    "question": "Cos'è il 'Phishing'?",
+                    "description": "Indicare la definizione corretta di 'Phishing'.",
+                    "answers": [
+                        {
+                            "answer": "Un attacco informatico che invia virus."
+                        },
+                        {
+                            "answer": "Un tentativo fraudolento di ottenere informazioni sensibili simulando una fonte affidabile.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Un sistema di autenticazione avanzato."
+                        },
+                        {
+                            "answer": "Un programma antivirus."
+                        }
+                    ]
+                },
+                {
+                    "id": "17",
+                    "question": "Qual è un esempio comune di 'Phishing'?",
+                    "description": "Indicare un esempio comune di 'Phishing'.",
+                    "answers": [
+                        {
+                            "answer": "Invio di e-mail di auguri."
+                        },
+                        {
+                            "answer": "Creazione di password complesse."
+                        },
+                        {
+                            "answer": "Ricezione di chiamate sospette."
+                        },
+                        {
+                            "answer": "E-mail che fingono di essere da una banca e chiedono di cliccare su un link.",
+                            "correct": true
+                        }
+                    ]
+                },
+                {
+                    "id": "18",
+                    "question": "Come viene spesso mascherato un attacco di 'Phishing'?",
+                    "description": "Indicare il metodo comune di mascheramento di un attacco di 'Phishing'.",
+                    "answers": [
+                        {
+                            "answer": "Con messaggi che sembrano provenire da fonti affidabili.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Utilizzando solo testo senza link."
+                        },
+                        {
+                            "answer": "Richiedendo una lunga sequenza di numeri."
+                        },
+                        {
+                            "answer": "Indicando esplicitamente che è un tentativo di truffa."
+                        }
+                    ]
+                },
+                {
+                    "id": "19",
+                    "question": "Qual è l'obiettivo principale di un attacco di 'Phishing'?",
+                    "description": "Indicare l'obiettivo principale di un attacco di 'Phishing'.",
+                    "answers": [
+                        {
+                            "answer": "Rubare informazioni personali o finanziarie.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Bloccare l'accesso a un account."
+                        },
+                        {
+                            "answer": "Inviare messaggi non richiesti."
+                        },
+                        {
+                            "answer": "Creare nuovi account utente."
+                        }
+                    ]
+                },
+                {
+                    "id": "20",
+                    "question": "Cosa dovresti fare se ricevi una e-mail sospetta con un link che chiede di inserire le tue credenziali?",
+                    "description": "Indicare l'azione consigliata in caso di ricezione di una e-mail sospetta con richiesta di inserimento delle credenziali.",
+                    "answers": [
+                        {
+                            "answer": "Cliccare sul link e inserire le credenziali."
+                        },
+                        {
+                            "answer": "Ignorare completamente l’e-mail."
+                        },
+                        {
+                            "answer": "Rispondere fornendo le informazioni richieste."
+                        },
+                        {
+                            "answer": "Verificare l'autenticità contattando direttamente l'azienda.",
+                            "correct": true
+                        }
+                    ]
+                },
+                {
+                    "id": "21",
+                    "question": "Come può un sito web di 'Phishing' sembrare legittimo?",
+                    "description": "Indicare il metodo comune attraverso il quale un sito web di 'Phishing' può sembrare legittimo.",
+                    "answers": [
+                        {
+                            "answer": "Utilizzando un linguaggio informale."
+                        },
+                        {
+                            "answer": "Mostrando grammaticalmente errori evidenti."
+                        },
+                        {
+                            "answer": "Copiando il design e il logo di un sito legittimo.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Esponendo messaggi di avvertimento."
+                        }
+                    ]
+                },
+                {
+                    "id": "22",
+                    "question": "Cosa rappresenta il termine 'Spear Phishing'?",
+                    "description": "Indicare la definizione corretta di 'Spear Phishing'.",
+                    "answers": [
+                        {
+                            "answer": "Un attacco mirato a una persona o organizzazione specifica.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Un attacco basato su malware."
+                        },
+                        {
+                            "answer": "Un tentativo di accesso non autorizzato."
+                        },
+                        {
+                            "answer": "Un sistema di autenticazione avanzato."
+                        }
+                    ]
+                },
+                {
+                    "id": "23",
+                    "question": "Quale comportamento potrebbe indicare un possibile attacco di 'Phishing' nelle e-mail?",
+                    "description": "Indicare il segnale che potrebbe indicare un possibile attacco di 'Phishing' nelle e-mail.",
+                    "answers": [
+                        {
+                            "answer": "L'email contiene solo testo senza link."
+                        },
+                        {
+                            "answer": "L'email è inviata da un collega di lavoro."
+                        },
+                        {
+                            "answer": "L'email chiede di condividere solo informazioni non sensibili."
+                        },
+                        {
+                            "answer": "L'email contiene errori grammaticali o ortografici evidenti.",
+                            "correct": true
+                        }
+                    ]
+                },
+                {
+                    "id": "24",
+                    "question": "Cosa dovresti fare se sospetti di essere vittima di un attacco di 'Phishing'?",
+                    "description": "Indicare l'azione consigliata in caso di sospetto attacco di 'Phishing'.",
+                    "answers": [
+                        {
+                            "answer": "Condividere ulteriori informazioni richieste."
+                        },
+                        {
+                            "answer": "Cambiare immediatamente tutte le tue password.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Ignorare la situazione sperando che svanisca."
+                        },
+                        {
+                            "answer": "Inoltrare l’e-mail a tutti i tuoi contatti."
+                        }
+                    ]
+                },
+                {
+                    "id": "25",
+                    "question": "Qual è uno degli strumenti comuni utilizzati per effettuare attacchi di 'Phishing'?",
+                    "description": "Indicare uno degli strumenti comuni utilizzati per condurre attacchi di 'Phishing'.",
+                    "answers": [
+                        {
+                            "answer": "VPN (Virtual Private Network)."
+                        },
+                        {
+                            "answer": "Keylogger.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Antivirus."
+                        },
+                        {
+                            "answer": "App di messaggistica."
+                        }
+                    ]
+                },
+                {
+                    "id": "26",
+                    "question": "Cosa è 'Vishing', una variante di 'Phishing'?",
+                    "description": "Indicare la definizione corretta di 'Vishing', una variante di 'Phishing'.",
+                    "answers": [
+                        {
+                            "answer": "Un attacco informatico basato su virus."
+                        },
+                        {
+                            "answer": "Una versione virtuale di 'Fishing'."
+                        },
+                        {
+                            "answer": "Un attacco che sfrutta la voce telefonica per ingannare le vittime.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Un metodo di autenticazione avanzato."
+                        }
+                    ]
+                },
+                {
+                    "id": "27",
+                    "question": "Qual è uno dei segnali di un sito web di 'Phishing'?",
+                    "description": "Indicare uno dei segnali che potrebbe indicare la presenza di un sito web di 'Phishing'.",
+                    "answers": [
+                        {
+                            "answer": "Certificato SSL valido."
+                        },
+                        {
+                            "answer": "Presenza di numeri di telefono di contatto."
+                        },
+                        {
+                            "answer": "URL simile a quello di un sito autentico.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Politica sulla privacy ben definita."
+                        }
+                    ]
+                },
+                {
+                    "id": "28",
+                    "question": "Cosa potrebbe contenere un’e-mail di 'Phishing' che cerca di imitare una comunicazione ufficiale da una banca?",
+                    "description": "Indicare uno degli elementi che potrebbe contenere un’e-mail di 'Phishing' che cerca di imitare una comunicazione ufficiale da una banca.",
+                    "answers": [
+                        {
+                            "answer": "Richiesta di cliccare su un link e inserire le credenziali.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Promozione di nuovi servizi bancari."
+                        },
+                        {
+                            "answer": "Invito a partecipare a un sondaggio sulla soddisfazione del cliente."
+                        },
+                        {
+                            "answer": "Messaggio di ringraziamento per essere un cliente fedele."
+                        }
+                    ]
+                },
+                {
+                    "id": "29",
+                    "question": "Cosa dovresti fare se ricevi una chiamata telefonica sospetta che chiede informazioni personali?",
+                    "description": "Indicare l'azione consigliata in caso di ricezione di una chiamata telefonica sospetta che richiede informazioni personali.",
+                    "answers": [
+                        {
+                            "answer": "Fornire immediatamente le informazioni richieste."
+                        },
+                        {
+                            "answer": "Verificare l'identità del chiamante chiamando il numero ufficiale della società.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Ignorare completamente la chiamata."
+                        },
+                        {
+                            "answer": "Condividere informazioni solo se il chiamante conosce dettagli personali."
+                        }
+                    ]
+                },
+                {
+                    "id": "30",
+                    "question": "Cosa è il 'Pharming' in relazione ai tentativi di 'Phishing'?",
+                    "description": "Indicare la definizione corretta di 'Pharming' in relazione ai tentativi di 'Phishing'.",
+                    "answers": [
+                        {
+                            "answer": "Una tecnica di registrazione delle attività online."
+                        },
+                        {
+                            "answer": "Un attacco basato su malware."
+                        },
+                        {
+                            "answer": "Una forma di 'Phishing' che si concentra sui dati della carta di credito."
+                        },
+                        {
+                            "answer": "Una tattica dirottamento del traffico web per indirizzare gli utenti verso siti di 'Phishing'.",
+                            "correct": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "E-mail Spoofing",
+            "color": "#ff0099",
+            "description": "lorem ipsum",
+            "imageUrl": "pathTpoImg",
+            "quizzess": [
+                {
+                    "id": "31",
+                    "question": "Qual è uno degli obiettivi principali dell'Email Spoofing?",
+                    "description": "Indicare uno degli obiettivi principali dell'Email Spoofing.",
+                    "answers": [
+                        {
+                            "answer": "Inviare e-mail promozionali."
+                        },
+                        {
+                            "answer": "Rubare informazioni riservate.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Aumentare la velocità di consegna delle e-mail."
+                        },
+                        {
+                            "answer": "Personalizzare la firma e-mail."
+                        }
+                    ]
+                },
+                {
+                    "id": "32",
+                    "question": "Come può un attaccante utilizzare l'E-mail Spoofing per ingannare le vittime?",
+                    "description": "Indicare il metodo con cui un attaccante può utilizzare l'E-mail Spoofing per ingannare le vittime.",
+                    "answers": [
+                        {
+                            "answer": "Inviando e-mail senza alcun testo."
+                        },
+                        {
+                            "answer": "Modificando il colore del testo nelle e-mail."
+                        },
+                        {
+                            "answer": "Fingendo di inviare e-mail da un mittente fidato.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Allegando file di grandi dimensioni."
+                        }
+                    ]
+                },
+                {
+                    "id": "33",
+                    "question": "Cosa dovresti fare se ricevi un’e-mail sospetta da un mittente che conosci?",
+                    "description": "Indicare l'azione consigliata in caso di ricezione di un'e-mail sospetta da un mittente noto.",
+                    "answers": [
+                        {
+                            "answer": "Rispondere immediatamente con le informazioni richieste."
+                        },
+                        {
+                            "answer": "Verificare l'autenticità dell’e-mail attraverso un canale separato.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Inoltrare l’e-mail a tutti i tuoi contatti."
+                        },
+                        {
+                            "answer": "Eliminare l’e-mail senza aprirla."
+                        }
+                    ]
+                },
+                {
+                    "id": "34",
+                    "question": "Qual è uno dei segnali di un’e-mail Spoofing?",
+                    "description": "Indicare uno dei segnali che potrebbe indicare la presenza di un’e-mail Spoofing.",
+                    "answers": [
+                        {
+                            "answer": "La presenza di allegati."
+                        },
+                        {
+                            "answer": "Il mittente utilizza un linguaggio formale."
+                        },
+                        {
+                            "answer": "L'indirizzo e-mail del mittente sembra sospetto o è leggermente alterato.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "La firma e-mail contiene molti dettagli personali."
+                        }
+                    ]
+                },
+                {
+                    "id": "35",
+                    "question": "Cosa potrebbe fare un attaccante attraverso l'Email Spoofing?",
+                    "description": "Indicare l'azione che potrebbe compiere un attaccante attraverso l'Email Spoofing.",
+                    "answers": [
+                        {
+                            "answer": "Invio di newsletter."
+                        },
+                        {
+                            "answer": "Recupero di password.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Personalizzazione delle firme e-mail."
+                        },
+                        {
+                            "answer": "Cambio della lingua delle e-mail."
+                        }
+                    ]
+                },
+                {
+                    "id": "36",
+                    "question": "Come può essere utilizzato l'Email Spoofing in attacchi di Phishing?",
+                    "description": "Indicare l'utilizzo dell'Email Spoofing in attacchi di Phishing.",
+                    "answers": [
+                        {
+                            "answer": "Invio di e-mail senza alcun contenuto."
+                        },
+                        {
+                            "answer": "Alterazione del formato del testo."
+                        },
+                        {
+                            "answer": "Fingendo di inviare e-mail da una fonte fidata per rubare informazioni.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Aggiunta di emoji alle e-mail."
+                        }
+                    ]
+                },
+                {
+                    "id": "37",
+                    "question": "Qual è uno dei modi per difendersi dall'Email Spoofing?",
+                    "description": "Indicare uno dei modi consigliati per difendersi dall'Email Spoofing.",
+                    "answers": [
+                        {
+                            "answer": "Rispondere sempre alle e-mail sospette."
+                        },
+                        {
+                            "answer": "Verificare attentamente l'ortografia nelle e-mail."
+                        },
+                        {
+                            "answer": "Utilizzare firme e-mail elaborate."
+                        },
+                        {
+                            "answer": "Essere cauti quando si aprono allegati o si clicca su link in e-mail non richieste.",
+                            "correct": true
+                        }
+                    ]
+                },
+                {
+                    "id": "38",
+                    "question": "Cosa rappresenta l'indirizzo e-mail 'spoofato' in un attacco di E-mail Spoofing?",
+                    "description": "Indicare la definizione corretta di 'indirizzo e-mail spoofato' in un attacco di E-mail Spoofing.",
+                    "answers": [
+                        {
+                            "answer": "L'indirizzo e-mail autentico del mittente."
+                        },
+                        {
+                            "answer": "Un indirizzo e-mail falsificato che sembra provenire da un mittente legittimo.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Un indirizzo e-mail temporaneo."
+                        },
+                        {
+                            "answer": "L'indirizzo e-mail di un destinatario non coinvolto."
+                        }
+                    ]
+                },
+                {
+                    "id": "39",
+                    "question": "In un attacco di E-mail Spoofing, cosa potrebbe essere alterato per ingannare il destinatario?",
+                    "description": "Indicare l'elemento che potrebbe essere alterato in un attacco di E-mail Spoofing per ingannare il destinatario.",
+                    "answers": [
+                        {
+                            "answer": "Il colore del testo nell'email."
+                        },
+                        {
+                            "answer": "L'ora di invio dell’e-mail."
+                        },
+                        {
+                            "answer": "L'indirizzo IP del mittente.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "L'oggetto dell’e-mail."
+                        }
+                    ]
+                },
+                {
+                    "id": "40",
+                    "question": "Cos'è il 'Reply-to' in un’e-mail e come può essere manipolato nell'Email Spoofing?",
+                    "description": "Indicare la definizione corretta di 'Reply-to' in un’e-mail e come può essere manipolato nell'Email Spoofing.",
+                    "answers": [
+                        {
+                            "answer": "L'indirizzo e-mail al quale dovrebbe essere inviata la risposta; può essere modificato per indirizzarle a un altro indirizzo e-mail fraudolento.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Un'opzione per rispondere a un’e-mail senza aprirla."
+                        },
+                        {
+                            "answer": "Un link all'interno dell’e-mail che può essere alterato."
+                        },
+                        {
+                            "answer": "L'ora in cui l’e-mail è stata inviata."
+                        }
+                    ]
+                },
+                {
+                    "id": "41",
+                    "question": "Come può essere utilizzato l'Email Spoofing in attacchi di 'CEO Fraud'?",
+                    "description": "Indicare come l'Email Spoofing può essere utilizzato negli attacchi di 'CEO Fraud'.",
+                    "answers": [
+                        {
+                            "answer": "Invio di e-mail solo a dipendenti di basso livello."
+                        },
+                        {
+                            "answer": "Fingendo di inviare e-mail da un dirigente aziendale per richiedere trasferimenti di denaro.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Creazione di firme e-mail complesse."
+                        },
+                        {
+                            "answer": "Aggiunta di immagini ai messaggi e-mail."
+                        }
+                    ]
+                },
+                {
+                    "id": "42",
+                    "question": "Qual è uno dei modi per identificare un’e-mail Spoofing?",
+                    "description": "Indicare uno dei modi per identificare un’e-mail Spoofing.",
+                    "answers": [
+                        {
+                            "answer": "Analizzare la lunghezza del testo dell’e-mail."
+                        },
+                        {
+                            "answer": "Controllare se l'e-mail contiene allegati."
+                        },
+                        {
+                            "answer": "Verificare attentamente l'indirizzo e-mail del mittente.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Rispondere immediatamente a qualsiasi richiesta dell’e-mail."
+                        }
+                    ]
+                },
+                {
+                    "id": "43",
+                    "question": "Come può essere manipolato l'indirizzo e-mail del mittente in un attacco di E-mail Spoofing?",
+                    "description": "Indicare il metodo con cui l'indirizzo e-mail del mittente può essere manipolato in un attacco di E-mail Spoofing.",
+                    "answers": [
+                        {
+                            "answer": "Nascondendo completamente l'indirizzo e-mail."
+                        },
+                        {
+                            "answer": "Utilizzando un linguaggio formale nell'email."
+                        },
+                        {
+                            "answer": "Modificando l'indirizzo e-mail per sembrare leggermente diverso da quello originale.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Utilizzando solo indirizzi e-mail di lunghezza standard."
+                        }
+                    ]
+                },
+                {
+                    "id": "44",
+                    "question": "Cosa dovresti fare se sospetti di essere vittima di un attacco di E-mail Spoofing?",
+                    "description": "Indicare l'azione consigliata in caso di sospetto attacco di E-mail Spoofing.",
+                    "answers": [
+                        {
+                            "answer": "Condividere ulteriori informazioni richieste."
+                        },
+                        {
+                            "answer": "Rispondere a tutte le e-mail dal mittente sospetto."
+                        },
+                        {
+                            "answer": "Informare immediatamente i tuoi colleghi."
+                        },
+                        {
+                            "answer": "Verificare l'autenticità attraverso canali sicuri e segnalare l'incidente.",
+                            "correct": true
+                        }
+                    ]
+                },
+                {
+                    "id": "45",
+                    "question": "Cos'è l'Email Spoofing?",
+                    "description": "Indicare la definizione corretta di Email Spoofing.",
+                    "answers": [
+                        {
+                            "answer": "Un modo per organizzare le e-mail nella cartella 'spam'."
+                        },
+                        {
+                            "answer": "Un attacco che altera l'aspetto del testo nelle e-mail."
+                        },
+                        {
+                            "answer": "Una tecnica per contraffare l'indirizzo e-mail del mittente.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Un metodo per crittografare le e-mail."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Ransomware",
+            "color": "#ff0099",
+            "description": "lorem ipsum",
+            "imageUrl": "pathTpoImg",
+            "quizzess": [
+                {
+                    "id": "46",
+                    "question": "Cos'è il Ransomware?",
+                    "description": "Risposta corretta: b",
+                    "answers": [
+                        {
+                            "answer": "Un software antivirus avanzato."
+                        },
+                        {
+                            "answer": "Un tipo di malware che cifra i dati dell'utente e richiede un pagamento per ripristinarli.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Un sistema di backup automatico."
+                        },
+                        {
+                            "answer": "Un protocollo di sicurezza per le reti."
+                        }
+                    ]
+                },
+                {
+                    "id": "47",
+                    "question": "Qual è l'obiettivo principale di un attacco ransomware?",
+                    "description": "Risposta corretta: b",
+                    "answers": [
+                        {
+                            "answer": "Rubare informazioni personali."
+                        },
+                        {
+                            "answer": "Criptare i dati e chiedere un riscatto.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Creare copie di sicurezza dei dati."
+                        },
+                        {
+                            "answer": "Diffondere virus attraverso la rete."
+                        }
+                    ]
+                },
+                {
+                    "id": "48",
+                    "question": "Come può diffondersi il ransomware nei sistemi informatici?",
+                    "description": "Risposta corretta: b",
+                    "answers": [
+                        {
+                            "answer": "Attraverso il consumo elevato di larghezza di banda."
+                        },
+                        {
+                            "answer": "Copiandosi su dispositivi USB.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Solo tramite e-mail."
+                        },
+                        {
+                            "answer": "Utilizzando solo connessioni Wi-Fi non protette."
+                        }
+                    ]
+                },
+                {
+                    "id": "49",
+                    "question": "Cosa dovrebbe fare un utente se il suo computer è stato infettato da ransomware?",
+                    "description": "Risposta corretta: b",
+                    "answers": [
+                        {
+                            "answer": "Pagare immediatamente il riscatto."
+                        },
+                        {
+                            "answer": "Disconnettersi dalla rete e segnalare l'incidente al reparto IT.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Ignorare l'infezione e sperare che svanisca da sola."
+                        },
+                        {
+                            "answer": "Condividere l'incidente sui social media."
+                        }
+                    ]
+                },
+                {
+                    "id": "50",
+                    "question": "Qual è uno dei metodi più comuni attraverso cui il ransomware entra nei sistemi?",
+                    "description": "Risposta corretta: b",
+                    "answers": [
+                        {
+                            "answer": "Navigare su siti web sicuri."
+                        },
+                        {
+                            "answer": "Cliccare su link malevoli in e-mail o siti web compromessi.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Utilizzare solo reti Wi-Fi pubbliche."
+                        },
+                        {
+                            "answer": "Aggiornare regolarmente il sistema operativo."
+                        }
+                    ]
+                },
+                {
+                    "id": "51",
+                    "question": "Cos'è la 'Crypto-ransomware'?",
+                    "description": "Risposta corretta: a",
+                    "answers": [
+                        {
+                            "answer": "Una versione del ransomware che richiede pagamenti in criptovaluta.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Una forma di backup automatico."
+                        },
+                        {
+                            "answer": "Un antivirus specializzato nella protezione contro il ransomware."
+                        },
+                        {
+                            "answer": "Un termine tecnico per descrivere il processo di cifratura dei dati."
+                        }
+                    ]
+                },
+                {
+                    "id": "52",
+                    "question": "Come può essere evitato un attacco ransomware?",
+                    "description": "Risposta corretta: c",
+                    "answers": [
+                        {
+                            "answer": "Pagare un antivirus costoso."
+                        },
+                        {
+                            "answer": "Fare clic su qualsiasi link interessante."
+                        },
+                        {
+                            "answer": "Non aprire allegati e-mail da mittenti sconosciuti.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Condividere liberamente le password con colleghi di fiducia."
+                        }
+                    ]
+                },
+                {
+                    "id": "53",
+                    "question": "Cosa significa 'Backup offline' e quale ruolo svolge nella protezione contro il ransomware?",
+                    "description": "Risposta corretta: b",
+                    "answers": [
+                        {
+                            "answer": "Conservare copie di sicurezza dei dati su un dispositivo collegato alla rete."
+                        },
+                        {
+                            "answer": "Mantenere copie di sicurezza su dispositivi non collegati alla rete, riducendo il rischio di infezione.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Condividere i dati con altri utenti online."
+                        },
+                        {
+                            "answer": "Creare una copia esatta dei dati infetti."
+                        }
+                    ]
+                },
+                {
+                    "id": "54",
+                    "question": "Qual è uno degli errori comuni che le persone commettono dopo un attacco ransomware?",
+                    "description": "Risposta corretta: a",
+                    "answers": [
+                        {
+                            "answer": "Pagare il riscatto senza consultare esperti di sicurezza.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Cambiare immediatamente tutte le password."
+                        },
+                        {
+                            "answer": "Segnalare l'incidente alle autorità competenti."
+                        },
+                        {
+                            "answer": "Disconnettersi completamente dalla rete."
+                        }
+                    ]
+                },
+                {
+                    "id": "55",
+                    "question": "Cosa potrebbe contenere un messaggio di richiesta di riscatto da parte di un attacco ransomware?",
+                    "description": "Risposta corretta: c",
+                    "answers": [
+                        {
+                            "answer": "Indicazioni su come prevenire futuri attacchi."
+                        },
+                        {
+                            "answer": "Un link per scaricare un software antivirus."
+                        },
+                        {
+                            "answer": "Istruzioni su come effettuare il pagamento del riscatto.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Un avviso di sicurezza generico."
+                        }
+                    ]
+                },
+                {
+                    "id": "56",
+                    "question": "Cosa significa il termine 'RaaS' in relazione al ransomware?",
+                    "description": "Risposta corretta: a",
+                    "answers": [
+                        {
+                            "answer": "Ransomware as a Service; una piattaforma che consente agli utenti di creare il proprio ransomware.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Un antivirus specializzato contro il ransomware."
+                        },
+                        {
+                            "answer": "Una rete di sicurezza per aziende."
+                        },
+                        {
+                            "answer": "Ransomware as a Solution; un servizio che offre una soluzione completa a chi è stato colpito da ransomware."
+                        }
+                    ]
+                },
+                {
+                    "id": "57",
+                    "question": "Cosa potrebbe fare un utente per proteggere i propri dati da un attacco ransomware?",
+                    "description": "Risposta corretta: c",
+                    "answers": [
+                        {
+                            "answer": "Utilizzare sempre la stessa password per tutti gli account."
+                        },
+                        {
+                            "answer": "Fare clic su qualsiasi link interessante."
+                        },
+                        {
+                            "answer": "Aggiornare regolarmente il sistema operativo.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Condividere liberamente i file su cloud pubblici."
+                        }
+                    ]
+                },
+                {
+                    "id": "58",
+                    "question": "Qual è una pratica consigliata per mitigare gli effetti di un attacco ransomware?",
+                    "description": "Risposta corretta: c",
+                    "answers": [
+                        {
+                            "answer": "Non effettuare mai backup dei dati."
+                        },
+                        {
+                            "answer": "Conservare copie di sicurezza solo su dispositivi connessi alla rete."
+                        },
+                        {
+                            "answer": "Formare regolarmente gli utenti sulle pratiche di sicurezza informatica.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Ignorare completamente gli avvisi di sicurezza."
+                        }
+                    ]
+                },
+                {
+                    "id": "59",
+                    "question": "Cosa dovrebbe fare un utente se riceve una richiesta di riscatto dopo un attacco ransomware?",
+                    "description": "Risposta corretta: c",
+                    "answers": [
+                        {
+                            "answer": "Pagarla immediatamente per recuperare i dati."
+                        },
+                        {
+                            "answer": "Chiamare le autorità di sicurezza."
+                        },
+                        {
+                            "answer": "Ignorarla e ripristinare i dati da un backup sicuro.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Condividere la richiesta di riscatto sui social media."
+                        }
+                    ]
+                },
+                {
+                    "id": "60",
+                    "question": "Qual è una misura preventiva contro il ransomware che le aziende possono adottare?",
+                    "description": "Risposta corretta: c",
+                    "answers": [
+                        {
+                            "answer": "Non formare i dipendenti sulla sicurezza informatica."
+                        },
+                        {
+                            "answer": "Bloccare completamente l'accesso a Internet per i dipendenti."
+                        },
+                        {
+                            "answer": "Implementare soluzioni di sicurezza avanzate e formare il personale sulla consapevolezza del ransomware.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Eliminare tutti i backup per evitare la loro cifratura."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "SQL Injection",
+            "color": "#ff0099",
+            "description": "lorem ipsum",
+            "imageUrl": "pathTpoImg",
+            "quizzess": [
+                {
+                    "id": "61",
+                    "question": "Qual è uno dei modi principali per prevenire un attacco SQL Injection?",
+                    "description": "Risposta corretta: c",
+                    "answers": [
+                        {
+                            "answer": "Utilizzare solo connessioni Wi-Fi pubbliche."
+                        },
+                        {
+                            "answer": "Eliminare completamente i form di input dall'applicazione."
+                        },
+                        {
+                            "answer": "Validare e sanificare gli input dell'utente.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Incrementare la velocità di accesso al database."
+                        }
+                    ]
+                },
+                {
+                    "id": "62",
+                    "question": "Cos'è un attacco SQL Injection?",
+                    "description": "Risposta corretta: b",
+                    "answers": [
+                        {
+                            "answer": "Un tentativo di rubare le credenziali dell'utente."
+                        },
+                        {
+                            "answer": "L'iniezione di comandi SQL dannosi in un'applicazione per compromettere un database.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Un attacco che usa esclusivamente virus informatici."
+                        },
+                        {
+                            "answer": "Un metodo per modificare i record del database senza autorizzazione."
+                        }
+                    ]
+                },
+                {
+                    "id": "63",
+                    "question": "Come funziona un attacco SQL Injection?",
+                    "description": "Risposta corretta: b",
+                    "answers": [
+                        {
+                            "answer": "Invia virus attraverso le e-mail."
+                        },
+                        {
+                            "answer": "Sfrutta debolezze nei form di input per inserire comandi SQL dannosi.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Utilizza esclusivamente reti Wi-Fi non protette."
+                        },
+                        {
+                            "answer": "Aggiorna automaticamente le tabelle del database."
+                        }
+                    ]
+                },
+                {
+                    "id": "64",
+                    "question": "Qual è uno degli scopi principali di un attacco SQL Injection?",
+                    "description": "Risposta corretta: a",
+                    "answers": [
+                        {
+                            "answer": "Rubare informazioni riservate.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Eliminare record dal database."
+                        },
+                        {
+                            "answer": "Modificare la velocità di connessione del database."
+                        },
+                        {
+                            "answer": "Attivare l'autenticazione a due fattori."
+                        }
+                    ]
+                },
+                {
+                    "id": "65",
+                    "question": "Come può un'applicazione difendersi dagli attacchi SQL Injection?",
+                    "description": "Risposta corretta: b",
+                    "answers": [
+                        {
+                            "answer": "Utilizzando una connessione Wi-Fi sicura."
+                        },
+                        {
+                            "answer": "Validando e sanificando gli input dell'utente.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Eliminando completamente i form di input."
+                        },
+                        {
+                            "answer": "Riducendo la velocità di accesso al database."
+                        }
+                    ]
+                },
+                {
+                    "id": "66",
+                    "question": "Cosa significa 'sanitizzare gli input' in relazione agli attacchi SQL Injection?",
+                    "description": "Risposta corretta: b",
+                    "answers": [
+                        {
+                            "answer": "Rimuovere completamente i form di input dall'applicazione."
+                        },
+                        {
+                            "answer": "Validare e pulire gli input dell'utente per eliminare caratteri dannosi.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Incrementare la velocità di accesso al database."
+                        },
+                        {
+                            "answer": "Aggiornare automaticamente i record del database."
+                        }
+                    ]
+                },
+                {
+                    "id": "67",
+                    "question": "Qual è uno dei segni di un tentativo di SQL Injection?",
+                    "description": "Risposta corretta: b",
+                    "answers": [
+                        {
+                            "answer": "Velocità di connessione del database più veloce."
+                        },
+                        {
+                            "answer": "Errori improvvisi nelle query SQL.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Eliminazione di record dal database senza autorizzazione."
+                        },
+                        {
+                            "answer": "Utilizzo esclusivo di reti Wi-Fi sicure."
+                        }
+                    ]
+                },
+                {
+                    "id": "68",
+                    "question": "Cosa potrebbe fare un malintenzionato con successo tramite un attacco SQL Injection?",
+                    "description": "Risposta corretta: b",
+                    "answers": [
+                        {
+                            "answer": "Modificare la velocità di connessione del database."
+                        },
+                        {
+                            "answer": "Accedere a informazioni riservate o eliminarle dal database.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Aggiornare automaticamente i record del database."
+                        },
+                        {
+                            "answer": "Utilizzare solo connessioni Wi-Fi pubbliche."
+                        }
+                    ]
+                },
+                {
+                    "id": "69",
+                    "question": "Qual è un modo comune per prevenire un attacco SQL Injection?",
+                    "description": "Risposta corretta: c",
+                    "answers": [
+                        {
+                            "answer": "Utilizzare solo reti Wi-Fi pubbliche."
+                        },
+                        {
+                            "answer": "Disattivare completamente i form di input."
+                        },
+                        {
+                            "answer": "Validare e sanificare gli input dell'utente.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Incrementare la velocità di accesso al database."
+                        }
+                    ]
+                },
+                {
+                    "id": "70",
+                    "question": "Cosa significa 'parameterized query' in relazione a SQL Injection?",
+                    "description": "Risposta corretta: d",
+                    "answers": [
+                        {
+                            "answer": "Una query che richiede più parametri rispetto a una query standard."
+                        },
+                        {
+                            "answer": "Una query che elimina tutti i parametri dagli input utente."
+                        },
+                        {
+                            "answer": "Una query che non richiede alcun parametro."
+                        },
+                        {
+                            "answer": "Una query strutturata per accettare parametri in modo sicuro.",
+                            "correct": true
+                        }
+                    ]
+                },
+                {
+                    "id": "71",
+                    "question": "Come potrebbe un attaccante ottenere informazioni sensibili utilizzando un attacco SQL Injection?",
+                    "description": "Risposta corretta: c",
+                    "answers": [
+                        {
+                            "answer": "Incrementando la velocità di connessione del database."
+                        },
+                        {
+                            "answer": "Eliminando record dal database."
+                        },
+                        {
+                            "answer": "Inserendo comandi SQL dannosi attraverso form di input non protetti.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Utilizzando solo connessioni Wi-Fi sicure."
+                        }
+                    ]
+                },
+                {
+                    "id": "72",
+                    "question": "Perché è importante effettuare regolarmente la manutenzione e gli aggiornamenti del sistema per prevenire SQL Injection?",
+                    "description": "Risposta corretta: c",
+                    "answers": [
+                        {
+                            "answer": "Per incrementare la velocità di accesso al database."
+                        },
+                        {
+                            "answer": "Per eliminare completamente i form di input."
+                        },
+                        {
+                            "answer": "Per correggere le vulnerabilità di sicurezza.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Per modificare la struttura del database."
+                        }
+                    ]
+                },
+                {
+                    "id": "73",
+                    "question": "Cosa potrebbe accadere se un'applicazione non è protetta contro SQL Injection?",
+                    "description": "Risposta corretta: b",
+                    "answers": [
+                        {
+                            "answer": "Miglioramento della sicurezza del database."
+                        },
+                        {
+                            "answer": "Possibile compromissione dei dati nel database.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Incremento della velocità di accesso al database."
+                        },
+                        {
+                            "answer": "Eliminazione automatica dei record dal database."
+                        }
+                    ]
+                },
+                {
+                    "id": "74",
+                    "question": "Qual è una buona pratica per sviluppatori web al fine di prevenire SQL Injection?",
+                    "description": "Risposta corretta: b",
+                    "answers": [
+                        {
+                            "answer": "Eliminare completamente le query SQL."
+                        },
+                        {
+                            "answer": "Convalidare e sanificare gli input utente prima di utilizzarli nelle query.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Utilizzare solo reti Wi-Fi pubbliche per lo sviluppo."
+                        },
+                        {
+                            "answer": "Ignorare gli errori SQL nel processo di sviluppo."
+                        }
+                    ]
+                },
+                {
+                    "id": "75",
+                    "question": "Come potrebbe un attaccante sfruttare un attacco SQL Injection per ottenere l'accesso non autorizzato a un'applicazione?",
+                    "description": "Risposta corretta: b",
+                    "answers": [
+                        {
+                            "answer": "Modificando la velocità di connessione del database."
+                        },
+                        {
+                            "answer": "Inserendo comandi SQL dannosi per bypassare l'autenticazione.",
+                            "correct": true
+                        },
+                        {
+                            "answer": "Eliminando record dal database."
+                        },
+                        {
+                            "answer": "Utilizzando solo connessioni Wi-Fi sicure."
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
