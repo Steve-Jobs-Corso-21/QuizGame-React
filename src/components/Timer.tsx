@@ -7,8 +7,6 @@ function Timer({ quizID, maxTime, stopTimer, modalID } :any ){
         setCurrentTimer(maxTime);
     }, [quizID, maxTime]);
 
-    // TODO: lo sticchio(la time bar) lo possiamo fermare settando time = 0 con ovviamente setTime.
-
     useEffect(() => {
         !currentTime && endTime();
         if(stopTimer || !currentTime) return;

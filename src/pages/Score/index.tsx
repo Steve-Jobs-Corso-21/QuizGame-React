@@ -16,6 +16,7 @@ const Score = () => {
   const scoring = state.gameMode === GameMode.Training
     ? state.rightAnswers[state.currentLevel].quiz.filter(({ answers }) => answers.length === 1).length * (100 / state.rightAnswers[state.currentLevel].quiz.length)
     : state.rightAnswers[state.currentLevel].quiz.filter(({id} : {id: string}) => 
+      state.rightAnswers[state.currentLevel].quiz.find(({id : quizID} : {id: string})=> quizID === id)!.answers.length > 0 &&
       json.maps[state.currentLevel].quizzess.find(({id : quizID} : {id: string})=> quizID === id)?.answers.findIndex(({correct}) => correct) === state.rightAnswers[state.currentLevel].quiz.find(({id : quizID} : {id: string})=> quizID === id)!.answers[0]
     ).length * (100 / state.rightAnswers[state.currentLevel].quiz.length)
   ;
@@ -63,9 +64,9 @@ const Score = () => {
 
           <div className="d-flex flex-column align-items-center justify-content-center">
             <button className="btn btn-secondary btn-lg m-3" data-bs-target={"#answerModal"} data-bs-toggle="modal">Vedi le tue risposte</button>
-            <Link to="/" className="btn btn-secondary btn-lg m-3" state={state}>Torna alla home</Link>
+            {/* <Link to="/" className="btn btn-secondary btn-lg m-3" state={state}>Torna alla home</Link> */}
             {state.currentLevel === json.maps.length - 1 
-              ? <Link to="/epilogue" className="btn btn-secondary btn-lg m-3" state={state}>Torna alla mappa</Link>
+              ? <Link to="/epilogue" className="btn btn-secondary btn-lg m-3" state={state}>Termina gioco</Link>
               : <Link to="/map" className="btn btn-secondary btn-lg m-3" state={state}>Torna alla mappa</Link>
             }
           </div>

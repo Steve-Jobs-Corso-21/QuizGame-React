@@ -42,6 +42,14 @@ const Quiz = () => {
     // called at load of question
     useEffect(() => {
         setAnswered([]);
+        if(!state.rightAnswers[currentLevel])
+            state.rightAnswers[currentLevel] = { quiz: [] };
+        
+        if(!state.rightAnswers[currentLevel].quiz.find(({ id: quizID }: { id: string }) => quizID === id))
+            state.rightAnswers[currentLevel].quiz.push({id: id!, answers: []});
+
+        // console.log(state);
+        
         // reset time
         setStopTimer(false);
         setMaxTime(MAXTIME);
@@ -51,11 +59,10 @@ const Quiz = () => {
     const answerClick = (correct: boolean, answerIndex: number) => {
         // setta variabile con correct
         !answered.includes(answerIndex) && answered.push(answerIndex) && setAnswered([...answered]);
-        state.rightAnswers[currentLevel]
-            ? state.rightAnswers[currentLevel].quiz.find(({id: quizID} : {id: string}) => quizID === id)
-                ? state.rightAnswers[currentLevel].quiz.find(({id: quizID} : {id: string}) => quizID === id)!.answers = answered
-                : state.rightAnswers[currentLevel].quiz.push({ id: id!, answers: answered })
-            : state.rightAnswers[currentLevel] = {quiz: [{ id: id!, answers: answered }]}
+
+        state.rightAnswers[currentLevel].quiz.find(({ id: quizID }: { id: string }) => quizID === id)
+            ? state.rightAnswers[currentLevel].quiz.find(({ id: quizID }: { id: string }) => quizID === id)!.answers = answered
+            : state.rightAnswers[currentLevel].quiz.push({ id: id!, answers: answered })
 
         // console.log(state);
 
@@ -66,35 +73,37 @@ const Quiz = () => {
     return (
         <div>
             <Modal modalID={explainModalID}
-            bgColor={(!stopTimer || !correct) ? "bg-danger" : "bg-success"}
-            description={quiz?.description}
-            title={!stopTimer ? "Tempo Scaduto" : `Risposta ${correct ? "Esatta" : "Sbagliata"}`}
-            buttons={[
-                {
-                    "text": "Continua", "url": currentQuiz >= quizzes.length - 1
-                        ? "/score"
-                        : `/quiz/${quizzes[currentQuiz + 1]}`
-                }
-            ]}
-            state={state}/>
+                bgColor={(!stopTimer || !correct) ? "bg-danger" : "bg-success"}
+                description={quiz?.description}
+                title={!stopTimer ? "Tempo Scaduto" : `Risposta ${correct ? "Esatta" : "Sbagliata"}`}
+                buttons={[
+                    {
+                        "text": "Continua", "url": currentQuiz >= quizzes.length - 1
+                            ? "/score"
+                            : `/quiz/${quizzes[currentQuiz + 1]}`
+                    }
+                ]}
+                state={state} />
 
             <Header
-            htmlBlock={(<nav className="mx-4 nav d-flex align-items-center justify-content-center">
-                <h1 className="my-2 pe-5">{json.maps[currentLevel].name}</h1>
-                <div className="bar d-flex justify-content-lg-end align-items-center">
-                    {quizzes.map((mapQuiz) => (
-                        <div className={`ball ${
-                        // coloro le ball in base allo stato della domanda
-                        mapQuiz === id
-                            ? "bg-warning" // DOMANDA IN CORSO
-                            : state.rightAnswers[currentLevel] && state.rightAnswers[currentLevel].quiz.find(({ id : quizID } : { id : string }) => quizID === mapQuiz)
-                                ? json.maps[currentLevel].quizzess.find(({ id: quizID }: { id: string }) => mapQuiz === quizID)?.answers[state.rightAnswers[currentLevel].quiz.find(({ id }) => id === mapQuiz)!.answers[0]].correct
-                                    ? "bg-success" // RISPOSTA GIUSTA
-                                    : "bg-danger" // RISPOSTA SBAGLIATA
-                                : "bg-secondary" // DOMANDA ANCORA DA RISPONDERE
-                        }`}></div>
-                    ))}
-                </div>
+                htmlBlock={(<nav className="mx-4 nav d-flex align-items-center justify-content-center">
+                    <h1 className="my-2 pe-5">{json.maps[currentLevel].name}</h1>
+                    <div className="bar d-flex justify-content-lg-end align-items-center">
+                        {quizzes.map((mapQuiz) => (
+                            <div className={`ball ${
+                                // coloro le ball in base allo stato della domanda
+                                mapQuiz === id
+                                    ? "bg-warning" // DOMANDA IN CORSO
+                                    : state.rightAnswers[currentLevel] && state.rightAnswers[currentLevel].quiz.find(({ id: quizID }: { id: string }) => quizID === mapQuiz)
+                                        ? state.rightAnswers[currentLevel].quiz.find(({ id: quizID }: { id: string }) => quizID === mapQuiz)!.answers.length > 0 &&
+                                          json.maps[currentLevel].quizzess.find(({ id: quizID }: { id: string }) => quizID === mapQuiz)?.answers
+                                            .findIndex(({ correct }) => correct) === state.rightAnswers[currentLevel].quiz.find(({ id: quizID }: { id: string }) => quizID === mapQuiz)!.answers[0]
+                                            ? "bg-success" // RISPOSTA GIUSTA
+                                            : "bg-danger" // RISPOSTA SBAGLIATA
+                                        : "bg-secondary" // DOMANDA ANCORA DA RISPONDERE
+                                }`}></div>
+                        ))}
+                    </div>
                 </nav>)}
                 bgColor={json.maps[currentLevel].color}
                 audio={true}
