@@ -1,7 +1,8 @@
 import React from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-
+import { easeQuadInOut } from "d3-ease";
+import AnimatedProgressProvider from "./AnimatedProgressProvider";
 interface GreenRingProps {
   percentage: number;
 }
@@ -24,19 +25,30 @@ const GreenRing: React.FC<GreenRingProps> = ({ percentage }) => {
 
   return (
     <div style={{ width: "300px" }}>
-      <CircularProgressbar
-        value={percentage}
-        text={`${percentage}%`}
-        styles={buildStyles({
-          strokeLinecap: "butt",
-          pathColor: color,
-          // pathColor: `${color}, ${percentage / 100}`,
-          // trailColor: "grey", colore della parte "mancante"
-          // pathColor: `${gradientColor}, ${percentage / 100}`,
-          textColor: color,
-          // (rgba(46, 204, 113)
-        })}
-      />
+      <AnimatedProgressProvider
+        valueStart={0}
+        valueEnd={percentage}
+        duration={1.4}
+        easingFunction={easeQuadInOut}
+      >
+        {(value: number) => {
+          const roundedValue = Math.round(value);
+          return (
+            <CircularProgressbar
+              value={value}
+              text={`${roundedValue}%`}
+              /* This is important to include, because if you're fully managing the
+        animation yourself, you'll want to disable the CSS animation. */
+              styles={buildStyles({
+                pathTransition: "none",
+                pathColor: `${color}, ${percentage / 100})`,
+                textColor: color,
+              })}
+            />
+          );
+        }}
+      </AnimatedProgressProvider>
+      ;
     </div>
   );
 };
