@@ -64,7 +64,7 @@ const Score = () => {
           <div className="d-flex flex-column align-items-center justify-content-center">
             <button className="btn btn-secondary btn-lg m-3" data-bs-target={"#answerModal"} data-bs-toggle="modal">Vedi le tue risposte</button>
             {/* <Link to="/" className="btn btn-secondary btn-lg m-3" state={state}>Torna alla home</Link> */}
-            {state.currentLevel === json.maps.length - 1 
+            {state.currentLevel === json.maps.length - 1 && state.gameMode === GameMode.Challenge
               ? <Link to="/epilogue" className="btn btn-secondary btn-lg m-3" state={state}>Termina gioco</Link>
               : <Link to="/map" className="btn btn-secondary btn-lg m-3" state={state}>Torna alla mappa</Link>
             }

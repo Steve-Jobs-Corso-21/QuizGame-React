@@ -7,6 +7,8 @@ const Epilogue = () => {
   const { state } : {state: Data} = useLocation();
   const json: JSON = data;
 
+  console.log(state);
+
   return (
     <div>
       <h1

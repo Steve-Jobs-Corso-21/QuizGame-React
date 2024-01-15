@@ -95,23 +95,22 @@ const Menu = () => {
             title="Modalità di gioco"/>
 
             <Header
-            htmlBlock={""}
+            htmlBlock={<h1>CyberQuiz</h1>}
             bgColor={"transparent"}
             audio={true}
             audioURL={""}/>
 
             <div className="mainMenu d-flex flex-column align-items-center justify-content-around">
                 <img className="img-fluid" src="cyber-logo.png" alt="logo"/>
-                <h1>CyberQuiz</h1>
-                <div className="box-mod d-flex flex-column align-items-center px-5">
-                    <div className="d-flex">
-                        <h2>Scegli la modalita'</h2>
-                        <button className="" data-bs-toggle="modal" data-bs-target="#modeModal">
-                            <img src="info-circle.svg" alt="info"/>
+                <div className="d-flex flex-column align-items-center col-3">
+                    <div className="d-flex w-100 mb-4">
+                        <h2 className="flex-grow-1 text-center ps-5">Scegli la modalita'</h2>
+                        <button data-bs-toggle="modal" data-bs-target="#modeModal" style={{background: "transparent", border: "none"}}>
+                            <span className="material-symbols-rounded btn-info">help</span>
                         </button>
                     </div>
                     {Object.values(GameMode).filter((item) => isNaN(Number(item))).map((key) =>
-                        <Link className="btn p-3 m-2 btn-custom-home"
+                        <Link className="btn btn-primary p-3 m-2 btn-custom-home"
                         to="/map" state={data}
                         onClick={() => modeClick(GameMode[key as keyof typeof GameMode])}>
                             {key as GameMode}

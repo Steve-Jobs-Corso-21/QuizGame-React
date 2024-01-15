@@ -6,7 +6,6 @@ import Modal from "./Modal";
 // TODO: add icon pack
 
 const Header = ({ htmlBlock, bgColor, audio, audioURL }: any) => {
-    console.log(useLocation());
     const { state, pathname } = useLocation();
     const [currentVolume, setCurrentVolume] = useState<boolean>(true);
 

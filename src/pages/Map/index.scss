@@ -30,8 +30,12 @@
             position: relative;
             z-index: 2;
 
-            &.disabled {
-                opacity: 0.4;
+            &:disabled {
+                filter: grayscale(1);
+
+                img {
+                    opacity: 0.4;
+                }
             }
 
             &:hover {

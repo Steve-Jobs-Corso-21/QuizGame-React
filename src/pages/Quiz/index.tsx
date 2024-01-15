@@ -112,13 +112,13 @@ const Quiz = () => {
 
             {quiz && (
                 <div>
-                    <h2 className="d-flex align-items-center justify-content-center mt-3 pt-3 fs-1">
+                    <h2 className="d-flex align-items-center justify-content-center pt-3 poppins-title">
                         {quiz.question}
                     </h2>
                     <div className="d-flex align-items-center justify-content-between row m-0 px-5">
-                        <div className={`d-flex flex-wrap col-lg-${quiz.imageUrl ? 6 : 12}`}>
+                        <div className={`d-flex flex-wrap col-lg-${quiz.imageUrl ? 6 : 12} btn-animation`}>
                             {quiz.answers.map(({ answer, correct }, index) => (
-                                <button className={`text-align-center btn btn-primary btn-block btn-custom col-${quiz.imageUrl ? 12 : 4}`}
+                                <button className={`text-align-center btn btn-primary btn-block btn-custom poppins-text col-${quiz.imageUrl ? 12 : 4}`}
                                     data-bs-toggle={gameMode === GameMode.Challenge || correct ? "modal" : ""}
                                     data-bs-target={"#" + explainModalID}
                                     key={index} onClick={() => answerClick(!!correct, index)}
