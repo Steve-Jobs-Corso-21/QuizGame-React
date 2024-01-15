@@ -66,7 +66,7 @@ const Score = () => {
             {/* <Link to="/" className="btn btn-secondary btn-lg m-3" state={state}>Torna alla home</Link> */}
             {state.currentLevel === json.maps.length - 1 && state.gameMode === GameMode.Challenge
               ? <Link to="/epilogue" className="btn btn-secondary btn-lg m-3" state={state}>Termina gioco</Link>
-              : <Link to="/map" className="btn btn-secondary btn-lg m-3" state={state}>Torna alla mappa</Link>
+              : <Link to="/map" className="btn btn-secondary btn-lg m-3" state={state} onClick={() => state.currentLevel++}>Torna alla mappa</Link>
             }
           </div>
         </div>

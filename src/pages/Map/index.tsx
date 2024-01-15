@@ -9,7 +9,7 @@ import { CircularProgressbarWithChildren, buildStyles } from "react-circular-pro
 
 const Map = () => {
     const { state }: { state: Data } = useLocation();
-    // console.log(state);
+    console.log(state);
 
     const json: JSON = data;
     // console.log(json.maps);
@@ -21,11 +21,11 @@ const Map = () => {
     const scoring = json.maps.map((map, index) => 
         state.rightAnswers[index]
             ? state.gameMode === GameMode.Training
-                ? state.rightAnswers[state.currentLevel].quiz.filter(({ answers }) => answers.length === 1).length * (100 / state.rightAnswers[state.currentLevel].quiz.length)
-                : state.rightAnswers[state.currentLevel].quiz.filter(({id} : {id: string}) => 
-                state.rightAnswers[state.currentLevel].quiz.find(({id : quizID} : {id: string})=> quizID === id)!.answers.length > 0 &&
-                json.maps[state.currentLevel].quizzess.find(({id : quizID} : {id: string})=> quizID === id)?.answers.findIndex(({correct}) => correct) === state.rightAnswers[state.currentLevel].quiz.find(({id : quizID} : {id: string})=> quizID === id)!.answers[0]
-                ).length * (100 / state.rightAnswers[state.currentLevel].quiz.length)
+                ? state.rightAnswers[index].quiz.filter(({ answers }) => answers.length === 1).length * (100 / state.rightAnswers[index].quiz.length)
+                : state.rightAnswers[index].quiz.filter(({id} : {id: string}) => 
+                state.rightAnswers[index].quiz.find(({id : quizID} : {id: string})=> quizID === id)!.answers.length > 0 &&
+                json.maps[index].quizzess.find(({id : quizID} : {id: string})=> quizID === id)?.answers.findIndex(({correct}) => correct) === state.rightAnswers[index].quiz.find(({id : quizID} : {id: string})=> quizID === id)!.answers[0]
+                ).length * (100 / state.rightAnswers[index].quiz.length)
             : 0
     );
 
