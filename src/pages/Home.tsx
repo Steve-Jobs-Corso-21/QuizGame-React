@@ -101,10 +101,12 @@ const Menu = () => {
             audioURL={""}/>
 
             <div className="mainMenu d-flex flex-column align-items-center justify-content-around">
-                <img className="img-fluid" src="cyber-logo.png" alt="logo"/>
-                <div className="d-flex flex-column align-items-center col-3">
-                    <div className="d-flex w-100 mb-4">
-                        <h2 className="flex-grow-1 text-center ps-5">Scegli la modalita'</h2>
+                <img className="img-fluid imgLogo slide-in-elliptic-top-fwd" src="cyber-logo.png" alt="logo"/>
+                <div className="d-flex flex-column align-items-center col-3 slide-in-bck-bottom">
+                    <div className="d-flex mb-4">
+                        <div className="titleBox">
+                        <h2 className="text-center ">Scegli la modalita'</h2>
+                        </div>
                         <button data-bs-toggle="modal" data-bs-target="#modeModal" style={{background: "transparent", border: "none"}}>
                             <span className="material-symbols-rounded btn-info">help</span>
                         </button>
