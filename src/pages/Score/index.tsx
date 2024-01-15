@@ -18,8 +18,7 @@ const Score = () => {
     : state.rightAnswers[state.currentLevel].quiz.filter(({id} : {id: string}) => 
       state.rightAnswers[state.currentLevel].quiz.find(({id : quizID} : {id: string})=> quizID === id)!.answers.length > 0 &&
       json.maps[state.currentLevel].quizzess.find(({id : quizID} : {id: string})=> quizID === id)?.answers.findIndex(({correct}) => correct) === state.rightAnswers[state.currentLevel].quiz.find(({id : quizID} : {id: string})=> quizID === id)!.answers[0]
-    ).length * (100 / state.rightAnswers[state.currentLevel].quiz.length)
-  ;
+    ).length * (100 / state.rightAnswers[state.currentLevel].quiz.length);
 
   // console.log(scoring);
 

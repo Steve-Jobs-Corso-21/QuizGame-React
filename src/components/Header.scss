@@ -1,8 +1,19 @@
 .nav {
     padding: 5px 0 5px 15px;
     height: 100px;
-}
 
-img{
-    height: 20px;
+    .nav-icon {
+        background: transparent;
+        border: 0;
+
+        .material-symbols-rounded {
+            font-size: 40px;
+            color: black;
+        }
+
+        img {
+            width: 20px;
+        }
+    }
+
 }

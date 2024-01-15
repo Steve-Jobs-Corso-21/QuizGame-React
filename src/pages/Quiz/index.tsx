@@ -86,7 +86,7 @@ const Quiz = () => {
                 state={state} />
 
             <Header
-                htmlBlock={(<nav className="mx-4 nav d-flex align-items-center justify-content-center">
+                htmlBlock={(<nav className="nav d-flex align-items-center justify-content-center mx-4 text-white">
                     <h1 className="my-2 pe-5">{json.maps[currentLevel].name}</h1>
                     <div className="bar d-flex justify-content-lg-end align-items-center">
                         {quizzes.map((mapQuiz) => (
