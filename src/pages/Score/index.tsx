@@ -3,6 +3,8 @@ import "react-circular-progressbar/dist/styles.css";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import AnimatedProgressProvider from "../../components/AnimatedProgressProvider";
+import { easeBackInOut } from "d3-ease";
 import { JSON, GameMode, Data } from "../Home";
 import data from "../../questions.json";
 import Header from "../../components/Header";
@@ -54,10 +56,18 @@ const Score = () => {
           <div className="d-flex flex-column align-items-center">
             <h3>Percentuale risposte esatte:</h3>
             <div style={{ width: "300px" }}>
-              <CircularProgressbar value={scoring} text={`${scoring.toFixed(1)}`} styles={buildStyles({
-                pathColor: color,
-                textColor: color,
-              })}/>
+              <AnimatedProgressProvider
+              valueStart={0}
+              valueEnd={scoring}
+              duration={1.4}
+              easingFunction={easeBackInOut}>
+                {(value: number) => 
+                  <CircularProgressbar value={value} text={`${value.toFixed(0)}`} minValue={0} maxValue={100} styles={buildStyles({
+                    pathColor: color,
+                    textColor: color,
+                  })}/>
+                }
+              </AnimatedProgressProvider>
             </div>
           </div>
 

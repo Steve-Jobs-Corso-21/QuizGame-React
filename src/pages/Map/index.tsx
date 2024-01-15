@@ -6,6 +6,8 @@ import { Data, GameMode, JSON } from "../Home";
 import Header from "../../components/Header";
 import { useEffect } from "react";
 import { CircularProgressbarWithChildren, buildStyles } from "react-circular-progressbar";
+import AnimatedProgressProvider from "../../components/AnimatedProgressProvider";
+import { easeBackInOut } from "d3-ease";
 
 const Map = () => {
     const { state }: { state: Data } = useLocation();
@@ -72,11 +74,19 @@ const Map = () => {
                                         disabled={!checkLevel(index)}
                                         key={index}>
                                             <div style={{ width: "200px", backgroundColor: "white", borderRadius: "50%"}}>
-                                                <CircularProgressbarWithChildren value={scoring[index]} maxValue={100} minValue={0} styles={buildStyles({pathColor: json.maps[index].color})}>
-                                                    <div className="d-flex align-items-center map-logo">
-                                                        <img className="img-fluid align-middle" src={json.maps[index].imageUrl} alt={json.maps[index].name}/>
-                                                    </div>
-                                                </CircularProgressbarWithChildren>
+                                                <AnimatedProgressProvider
+                                                valueStart={0}
+                                                valueEnd={scoring[index]}
+                                                duration={1}
+                                                easingFunction={easeBackInOut}>
+                                                    {(value : number) => 
+                                                        <CircularProgressbarWithChildren value={value} maxValue={100} minValue={0} styles={buildStyles({pathColor: json.maps[index].color})}>
+                                                            <div className="d-flex align-items-center map-logo">
+                                                                <img className="img-fluid align-middle" src={json.maps[index].imageUrl} alt={json.maps[index].name}/>
+                                                            </div>
+                                                        </CircularProgressbarWithChildren>
+                                                    }
+                                                </AnimatedProgressProvider>
                                             </div>
                                         </button>
                                     </div>
