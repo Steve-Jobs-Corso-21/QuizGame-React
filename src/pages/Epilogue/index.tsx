@@ -24,11 +24,11 @@ const Epilogue = () => {
       <div>
         <p>
           Sei riuscito a completarlo facendo {
-              state.rightAnswers.map((map, index) =>
-                json.maps[index].quizzess.reduce((acc, quiz, index, arr) => 
-                  acc += (quiz.answers.findIndex(({correct}) => correct) === map.quiz[index].answers[0] ? 0 : 1)
+              state.rightAnswers.reduce((totAcc, map, index) =>
+                totAcc += map.quiz.reduce((acc: number, q: {id: string, answers: number[]}) =>
+                  acc += (q.answers[0] === json.maps[index].quizzess.find(({id}) => id === q.id)?.answers.findIndex(({correct}) => correct)) ? 0 : 1
                 , 0)
-              )
+              , 0)
             } errori!
         </p>
         <p>
