@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 
-const AnimatedProgressProvider = (props) => {
+const AnimatedProgressProvider = (props : any) => {
   const [value, setValue] = useState(props.valueStart);
   const [isAnimated, setIsAnimated] = useState(false);
-  const startTimeRef = React.useRef(null);
+  const startTimeRef = React.useRef(0);
 
   useEffect(() => {
     if (!isAnimated) {
       setIsAnimated(true);
       startTimeRef.current = performance.now();
 
-      const animate = (currentTime) => {
+      const animate = (currentTime : number) => {
         const elapsedTime = currentTime - startTimeRef.current;
         const progress = Math.min(elapsedTime / (props.duration * 1000), 1);
 

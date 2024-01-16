@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import AnimatedProgressProvider from "../../components/AnimatedProgressProvider";
-import { easeBackInOut } from "d3-ease";
+import { easeExpOut } from "d3-ease";
 import { JSON, GameMode, Data } from "../Home";
 import data from "../../questions.json";
 import Header from "../../components/Header";
@@ -60,7 +60,7 @@ const Score = () => {
               valueStart={0}
               valueEnd={scoring}
               duration={1.4}
-              easingFunction={easeBackInOut}>
+              easingFunction={easeExpOut}>
                 {(value: number) => 
                   <CircularProgressbar value={value} text={`${value.toFixed(0)}`} minValue={0} maxValue={100} styles={buildStyles({
                     pathColor: color,

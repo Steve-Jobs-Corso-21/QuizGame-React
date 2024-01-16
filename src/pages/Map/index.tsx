@@ -7,7 +7,7 @@ import Header from "../../components/Header";
 import { useEffect } from "react";
 import { CircularProgressbarWithChildren, buildStyles } from "react-circular-progressbar";
 import AnimatedProgressProvider from "../../components/AnimatedProgressProvider";
-import { easeBackInOut } from "d3-ease";
+import { easeExpOut } from "d3-ease";
 
 const Map = () => {
     const { state }: { state: Data } = useLocation();
@@ -78,7 +78,7 @@ const Map = () => {
                                                 valueStart={0}
                                                 valueEnd={scoring[index]}
                                                 duration={1}
-                                                easingFunction={easeBackInOut}>
+                                                easingFunction={easeExpOut}>
                                                     {(value : number) => 
                                                         <CircularProgressbarWithChildren value={value} maxValue={100} minValue={0} styles={buildStyles({pathColor: json.maps[index].color})}>
                                                             <div className="d-flex align-items-center map-logo">
