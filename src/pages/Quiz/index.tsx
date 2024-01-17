@@ -14,7 +14,7 @@ import Header from "../../components/Header";
 // /quiz/:id
 const Quiz = () => {
     // change this to change max time for answer a question (in seconds)
-    const MAXTIME = 10;
+    const MAXTIME = 25;
     // change this to change modal id
     const explainModalID = "explainModal";
 

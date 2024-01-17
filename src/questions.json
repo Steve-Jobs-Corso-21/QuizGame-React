@@ -310,7 +310,7 @@
         },
         {
             "name": "Phishing",
-            "color": "#3688d6",
+            "color": "#7962bc",
             "description": "Il phishing è una truffa online che inganna le persone a rivelare informazioni sensibili, come password e dati finanziari, fingendo di essere entità legittime attraverso e-mail o siti web contraffatti.",
             "imageUrl": "phishing.svg",
             "quizzess": [
@@ -618,7 +618,7 @@
         },
         {
             "name": "E-mail Spoofing",
-            "color": "#315d1d",
+            "color": "#cf8928",
             "description": "L'email spoofing è una tecnica in cui i mittenti manipolano l'intestazione delle email per far sembrare che il messaggio provenga da una fonte diversa da quella reale.",
             "imageUrl": "email-spoofing.svg",
             "quizzess": [
@@ -926,7 +926,7 @@
         },
         {
             "name": "Ransomware",
-            "color": "#675689",
+            "color": "#8e52f5",
             "description": "Il ransomware è una forma di malware che cripta i file dell'utente, impedendo l'accesso fino a quando una somma di denaro, il riscatto, non viene pagata agli aggressori.",
             "imageUrl": "ramsomware.svg",
             "quizzess": [
@@ -1234,7 +1234,7 @@
         },
         {
             "name": "SQL Injection",
-            "color": "#8e52f5",
+            "color": "#0791b7",
             "description": "L'SQL injection è una tecnica di attacco informatico in cui un aggressore inserisce o manipola comandi SQL non sicuri all'interno di campi di input di un'applicazione web.",
             "imageUrl": "sql-injection.svg",
             "quizzess": [
