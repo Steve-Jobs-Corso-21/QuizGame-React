@@ -1,79 +1,85 @@
 @import "../../includes/includes.scss";
 
-$hover: #8A735C;
-$active: #2f980c;
-$shadow: #88a0bc;
-
-.ball {
-    margin: 0 47px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: white;
-}
-
-.btn-custom {
-    flex-grow: 1;
-    min-height: 80px;
-    margin: 45px 70px 0px 70px;
-    box-shadow: 5px 10px $shadow;
-    // box-shadow: 0 10px 0 0 $shadow; DA VEDERE INSIEME QUALE E' IL MIGLIORE DEI 2
-    transition: all 0.2s ease-in-out;
-    // padding: 50px 0 50px 0;
-    // min-width: 50px;
-
-    &:hover {
-        background: $hover;
-        border-color: $hover;
-
-        &:active {
-            transform: translateX(10px);
-            transform: translateY(10px);
-            box-shadow: 0 0 $shadow;
-            background: $active;
-            border-color: $active;
-        }
+.quiz-container {
+    .question-bar {
+        margin: 0 16px;
+        min-width: 50px;
+        max-width: 100px;
+        width: 16%;
+        height: 20px;
+        border-radius: 4px;
+        background-color: white;
     }
-}
 
-.poppins-title {
-    font-size: 54px;
-    line-height: 1.4em;
-    text-align: center;
-    max-width: 75%;
-    margin: 50px auto 0;
-} 
+    .quiz-content {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
 
-.poppins-text {
-    font-size: 24px;
-}
+        .poppins-text {
+            font-size: 24px;
+        }
 
-.btn-animation {
-    padding: 20px;
-    position: fixed;
-    bottom: -100px;
-    opacity: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: fadeInAnimation .75s ease-out forwards;
+        .quiz-question-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-    @keyframes fadeInAnimation {
-        0% {
+            height: calc(100% - 120px);
+
+            .poppins-title {
+                font-size: 54px;
+                line-height: 1.4em;
+                text-align: center;
+                max-width: 75%;
+                margin: 0;
+            }
+        }
+
+        .btn-container {
+            height: 50%;
+            max-height: 500px;
             opacity: 0;
-        }
 
-        25% {
-            opacity: 0;
-        }
+            animation: fadeInAnimation 0.75s ease-out forwards;
 
-        75% {
-            bottom: 30%;
-            opacity: 0.5;
-        }
+            @keyframes fadeInAnimation {
+                0% {
+                    opacity: 0;
+                }
 
-        100% {
-            bottom: 29%;
-            opacity: 1;
+                25% {
+                    opacity: 0;
+                }
+
+                75% {
+                    bottom: 30%;
+                    opacity: 0.5;
+                }
+
+                100% {
+                    bottom: 29%;
+                    opacity: 1;
+                }
+            }
+
+            .btn-custom {
+                flex-grow: 1;
+                min-height: 80px;
+                margin: 45px;
+                box-shadow: 5px 10px map-get($btn, shadow);
+                // box-shadow: 0 10px 0 0 map-get($btn, shadow); DA VEDERE INSIEME QUALE E' IL MIGLIORE DEI 2
+                transition: all 0.2s ease-in-out;
+                // padding: 50px 0 50px 0;
+                // min-width: 50px;
+
+                &:hover {
+                    &:active {
+                        transform: translate(10px, 10px);
+                        box-shadow: 0 0 map-get($btn, shadow);
+                    }
+                }
+            }
         }
     }
 }

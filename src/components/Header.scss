@@ -1,6 +1,15 @@
 .nav {
-    padding: 5px 0 5px 15px;
+    width: 100%;
     height: 100px;
+
+    background-color: #edf7fa;
+
+    padding: 5px 0 5px 15px;
+
+    position: fixed;
+    top: 0;
+
+    z-index: 3;
 
     .nav-icon {
         background: transparent;
@@ -15,5 +24,4 @@
             width: 20px;
         }
     }
-
 }

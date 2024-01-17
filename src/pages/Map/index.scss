@@ -1,18 +1,15 @@
 @import "./../../includes/includes.scss";
 
 .mapMenu {
-
-    margin: 30px 0 200px;
+    padding: 160px 0;
 
     h1 {
-
         // border: 2px solid black;
         border-radius: 20px;
         // background-color: white;
     }
 
-    .conteiner-map {
-
+    .container-map {
         .box-button {
             padding: 30px;
             margin: 30px;
@@ -29,6 +26,28 @@
             transition: 0.3s;
             position: relative;
             z-index: 2;
+
+            .level-btn {
+                width: 300px;
+                background-color: white;
+                border-radius: 50%;
+
+                .map-logo {
+                    height: 110px;
+                    width: 110px;
+
+                    .img {
+                        width: 100%;
+                    }
+
+                    .img-lvl-status {
+                        position: absolute;
+                        top: -30%;
+                        left: -25%;
+                        width: 40px;
+                    }
+                }
+            }
 
             &:disabled {
                 img:first-child {
@@ -47,25 +66,12 @@
             border-radius: 10px 25px;
             padding: 10px;
         }
-
-        .map-logo {
-            height: 110px;
-            width: 110px;
-        }
-
-        .img-lvl-status {
-            position: absolute;
-            top: -30%;
-            left: -25%;
-            width: 40px;
-        }
     }
 
     .flex-row-reverse .img-lvl-status {
         left: 90%;
     }
 }
-
 
 .s-curve-connector {
     position: relative;
