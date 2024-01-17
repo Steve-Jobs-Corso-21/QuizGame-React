@@ -46,12 +46,12 @@ const Epilogue = () => {
         <p>
           {state.gameMode === GameMode.Training
             ? "Hai giocato in modalità allenamento... Che ne diresti di passare alla modalità sfida?"
-            : "Complimenti per aver terminato la modalità sfida!"}
+            : "Complimenti per aver terminato Il nostro quiz game!"}
         </p>
       </div>
       <div className="d-flex flex-column align-items-center justify-content-center ">
         <p className="justify-content-end">
-          Complimenti! sei ai livelli di un:
+          Attualmente sei ai livelli di un:
           {result < 25
             ? "Hacker"
             : result < 50
