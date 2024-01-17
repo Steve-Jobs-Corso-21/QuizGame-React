@@ -105,7 +105,7 @@ const Menu = () => {
                 <div className="d-flex flex-column align-items-center col-3">
                     <div className="d-flex w-100 mb-4">
                         <h2 className="flex-grow-1 text-center ps-5">Scegli la modalita'</h2>
-                        <button data-bs-toggle="modal" data-bs-target="#modeModal" style={{background: "transparent", border: "none"}}>
+                        <button data-bs-toggle="modal" data-bs-target="#modeModal" style={{background: "transparent", border: "none"}} title="Clicka qui per scoprire le modalità">
                             <span className="material-symbols-rounded btn-info">help</span>
                         </button>
                     </div>

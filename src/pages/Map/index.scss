@@ -2,7 +2,7 @@
 
 .mapMenu {
 
-    margin: 80px 0 200px;
+    margin: 30px 0 200px;
 
     h1 {
 
@@ -53,8 +53,19 @@
             width: 110px;
         }
 
+        .img-lvl-status {
+            position: absolute;
+            top: -30%;
+            left: -25%;
+            width: 40px;
+        }
+    }
+
+    .flex-row-reverse .img-lvl-status {
+        left: 90%;
     }
 }
+
 
 .s-curve-connector {
     position: relative;
