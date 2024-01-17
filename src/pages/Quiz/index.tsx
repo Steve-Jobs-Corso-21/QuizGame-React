@@ -62,9 +62,16 @@ const Quiz = () => {
 
         state.rightAnswers[currentLevel].quiz.find(({ id: quizID }: { id: string }) => quizID === id)
             ? state.rightAnswers[currentLevel].quiz.find(({ id: quizID }: { id: string }) => quizID === id)!.answers = answered
-            : state.rightAnswers[currentLevel].quiz.push({ id: id!, answers: answered })
+            : state.rightAnswers[currentLevel].quiz.push({ id: id!, answers: answered });
 
         // console.log(state);
+
+
+        if(state.audio) {
+            correct
+            ? new Audio("/audio/risposta_corretta.mp3").play()
+            : new Audio("/audio/risposta_errata.mp3").play()
+        }
 
         setCorrect(correct);
         setStopTimer(true);

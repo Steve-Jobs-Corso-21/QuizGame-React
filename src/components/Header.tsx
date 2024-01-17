@@ -2,15 +2,19 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./Header.scss";
 import Modal from "./Modal";
+import { Data } from "../pages/Home";
 
 // TODO: add icon pack
 
 const Header = ({ htmlBlock, bgColor, audio, audioURL }: any) => {
-    const { state, pathname } = useLocation();
+    const { state, pathname } : {state: Data, pathname: string} = useLocation();
     const [currentVolume, setCurrentVolume] = useState<boolean>(true);
+
+    console.log(state.audio);
 
     const audioClick = () => {
         setCurrentVolume(!currentVolume);
+        state.audio = !state.audio;
     }
 
     return (
@@ -39,7 +43,7 @@ const Header = ({ htmlBlock, bgColor, audio, audioURL }: any) => {
 
                 <button className="nav-icon ms-auto me-3" onClick={() => audioClick()}>
                     <audio src={audioURL} id={audio} />
-                    {currentVolume
+                    {state.audio
                         ? <span className="material-symbols-rounded" style={{ color: pathname.split('/').includes("quiz") ? "white" : "black" }}>volume_up</span>
                         : <span className="material-symbols-rounded" style={{ color: pathname.split('/').includes("quiz") ? "white" : "black" }}>volume_off</span>
                     }

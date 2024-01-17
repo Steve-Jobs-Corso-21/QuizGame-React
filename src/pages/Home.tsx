@@ -21,6 +21,7 @@ type StatMap = {
 export type Data = {
     gameMode: GameMode;
     currentLevel: number;
+    audio: boolean,
     quizzes: string[];
     rightAnswers: StatMap[];
 };
@@ -58,6 +59,7 @@ const Menu = () => {
     let data: Data = {
         gameMode: GameMode.Training,
         currentLevel: 0,
+        audio: true,
         quizzes: [], // ["1","2","3"]
         rightAnswers: []
         /* rightAnswers: [
@@ -88,7 +90,7 @@ const Menu = () => {
                 </div>
                 <div>
                     <b>Sfida</b>
-                    <p>In modalità sfida dovrai testare le tue abilità in una prova a tempo, cercando di fare il minor numero di errori possibili.</p>
+                    <p>In modalità sfida dovrai testare le tue abilità in una prova a tempo, cercando di commettere il minor numero di errori possibili.</p>
                 </div>
             </>}
             canClose={true}
