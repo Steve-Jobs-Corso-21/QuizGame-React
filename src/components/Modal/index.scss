@@ -1,0 +1,28 @@
+.modal {
+    .modal-content {
+        [class*="modal-"] {
+            //padding: 8px;
+            border: none;
+        }
+
+        &.text-align-left{
+            //text-align: left;
+        }
+        
+        &.text-align-center{
+            text-align: center;
+        }
+        
+        &.text-align-right{
+            text-align: right;
+        }
+
+        .modal-footer {
+            .btn {
+                width: 100%;
+
+                padding: 16px 0;
+            }
+        }
+    }
+}

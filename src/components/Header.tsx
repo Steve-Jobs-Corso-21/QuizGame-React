@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./Header.scss";
 import Modal from "./Modal";
@@ -6,14 +6,29 @@ import { Data } from "../pages/Home";
 
 // TODO: add icon pack
 
-const Header = ({ htmlBlock, bgColor, audioURL, data }: any) => {
-    const { state, pathname }: { state: Data; pathname: string } = useLocation();
+const Header = ({
+    htmlBlock,
+    bgColor,
+    audioURL,
+    data,
+    backgroundAudioSrc,
+}: any) => {
+    const { state, pathname }: { state: Data; pathname: string } =
+        useLocation();
     const [currentVolume, setCurrentVolume] = useState<boolean>(true);
+
+    const backgroundAudio = document.getElementById(
+        "background-audio"
+    ) as HTMLAudioElement;
 
     const audioClick = () => {
         setCurrentVolume(!currentVolume);
         if (state) state.audio = !state.audio;
         if (data) data.audio = !data.audio;
+
+        //backgroundAudio?.volume(1);
+
+        console.log(backgroundAudio);
     };
 
     return (
@@ -24,8 +39,9 @@ const Header = ({ htmlBlock, bgColor, audioURL, data }: any) => {
                 title="Torna alla Home"
                 description={
                     <>
-                        Sei sicuro di voler tornare alla home?{" "}
-                        <strong>I tuoi progressi verranno persi.</strong>
+                        Sei sicuro di voler tornare alla home?
+                        <br />
+                        <strong>I tuoi progressi andranno persi.</strong>
                     </>
                 }
                 buttons={[
@@ -33,6 +49,7 @@ const Header = ({ htmlBlock, bgColor, audioURL, data }: any) => {
                     { text: "No", url: "" },
                 ]}
                 state={state}
+                textAlign="center"
             />
 
             <nav
@@ -47,8 +64,8 @@ const Header = ({ htmlBlock, bgColor, audioURL, data }: any) => {
                     >
                         <img
                             src="/cyber-logo-white.png"
-                            className=""
-                            style={{ height: "80px", width: "auto" }}
+                            alt="logo"
+                            className="logo"
                         />
                     </button>
                 )}
@@ -56,12 +73,17 @@ const Header = ({ htmlBlock, bgColor, audioURL, data }: any) => {
                 {htmlBlock}
 
                 <button className="nav-icon me-3" onClick={() => audioClick()}>
-                    <audio src={audioURL} />
+                    <audio
+                        src={`/audio/${backgroundAudioSrc}.mp3`}
+                        id="background-audio"
+                    />
                     {(state && state.audio) || (data && data.audio) ? (
                         <span
                             className="material-symbols-rounded"
                             style={{
-                                color: pathname.split("/").includes("quiz") ? "white" : "black",
+                                color: pathname.split("/").includes("quiz")
+                                    ? "white"
+                                    : "black",
                             }}
                         >
                             volume_up
@@ -70,7 +92,9 @@ const Header = ({ htmlBlock, bgColor, audioURL, data }: any) => {
                         <span
                             className="material-symbols-rounded"
                             style={{
-                                color: pathname.split("/").includes("quiz") ? "white" : "black",
+                                color: pathname.split("/").includes("quiz")
+                                    ? "white"
+                                    : "black",
                             }}
                         >
                             volume_off

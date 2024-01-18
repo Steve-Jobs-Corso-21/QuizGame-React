@@ -7,12 +7,33 @@ body {
     font-style: normal;
 }
 
-.btn-custom-home {
-    width: 75%;
-    font-size: 25px;
+.help-modal-description {
+    text-align: left;
 }
 
+.home-content-container {
+    padding: 16px;
 
-.btn-info{
+    position: relative;
+
+    .help-btn {
+        background: none;
+        border: none;
+
+        position: absolute;
+        top: 0;
+        right: -32px;
+    }
+
+    .btn-custom-home {
+        width: 100%;
+        font-size: 25px;
+        margin: 16px;
+
+        padding: 16px;
+    }
+}
+
+.btn-info {
     font-size: 30px;
 }

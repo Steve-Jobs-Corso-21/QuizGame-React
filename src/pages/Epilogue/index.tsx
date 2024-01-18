@@ -1,47 +1,80 @@
 import { Link, useLocation } from "react-router-dom";
-import {JSON, Data, GameMode} from "../Home";
+import { JSON, Data, GameMode } from "../Home";
 import data from "../../questions.json";
 import "./index.scss";
+import Header from "../../components/Header";
 
 const Epilogue = () => {
-  const { state } : {state: Data} = useLocation();
-  const json: JSON = data;
+    const { state }: { state: Data } = useLocation();
+    const json: JSON = data;
 
-  console.log(state);
+    console.log(state);
 
-  return (
-    <div className="page-container">
-      <h1
-        style={{
-          fontPalette: "Blue",
-          display: "flex",
-          flexDirection: "row",
-          flex: "center",
-        }}
-      >
-        Complimenti! Hai Finito il gioco!
-      </h1>
-      <div>
-        <p>
-          Sei riuscito a completarlo facendo {
-              state.rightAnswers.reduce((totAcc, map, index) =>
-                totAcc += map.quiz.reduce((acc: number, q: {id: string, answers: number[]}) =>
-                  acc += (q.answers[0] === json.maps[index].quizzess.find(({id}) => id === q.id)?.answers.findIndex(({correct}) => correct)) ? 0 : 1
-                , 0)
-              , 0)
-            } errori!
-        </p>
-        <p>
-          {state.gameMode === GameMode.Training
-            ? "Hai giocato in modalità allenamento... Che ne diresti di passare alla modalità sfida?"
-            : "Complimenti per aver terminato la modalità sfida!"}
-        </p>
-      </div>
-      <div>
-        <Link to="/">Torna alla Home</Link>
-      </div>
-    </div>
-  );
+    const errorNumber: number = 2;
+
+    /* const errorNumber = state.rightAnswers.reduce(
+        (totAcc, map, index) =>
+            (totAcc += map.quiz.reduce(
+                (
+                    acc: number,
+                    q: {
+                        id: string;
+                        answers: number[];
+                    }
+                ) =>
+                    (acc +=
+                        q.answers[0] ===
+                        json.maps[index].quizzess
+                            .find(({ id }) => id === q.id)
+                            ?.answers.findIndex(({ correct }) => correct)
+                            ? 0
+                            : 1),
+                0
+            )),
+        0
+    ); */
+
+    return (
+        <div className="page-container">
+            <Header />
+
+            <div className="epilogue-container">
+                <div className="epilogue-content">
+                    <h1 className="epilogue-title">
+                        Complimenti!
+                        <br />
+                        Hai completato la modalità Challenge!
+                    </h1>
+
+                    <div className="epilogue-description-container">
+                        <p className="epilogue-description">
+                            {errorNumber <= 0 ? (
+                                <b className="epilogue-description-bold epilogue-description-no-errors">
+                                    Non hai fatto nessun errore!
+                                </b>
+                            ) : (
+                                <>
+                                    Hai fatto{" "}
+                                    <b className="epilogue-description-bold epilogue-description-errors">
+                                        {errorNumber}{" "}
+                                        {`error${
+                                            errorNumber === 1 ? "e" : "i"
+                                        }!`}
+                                    </b>
+                                </>
+                            )}
+                        </p>
+                    </div>
+
+                    <Link to="/" className="back-to-home-btn">
+                        <button className="btn btn-primary">
+                            Torna alla Home
+                        </button>
+                    </Link>
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default Epilogue;

@@ -76,7 +76,7 @@ const Map = () => {
                 />
 
                 <div className="mapMenu">
-                    <div className="fs-4 text-center mx-5 mb-5 pb-5">
+                    <div className="fs-4 text-center map-title">
                         {state.gameMode === GameMode.Challenge ? (
                             <>
                                 <p>
@@ -145,7 +145,7 @@ const Map = () => {
                                                                         />
                                                                     ) : (
                                                                         <img
-                                                                            className="img img-lvl-status"
+                                                                            className="img img-lock"
                                                                             src="lock.png"
                                                                             alt="level locked"
                                                                         />

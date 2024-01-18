@@ -1,1 +1,67 @@
 @import "../../includes/includes.scss";
+
+.page-container {
+    .epilogue-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        height: 100%;
+
+        .epilogue-content {
+            padding: 0 16px;
+
+            text-align: center;
+
+            @media screen and (min-width: map-get($breakpoints, md)) {
+                padding: 0 80px;
+            }
+
+            .epilogue-title {
+                display: flex;
+                flex-direction: row;
+
+                margin-bottom: 16px;
+
+                color: $primary;
+
+                font-size: 32px;
+
+                @media screen and (min-width: map-get($breakpoints, md)) {
+                    font-size: 48px;
+                }
+            }
+
+            .epilogue-description-container {
+                margin-bottom: 24px;
+
+                .epilogue-description {
+                    margin: 0;
+
+                    .epilogue-description-bold {
+                        font-size: 18px;
+
+                        &.epilogue-description-no-errors {
+                            color: green;
+                        }
+
+                        &.epilogue-description-errors {
+                            color: red;
+                        }
+                    }
+                }
+            }
+
+            .back-to-home-btn {
+                .btn {
+                    width: 80%;
+                    padding: 16px;
+
+                    @media screen and (min-width: map-get($breakpoints, md)) {
+                        width: 50%;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -23,6 +23,7 @@ const Quiz = () => {
 
     // get data through pages
     const { state }: { state: Data } = useLocation();
+
     // console.log(state);
     const currentLevel = state.currentLevel;
     const gameMode = state.gameMode;
@@ -44,14 +45,18 @@ const Quiz = () => {
     // called at load of question
     useEffect(() => {
         setAnswered([]);
-        if (!state.rightAnswers[currentLevel]) state.rightAnswers[currentLevel] = { quiz: [] };
+        if (!state.rightAnswers[currentLevel])
+            state.rightAnswers[currentLevel] = { quiz: [] };
 
         if (
             !state.rightAnswers[currentLevel].quiz.find(
                 ({ id: quizID }: { id: string }) => quizID === id
             )
         )
-            state.rightAnswers[currentLevel].quiz.push({ id: id!, answers: [] });
+            state.rightAnswers[currentLevel].quiz.push({
+                id: id!,
+                answers: [],
+            });
 
         // console.log(state);
 
@@ -59,30 +64,31 @@ const Quiz = () => {
         setStopTimer(false);
         setMaxTime(MAXTIME);
 
-        const btnsPrimary = document.querySelectorAll(".btn-primary") as NodeListOf<HTMLElement>;
+        //BTN PRIMARY COLOR CHANGE
+        const btnsPrimary = document.querySelectorAll(
+            ".btn-primary"
+        ) as NodeListOf<HTMLElement>;
 
         if (btnsPrimary.length) {
             btnsPrimary.forEach((btn) => {
-                btn.style.setProperty("--bs-btn-bg", json.maps[state.currentLevel].color);
-                btn.style.setProperty("--bs-btn-border-color", json.maps[state.currentLevel].color);
+                btn.style.setProperty(
+                    "--bs-btn-bg",
+                    json.maps[state.currentLevel].color
+                );
+                btn.style.setProperty(
+                    "--bs-btn-border-color",
+                    json.maps[state.currentLevel].color
+                );
             });
-
-            /* --bs-btn-bg: #312c4c;
-            --bs-btn-border-color: #312c4c;
-            --bs-btn-hover-bg: #02a2ff;
-            --bs-btn-hover-border-color: #02a2ff;
-            --bs-btn-focus-bg: #02a2ff;
-            --bs-btn-active-bg: #02a2ff;
-            --bs-btn-active-border-color: #02a2ff;
-            --bs-btn-disabled-bg: #02a2ff;
-            --bs-btn-disabled-border-color: #02a2ff; */
         }
     }, [id]);
 
     // handle answer click
     const answerClick = (correct: boolean, answerIndex: number) => {
         // setta variabile con correct
-        !answered.includes(answerIndex) && answered.push(answerIndex) && setAnswered([...answered]);
+        !answered.includes(answerIndex) &&
+            answered.push(answerIndex) &&
+            setAnswered([...answered]);
 
         state.rightAnswers[currentLevel].quiz.find(
             ({ id: quizID }: { id: string }) => quizID === id
@@ -90,7 +96,10 @@ const Quiz = () => {
             ? (state.rightAnswers[currentLevel].quiz.find(
                   ({ id: quizID }: { id: string }) => quizID === id
               )!.answers = answered)
-            : state.rightAnswers[currentLevel].quiz.push({ id: id!, answers: answered });
+            : state.rightAnswers[currentLevel].quiz.push({
+                  id: id!,
+                  answers: answered,
+              });
 
         // console.log(state);
 
@@ -111,7 +120,9 @@ const Quiz = () => {
                 bgColor={!stopTimer || !correct ? "bg-danger" : "bg-success"}
                 description={quiz?.description}
                 title={
-                    !stopTimer ? "Tempo Scaduto" : `Risposta ${correct ? "Esatta" : "Sbagliata"}`
+                    !stopTimer
+                        ? "Tempo Scaduto"
+                        : `Risposta ${correct ? "Esatta" : "Sbagliata"}`
                 }
                 buttons={[
                     {
@@ -123,37 +134,62 @@ const Quiz = () => {
                     },
                 ]}
                 state={state}
+                textAlign="center"
             />
 
             <Header
                 htmlBlock={
-                    <div className="d-flex align-items-center justify-content-center mx-4 text-white">
-                        <h1 className="my-2 pe-5">{json.maps[currentLevel].name}</h1>
-                        <div className="bar d-flex justify-content-lg-end align-items-center">
+                    <div className="text-white quiz-header">
+                        <h1 className="text-center w-100 quiz-header-title">
+                            {json.maps[currentLevel].name}
+                        </h1>
+                        <div className="bar d-flex align-items-center">
                             {quizzes.map((mapQuiz) => (
                                 <div
                                     className={`question-bar ${
                                         // coloro le ball in base allo stato della domanda
                                         mapQuiz === id
                                             ? "bg-warning" // DOMANDA IN CORSO
-                                            : state.rightAnswers[currentLevel] &&
-                                              state.rightAnswers[currentLevel].quiz.find(
-                                                  ({ id: quizID }: { id: string }) =>
-                                                      quizID === mapQuiz
+                                            : state.rightAnswers[
+                                                  currentLevel
+                                              ] &&
+                                              state.rightAnswers[
+                                                  currentLevel
+                                              ].quiz.find(
+                                                  ({
+                                                      id: quizID,
+                                                  }: {
+                                                      id: string;
+                                                  }) => quizID === mapQuiz
                                               )
-                                            ? state.rightAnswers[currentLevel].quiz.find(
-                                                  ({ id: quizID }: { id: string }) =>
-                                                      quizID === mapQuiz
+                                            ? state.rightAnswers[
+                                                  currentLevel
+                                              ].quiz.find(
+                                                  ({
+                                                      id: quizID,
+                                                  }: {
+                                                      id: string;
+                                                  }) => quizID === mapQuiz
                                               )!.answers.length > 0 &&
                                               json.maps[currentLevel].quizzess
                                                   .find(
-                                                      ({ id: quizID }: { id: string }) =>
-                                                          quizID === mapQuiz
+                                                      ({
+                                                          id: quizID,
+                                                      }: {
+                                                          id: string;
+                                                      }) => quizID === mapQuiz
                                                   )
-                                                  ?.answers.findIndex(({ correct }) => correct) ===
-                                                  state.rightAnswers[currentLevel].quiz.find(
-                                                      ({ id: quizID }: { id: string }) =>
-                                                          quizID === mapQuiz
+                                                  ?.answers.findIndex(
+                                                      ({ correct }) => correct
+                                                  ) ===
+                                                  state.rightAnswers[
+                                                      currentLevel
+                                                  ].quiz.find(
+                                                      ({
+                                                          id: quizID,
+                                                      }: {
+                                                          id: string;
+                                                      }) => quizID === mapQuiz
                                                   )!.answers[0]
                                                 ? "bg-success" // RISPOSTA GIUSTA
                                                 : "bg-danger" // RISPOSTA SBAGLIATA
@@ -167,7 +203,8 @@ const Quiz = () => {
                 bgColor={json.maps[currentLevel].color}
                 audio={true}
                 audioURL={""}
-            ></Header>
+                backgroundAudioSrc="quiz"
+            />
 
             {quiz && (
                 <div className="quiz-content page-container">
@@ -178,7 +215,7 @@ const Quiz = () => {
                     </div>
 
                     <div
-                        className={`d-flex flex-wrap col-lg-${
+                        className={`col-lg-${
                             quiz.imageUrl ? 6 : 12
                         } btn-container`}
                     >
@@ -186,9 +223,14 @@ const Quiz = () => {
                             <button
                                 className={`text-align-center btn btn-primary btn-block btn-custom poppins-text col-${
                                     quiz.imageUrl ? 12 : 4
+                                } ${
+                                    answered.includes(index) &&
+                                    (correct ? "correct" : "wrong")
                                 }`}
                                 data-bs-toggle={
-                                    gameMode === GameMode.Challenge || correct ? "modal" : ""
+                                    gameMode === GameMode.Challenge || correct
+                                        ? "modal"
+                                        : ""
                                 }
                                 data-bs-target={"#" + explainModalID}
                                 key={index}
@@ -201,7 +243,11 @@ const Quiz = () => {
                     </div>
                     {quiz.imageUrl && (
                         <div className="d-flex align-items-center justify-content-center col-5 overflow-hidden">
-                            <img className="w-100" src={quiz.imageUrl} alt={quiz.question} />
+                            <img
+                                className="w-100"
+                                src={quiz.imageUrl}
+                                alt={quiz.question}
+                            />
                         </div>
                     )}
 
@@ -211,7 +257,7 @@ const Quiz = () => {
                             maxTime={maxTime}
                             stopTimer={stopTimer}
                             modalID={explainModalID}
-                        ></Timer>
+                        />
                     )}
                 </div>
             )}
