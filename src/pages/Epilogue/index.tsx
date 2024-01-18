@@ -10,7 +10,7 @@ const Epilogue = () => {
   console.log(state);
 
   return (
-    <div>
+    <div className="page-container">
       <h1
         style={{
           fontPalette: "Blue",

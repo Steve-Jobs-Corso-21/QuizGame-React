@@ -58,6 +58,25 @@ const Quiz = () => {
         // reset time
         setStopTimer(false);
         setMaxTime(MAXTIME);
+
+        const btnsPrimary = document.querySelectorAll(".btn-primary") as NodeListOf<HTMLElement>;
+
+        if (btnsPrimary.length) {
+            btnsPrimary.forEach((btn) => {
+                btn.style.setProperty("--bs-btn-bg", json.maps[state.currentLevel].color);
+                btn.style.setProperty("--bs-btn-border-color", json.maps[state.currentLevel].color);
+            });
+
+            /* --bs-btn-bg: #312c4c;
+            --bs-btn-border-color: #312c4c;
+            --bs-btn-hover-bg: #02a2ff;
+            --bs-btn-hover-border-color: #02a2ff;
+            --bs-btn-focus-bg: #02a2ff;
+            --bs-btn-active-bg: #02a2ff;
+            --bs-btn-active-border-color: #02a2ff;
+            --bs-btn-disabled-bg: #02a2ff;
+            --bs-btn-disabled-border-color: #02a2ff; */
+        }
     }, [id]);
 
     // handle answer click

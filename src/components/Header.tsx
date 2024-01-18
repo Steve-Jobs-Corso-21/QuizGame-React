@@ -6,15 +6,14 @@ import { Data } from "../pages/Home";
 
 // TODO: add icon pack
 
-const Header = ({ htmlBlock, bgColor, audio, audioURL }: any) => {
+const Header = ({ htmlBlock, bgColor, audioURL, data }: any) => {
     const { state, pathname }: { state: Data; pathname: string } = useLocation();
     const [currentVolume, setCurrentVolume] = useState<boolean>(true);
 
-    console.log(state.audio);
-
     const audioClick = () => {
         setCurrentVolume(!currentVolume);
-        state.audio = !state.audio;
+        if (state) state.audio = !state.audio;
+        if (data) data.audio = !data.audio;
     };
 
     return (
@@ -40,19 +39,25 @@ const Header = ({ htmlBlock, bgColor, audio, audioURL }: any) => {
                 className="nav d-flex align-items-center justify-content-between"
                 style={{ backgroundColor: bgColor }}
             >
-                <button className="nav-icon" data-bs-toggle="modal" data-bs-target={"#homeModal"}>
-                    <img
-                        src="cyber-logo.png"
-                        className=""
-                        style={{ height: "80px", width: "auto" }}
-                    />
-                </button>
+                {pathname !== "/" && (
+                    <button
+                        className="nav-icon"
+                        data-bs-toggle="modal"
+                        data-bs-target={"#homeModal"}
+                    >
+                        <img
+                            src="/cyber-logo-white.png"
+                            className=""
+                            style={{ height: "80px", width: "auto" }}
+                        />
+                    </button>
+                )}
 
                 {htmlBlock}
 
                 <button className="nav-icon me-3" onClick={() => audioClick()}>
-                    <audio src={audioURL} id={audio} />
-                    {state.audio ? (
+                    <audio src={audioURL} />
+                    {(state && state.audio) || (data && data.audio) ? (
                         <span
                             className="material-symbols-rounded"
                             style={{

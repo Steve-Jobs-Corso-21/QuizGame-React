@@ -87,14 +87,14 @@ const Menu = () => {
                 description={
                     <>
                         <div>
-                            <b>Allenamento</b>
+                            <b>Training</b>
                             <p>
                                 In modalità allenamento potrai scegliere i quiz che preferisci,
                                 senza preoccuparti di sbagliare.
                             </p>
                         </div>
                         <div>
-                            <b>Sfida</b>
+                            <b>Challenge</b>
                             <p>
                                 In modalità sfida dovrai testare le tue abilità in una prova a
                                 tempo, cercando di commettere il minor numero di errori possibili.
@@ -109,12 +109,12 @@ const Menu = () => {
             <Header
                 htmlBlock={<h1>CyberQuiz</h1>}
                 bgColor={"transparent"}
-                audio={true}
+                data={data}
                 audioURL={""}
             />
 
             <div className="mainMenu d-flex flex-column align-items-center justify-content-center page-container">
-                <img className="img-fluid" src="cyber-logo.png" alt="logo" />
+                <img className="img-fluid" src="/cyber-logo.png" alt="logo" />
                 <div className="d-flex flex-column align-items-center col-3">
                     <div className="d-flex w-100 mb-4">
                         <h2 className="flex-grow-1 text-center ps-5">Scegli la modalita'</h2>
@@ -122,7 +122,7 @@ const Menu = () => {
                             data-bs-toggle="modal"
                             data-bs-target="#modeModal"
                             style={{ background: "transparent", border: "none" }}
-                            title="Clicka qui per scoprire le modalità"
+                            title="Clicca qui per scoprire le modalità"
                         >
                             <span className="material-symbols-rounded btn-info">help</span>
                         </button>

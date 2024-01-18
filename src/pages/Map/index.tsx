@@ -146,7 +146,7 @@ const Map = () => {
                                                                     ) : (
                                                                         <img
                                                                             className="img img-lvl-status"
-                                                                            src="lock.svg"
+                                                                            src="lock.png"
                                                                             alt="level locked"
                                                                         />
                                                                     )
