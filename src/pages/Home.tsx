@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Quiz/index.scss";
-import "./Home.scss";
+import "./home.scss";
 import Modal from "../components/Modal";
 import Header from "../components/Header";
 

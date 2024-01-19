@@ -92,7 +92,7 @@ const Score = () => {
                                 {(value: number) => (
                                     <CircularProgressbar
                                         value={value}
-                                        text={`${value.toFixed(0)}`}
+                                        text={`${value.toFixed(0)}%`}
                                         minValue={0}
                                         maxValue={100}
                                         styles={buildStyles({
