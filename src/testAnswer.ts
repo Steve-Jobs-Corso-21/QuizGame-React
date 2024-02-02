@@ -1,11 +1,11 @@
-{
-  "gameMode": true,
-  "currentLevel": "mondo1",
-  "quizzes": {
-    "mondo1": ["1", "2", "3"]
+export const answers = {
+  gameMode: true,
+  currentLevel: "mondo1",
+  quizzes: {
+    mondo1: ["1", "2", "3"],
   },
-  "rightAnswers": {
-    "mondo1": {
+  rightAnswers: {
+    mondo1: {
       "1": ["abc", "ced", "lsd"],
       "2": ["abc", "ced", "lsd", "abc", "ced", "lsd"],
       "3": ["abc", "ced", "lsd", "lsd"],
@@ -15,9 +15,9 @@
       "7": ["abc", "ced", "lsd", "abc", "ced", "lsd", "abc"],
       "8": ["abc", "ced", "lsd", "abc", "ced", "lsd"],
       "9": ["abc", "ced"],
-      "10": ["abc"]
+      "10": ["abc"],
     },
-    "mondo2": {
+    mondo2: {
       "1": ["abc", "ced", "lsd"],
       "2": ["abc", "ced", "lsd", "abc", "ced", "lsd"],
       "3": ["abc", "ced", "lsd", "lsd"],
@@ -27,7 +27,7 @@
       "7": ["abc", "ced", "lsd", "abc", "ced", "lsd", "abc"],
       "8": ["abc", "ced", "lsd", "abc", "ced", "lsd"],
       "9": ["abc", "ced"],
-      "10": []
-    }
-  }
-}
+      "10": [],
+    },
+  },
+};

@@ -1,15 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./Header.scss";
 import Modal from "./Modal";
 import { Data } from "../pages/Home";
 
-// TODO: add icon pack
-
 const Header = ({
     htmlBlock,
     bgColor,
-    audioURL,
     data,
     backgroundAudioSrc,
 }: any) => {

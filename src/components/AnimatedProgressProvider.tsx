@@ -26,6 +26,7 @@ const AnimatedProgressProvider = (props : any) => {
 
       requestAnimationFrame(animate);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     isAnimated,
     props.valueStart,

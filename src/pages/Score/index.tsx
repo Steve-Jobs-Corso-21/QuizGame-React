@@ -5,16 +5,14 @@ import { useLocation } from "react-router";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import AnimatedProgressProvider from "../../components/AnimatedProgressProvider";
 import { easeExpOut } from "d3-ease";
-import { JSON, GameMode, Data } from "../Home";
-import data from "../../questions.json";
+import { GameMode, Data } from "../Home";
+import {maps} from "../../questions";
 import Header from "../../components/Header";
 import Modal from "../../components/Modal";
 import Question from "../Question";
 
 const Score = () => {
     const { state }: { state: Data } = useLocation();
-    const json: JSON = data;
-
     const scoring =
         state.gameMode === GameMode.Training
             ? state.rightAnswers[state.currentLevel].quiz.filter(
@@ -26,7 +24,7 @@ const Score = () => {
                       state.rightAnswers[state.currentLevel].quiz.find(
                           ({ id: quizID }: { id: string }) => quizID === id
                       )!.answers.length > 0 &&
-                      json.maps[state.currentLevel].quizzess
+                      maps[state.currentLevel].quizzess
                           .find(
                               ({ id: quizID }: { id: string }) => quizID === id
                           )
@@ -50,7 +48,7 @@ const Score = () => {
         <div className="page-container">
             <Modal
                 modalID="answerModal"
-                title={`Ecco le tue risposte del mondo ${json.maps[
+                title={`Ecco le tue risposte del mondo ${maps[
                     state.currentLevel
                 ].name.toUpperCase()}!`}
                 description={<Question />}
@@ -70,7 +68,7 @@ const Score = () => {
                             state.gameMode === GameMode.Training
                                 ? " la modalità <b>training</b> del mondo"
                                 : " il mondo "
-                        } <br/> ${json.maps[
+                        } <br/> ${maps[
                                 state.currentLevel
                             ].name.toUpperCase()}`,
                         }}
@@ -114,7 +112,7 @@ const Score = () => {
                             Vedi le tue risposte
                         </button>
                         {/* <Link to="/" className="btn btn-secondary btn-lg m-3" state={state}>Torna alla home</Link> */}
-                        {state.currentLevel === json.maps.length - 1 &&
+                        {state.currentLevel === maps.length - 1 &&
                         state.gameMode === GameMode.Challenge ? (
                             <Link
                                 to="/epilogue"

@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
-import { JSON, Data, GameMode } from "../Home";
-import data from "../../questions.json";
+import { Data } from "../Home";
+import {maps} from "../../questions";
 import "./index.scss";
 import Header from "../../components/Header";
 import AnimatedProgressProvider from "../../components/AnimatedProgressProvider";
@@ -9,12 +9,6 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 
 const Epilogue = () => {
     const { state }: { state: Data } = useLocation();
-    const json: JSON = data;
-
-    console.log(state);
-
-    // const errorNumber: number = 2;
-
     const errorNumber = state.rightAnswers.reduce(
         (totAcc, map, index) =>
             (totAcc += map.quiz.reduce(
@@ -27,7 +21,7 @@ const Epilogue = () => {
                 ) =>
                     (acc +=
                         q.answers[0] ===
-                        json.maps[index].quizzess
+                        maps[index].quizzess
                             .find(({ id }) => id === q.id)
                             ?.answers.findIndex(({ correct }) => correct)
                             ? 0

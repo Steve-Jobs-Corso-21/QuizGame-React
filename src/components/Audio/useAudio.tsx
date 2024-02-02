@@ -13,7 +13,6 @@ export const useAudio = ({ audioName }: { audioName: string }) => {
 
     useEffect(() => {
         //backgroundMusic.volume(state.audio ? 1 : 0);
-        console.log("Ciao")
     }, [state.audio]);
 
     return backgroundMusic;
