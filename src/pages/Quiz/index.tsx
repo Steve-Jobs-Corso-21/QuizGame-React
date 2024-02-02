@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import "./index.scss";
-import { GameMode, Data, JSON } from "../Home";
-import data from "../../questions.json";
+import { Data, GameMode } from "../Home";
+import {maps} from "../../questions";
 import Timer from "../../components/Timer";
 import Modal from "../../components/Modal";
 import Header from "../../components/Header";
@@ -28,7 +28,7 @@ const Quiz = () => {
     const currentLevel = state.currentLevel;
     const gameMode = state.gameMode;
     const quizzes = state.quizzes;
-    const currentQuiz = quizzes.findIndex((q: string) => q === id);
+    const currentQuiz = quizzes.findIndex((q) => q === id);
 
     // hooks
     const [correct, setCorrect] = useState<boolean | null>(null);
@@ -37,9 +37,9 @@ const Quiz = () => {
     const [answered, setAnswered] = useState<number[]>([]);
 
     // get right quiz
-    const json: JSON = data;
-    const quiz = json.maps[currentLevel]?.quizzess.find(
-        ({ id: quizID }: { id: string }) => quizID === id
+    
+    const quiz = maps[currentLevel]?.quizzess.find(
+        ({ id: quizID }) => quizID === id
     );
 
     // called at load of question
@@ -50,7 +50,7 @@ const Quiz = () => {
 
         if (
             !state.rightAnswers[currentLevel].quiz.find(
-                ({ id: quizID }: { id: string }) => quizID === id
+                ({ id: quizID }) => quizID === id
             )
         )
             state.rightAnswers[currentLevel].quiz.push({
@@ -73,14 +73,15 @@ const Quiz = () => {
             btnsPrimary.forEach((btn) => {
                 btn.style.setProperty(
                     "--bs-btn-bg",
-                    json.maps[state.currentLevel].color
+                    maps[state.currentLevel].color
                 );
                 btn.style.setProperty(
                     "--bs-btn-border-color",
-                    json.maps[state.currentLevel].color
+                    maps[state.currentLevel].color
                 );
             });
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id]);
 
     // handle answer click
@@ -91,24 +92,16 @@ const Quiz = () => {
             setAnswered([...answered]);
 
         state.rightAnswers[currentLevel].quiz.find(
-            ({ id: quizID }: { id: string }) => quizID === id
+            ({ id: quizID }) => quizID === id
         )
             ? (state.rightAnswers[currentLevel].quiz.find(
-                  ({ id: quizID }: { id: string }) => quizID === id
+                  ({ id: quizID }) => quizID === id
               )!.answers = answered)
             : state.rightAnswers[currentLevel].quiz.push({
                   id: id!,
                   answers: answered,
               });
-
-        // console.log(state);
-
-        if (state.audio) {
-            correct
-                ? new Audio("/audio/risposta_corretta.mp3").play()
-                : new Audio("/audio/risposta_errata.mp3").play();
-        }
-
+        state.audio && new Audio(`/audio/risposta_${correct ? "corretta" : "errata"}.mp3`).play()
         setCorrect(correct);
         setStopTimer(true);
     };
@@ -141,7 +134,7 @@ const Quiz = () => {
                 htmlBlock={
                     <div className="text-white quiz-header">
                         <h1 className="text-center w-100 quiz-header-title">
-                            {json.maps[currentLevel].name}
+                            {maps[currentLevel].name}
                         </h1>
                         <div className="bar d-flex align-items-center">
                             {quizzes.map((mapQuiz) => (
@@ -171,7 +164,7 @@ const Quiz = () => {
                                                       id: string;
                                                   }) => quizID === mapQuiz
                                               )!.answers.length > 0 &&
-                                              json.maps[currentLevel].quizzess
+                                              maps[currentLevel].quizzess
                                                   .find(
                                                       ({
                                                           id: quizID,
@@ -200,7 +193,7 @@ const Quiz = () => {
                         </div>
                     </div>
                 }
-                bgColor={json.maps[currentLevel].color}
+                bgColor={maps[currentLevel].color}
                 audio={true}
                 audioURL={""}
                 backgroundAudioSrc="quiz"

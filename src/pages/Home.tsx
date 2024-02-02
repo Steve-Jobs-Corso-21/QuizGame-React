@@ -26,31 +26,6 @@ export type Data = {
     rightAnswers: StatMap[];
 };
 
-type Answer = {
-    answer: string;
-    correct?: boolean;
-};
-
-type QuizType = {
-    id: string;
-    question: string;
-    description: string;
-    imageUrl?: string;
-    answers: Answer[];
-};
-
-type Map = {
-    name: string;
-    color: string;
-    description: string;
-    imageUrl: string;
-    quizzess: QuizType[];
-};
-
-export type JSON = {
-    maps: Map[];
-};
-
 const Menu = () => {
     const modeClick = (mode: GameMode) => {
         data.gameMode = mode;

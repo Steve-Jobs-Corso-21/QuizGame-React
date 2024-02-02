@@ -1,17 +1,15 @@
 import { useLocation } from "react-router-dom";
-import { JSON, Data } from "../Home";
-import data from "../../questions.json";
+import { Data } from "../Home";
+import {maps} from "../../questions";
 
 import "./index.scss";
 
 const Question = () => {
     const { state }: { state: Data } = useLocation();
-    const json: JSON = data;
-
     return (
         <div className="accordion" id="questionAccordion">
             {state.rightAnswers[state.currentLevel].quiz.map(
-                (question, index, array) => (
+                (_, index) => (
                     <div className="accordion-item shadow-none" key={index}>
                         <h2
                             className="accordion-header"
@@ -26,7 +24,7 @@ const Question = () => {
                                 aria-controls={`questionCollapse${index}`}
                             >
                                 {
-                                    json.maps[state.currentLevel].quizzess.find(
+                                    maps[state.currentLevel].quizzess.find(
                                         ({ id: quizID }) =>
                                             quizID ===
                                             state.rightAnswers[
@@ -53,7 +51,7 @@ const Question = () => {
                                                 .map(
                                                     (item) =>
                                                         "- " +
-                                                        json.maps[
+                                                        maps[
                                                             state.currentLevel
                                                         ].quizzess.find(
                                                             ({
@@ -75,7 +73,7 @@ const Question = () => {
                                 </p>
                                 <p
                                     className={`${
-                                        json.maps[state.currentLevel].quizzess
+                                        maps[state.currentLevel].quizzess
                                             .find(
                                                 ({
                                                     id: quizID,
@@ -98,7 +96,7 @@ const Question = () => {
                 `}
                                 >
                                     {`Risposta ${
-                                        json.maps[state.currentLevel].quizzess
+                                        maps[state.currentLevel].quizzess
                                             .find(
                                                 ({
                                                     id: quizID,
@@ -122,7 +120,7 @@ const Question = () => {
                                 </p>
                                 <p>
                                     {
-                                        json.maps[
+                                        maps[
                                             state.currentLevel
                                         ].quizzess.find(
                                             ({ id: quizID }: { id: string }) =>

@@ -1,8 +1,8 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import "../Quiz/index.scss";
 import "./index.scss";
-import data from "../../questions.json";
-import { Data, GameMode, JSON } from "../Home";
+import {maps} from "../../questions";
+import { Data, GameMode } from "../Home";
 import Header from "../../components/Header";
 import { useEffect } from "react";
 import { CircularProgressbarWithChildren, buildStyles } from "react-circular-progressbar";
@@ -11,14 +11,9 @@ import { easeExpOut } from "d3-ease";
 
 const Map = () => {
     const { state }: { state: Data } = useLocation();
-    console.log(state);
-
-    const json: JSON = data;
-    // console.log(json.maps);
-
     const navigate = useNavigate();
 
-    const scoring = json.maps.map((map, index) =>
+    const scoring = maps.map((_, index) =>
         state.rightAnswers[index]
             ? state.gameMode === GameMode.Training
                 ? state.rightAnswers[index].quiz.filter(({ answers }) => answers.length === 1)
@@ -29,7 +24,7 @@ const Map = () => {
                           state.rightAnswers[index].quiz.find(
                               ({ id: quizID }: { id: string }) => quizID === id
                           )!.answers.length > 0 &&
-                          json.maps[index].quizzess
+                          maps[index].quizzess
                               .find(({ id: quizID }: { id: string }) => quizID === id)
                               ?.answers.findIndex(({ correct }) => correct) ===
                               state.rightAnswers[index].quiz.find(
@@ -41,14 +36,15 @@ const Map = () => {
     );
 
     useEffect(() => {
-        !!!state && navigate("/");
+        !Boolean(state) && navigate("/");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const loadLevel = (numberLevel: number) => {
         state.currentLevel = numberLevel;
         const dim = 5;
 
-        const quizzes = json.maps[state.currentLevel].quizzess
+        const quizzes = maps[state.currentLevel].quizzess
             .map(({ id }) => id)
             .sort(() => 0.5 - Math.random())
             .slice(0, dim);
@@ -56,7 +52,7 @@ const Map = () => {
         state.quizzes = quizzes;
 
         state.rightAnswers = state.rightAnswers.filter(
-            (item) => item != state.rightAnswers[state.currentLevel]
+            (item) => item !== state.rightAnswers[state.currentLevel]
         );
 
         navigate(`/quiz/${state.quizzes[0]}`, { state });
@@ -67,7 +63,7 @@ const Map = () => {
         (state.gameMode === GameMode.Challenge && state.currentLevel === levelNumber);
 
     return (
-        !!state && (
+        state && (
             <>
                 <Header
                     htmlBlock={<h1>{GameMode[state.gameMode].toString()}</h1>}
@@ -96,7 +92,7 @@ const Map = () => {
                         )}
                     </div>
                     <div className="container-map offset-2 col-8 align-center">
-                        {json.maps.map((item, index, arr) => (
+                        {maps.map((item, index, arr) => (
                             <div>
                                 <div
                                     className={`d-flex justify-content-center gap-5 ${
@@ -125,14 +121,14 @@ const Map = () => {
                                                             maxValue={100}
                                                             minValue={0}
                                                             styles={buildStyles({
-                                                                pathColor: json.maps[index].color,
+                                                                pathColor: maps[index].color,
                                                             })}
                                                         >
                                                             <div className="d-flex align-items-center map-logo position-relative">
                                                                 <img
                                                                     className="img align-middle"
-                                                                    src={json.maps[index].imageUrl}
-                                                                    alt={json.maps[index].name}
+                                                                    src={maps[index].imageUrl}
+                                                                    alt={maps[index].name}
                                                                 />
                                                                 {state.gameMode ===
                                                                     GameMode.Challenge &&
@@ -167,11 +163,11 @@ const Map = () => {
                                     >
                                         <h1
                                             className="text-uppercase"
-                                            style={{ color: json.maps[index].color }}
+                                            style={{ color: maps[index].color }}
                                         >
-                                            {json.maps[index].name}
+                                            {maps[index].name}
                                         </h1>
-                                        <p className="text-world">{json.maps[index].description}</p>
+                                        <p className="text-world">{maps[index].description}</p>
                                     </div>
                                 </div>
                                 {index < arr.length - 1 && (
